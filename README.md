@@ -65,7 +65,7 @@ All implementations must follow the rules defined in **[AGENTS.md](./AGENTS.md)*
 - SOLID principles
 - Object Calisthenics
 - Language-specific best practices
-
 ## License
+
 
 MIT
