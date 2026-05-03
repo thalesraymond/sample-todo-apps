@@ -13,7 +13,7 @@ None.
 
 ## Security Considerations
 
-Since this is a client application running in the browser, any CORS configuration on the backend must allow requests from the client's development server port (typically 5173). The backend (TypeScript) currently has `CORS_ORIGIN` set to `*` by default.
+Since this is a client application running in the browser, any CORS configuration on the backend must allow requests from the client's development server port (typically 5173). The backend (TypeScript) currently has `CORS_ORIGIN` set to `*` by default, but this should be restricted to trusted origins in production.
 
 ## Deployment / Rollout
 
