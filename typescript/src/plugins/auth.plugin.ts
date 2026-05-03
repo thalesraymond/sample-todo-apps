@@ -7,12 +7,29 @@ function isPublicRoute(request: FastifyRequest): boolean {
   return request.routeOptions.config.public === true
 }
 
+declare module 'fastify' {
+  interface FastifyRequest {
+    user: { id: string; email: string }
+  }
+}
+
+declare module '@fastify/jwt' {
+  interface FastifyJWT {
+    payload: { id: string; email: string }
+    user: { id: string; email: string }
+  }
+}
+
 async function authHook(request: FastifyRequest, _reply: FastifyReply): Promise<void> {
   if (isPublicRoute(request)) {
     return
   }
 
-  throw new UnauthorizedError('Authentication required')
+  try {
+    await request.jwtVerify()
+  } catch {
+    throw new UnauthorizedError('Authentication required')
+  }
 }
 
 async function authPlugin(app: FastifyInstance): Promise<void> {

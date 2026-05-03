@@ -12,9 +12,11 @@ Currently, running the Sample Todo App locally requires a running MongoDB instan
 ## Capabilities
 
 ### New Capabilities
+
 - `in-memory-db`: Support for using an in-memory MongoDB instance for development and testing environments.
 
 ### Modified Capabilities
+
 - (None - existing behavior should remain the same when not using the in-memory option)
 
 ## Impact

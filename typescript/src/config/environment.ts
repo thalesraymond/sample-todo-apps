@@ -25,6 +25,10 @@ const environmentSchema = {
       type: 'string',
       default: '*',
     },
+    JWT_SECRET: {
+      type: 'string',
+      default: 'supersecret_change_me_in_production',
+    },
   },
 } as const
 
@@ -34,6 +38,7 @@ export interface EnvironmentConfig {
   NODE_ENV: string
   LOG_LEVEL: string
   CORS_ORIGIN: string
+  JWT_SECRET: string
 }
 
 declare module 'fastify' {
