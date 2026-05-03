@@ -3,3 +3,5 @@ declare module 'fastify' {
     public?: boolean
   }
 }
+
+export * from './user.types.js'

@@ -5,11 +5,13 @@ The TypeScript implementation of the Todo API currently requires a running Mongo
 ## Goals / Non-Goals
 
 **Goals:**
+
 - Provide a zero-setup local development experience by using an in-memory database.
 - Automatically use the in-memory database during tests without requiring a dedicated testing database instance.
 - Allow developers to explicitly opt-in or opt-out of the in-memory database using environment variables.
 
 **Non-Goals:**
+
 - Replacing the production database setup.
 - Providing in-memory alternatives for other languages/implementations in this repository (this is scoped to TypeScript only).
 - Seeding the in-memory database with complex initial data (basic seed might be okay if needed for tests, but full mock data is not the goal).
@@ -26,6 +28,6 @@ The TypeScript implementation of the Todo API currently requires a running Mongo
 ## Risks / Trade-offs
 
 - **Risk**: `mongodb-memory-server` downloads MongoDB binaries on first run, which can take time and requires internet access.
-  - *Mitigation*: It caches the binaries. CI environments might need caching configured to avoid downloading it on every run.
+  - _Mitigation_: It caches the binaries. CI environments might need caching configured to avoid downloading it on every run.
 - **Risk**: Orphaned processes if the app crashes without running cleanup logic.
-  - *Mitigation*: Ensure graceful shutdown hooks are properly implemented. `mongodb-memory-server` also has some built-in mechanisms to self-terminate, but explicit cleanup is better.
+  - _Mitigation_: Ensure graceful shutdown hooks are properly implemented. `mongodb-memory-server` also has some built-in mechanisms to self-terminate, but explicit cleanup is better.

@@ -20,7 +20,7 @@ describe('GET /health', () => {
     })
 
     expect(response.statusCode).toBe(200)
-    expect(response.json()).toEqual({ status: 'ok' })
+    expect(response.json()).toEqual({ status: 'ok', database: 'ok' })
   })
 
   it('should be accessible without authentication', async () => {

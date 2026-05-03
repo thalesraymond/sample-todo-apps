@@ -25,6 +25,18 @@ const environmentSchema = {
       type: 'string',
       default: '*',
     },
+    JWT_SECRET: {
+      type: 'string',
+      default: 'super-secret-key',
+    },
+    MONGODB_URI: {
+      type: 'string',
+      default: 'mongodb://localhost:27017/todo-app',
+    },
+    USE_IN_MEMORY_DB: {
+      type: 'boolean',
+      default: false,
+    },
   },
 } as const
 
@@ -34,6 +46,9 @@ export interface EnvironmentConfig {
   NODE_ENV: string
   LOG_LEVEL: string
   CORS_ORIGIN: string
+  JWT_SECRET: string
+  MONGODB_URI: string
+  USE_IN_MEMORY_DB: boolean
 }
 
 declare module 'fastify' {

@@ -4,7 +4,7 @@ import { UnauthorizedError } from '../shared/errors/http-error.js'
 import '../shared/types/index.js'
 
 function isPublicRoute(request: FastifyRequest): boolean {
-  return request.routeOptions.config.public === true
+  return request.routeOptions.config.public === true || request.url.startsWith('/docs')
 }
 
 async function authHook(request: FastifyRequest, _reply: FastifyReply): Promise<void> {
@@ -12,7 +12,11 @@ async function authHook(request: FastifyRequest, _reply: FastifyReply): Promise<
     return
   }
 
-  throw new UnauthorizedError('Authentication required')
+  try {
+    await request.jwtVerify()
+  } catch {
+    throw new UnauthorizedError('Authentication required')
+  }
 }
 
 async function authPlugin(app: FastifyInstance): Promise<void> {

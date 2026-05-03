@@ -117,13 +117,30 @@ Cross-cutting concerns live in `src/shared/` (errors, types) and `src/plugins/` 
 
 ## Environment Variables
 
-| Variable      | Type   | Default       | Description         |
-| ------------- | ------ | ------------- | ------------------- |
-| `PORT`        | number | `3000`        | Server listen port  |
-| `HOST`        | string | `0.0.0.0`     | Server listen host  |
-| `NODE_ENV`    | string | `development` | Runtime environment |
-| `LOG_LEVEL`   | string | `info`        | Pino log level      |
-| `CORS_ORIGIN` | string | `*`           | Allowed CORS origin |
+| Variable           | Type    | Default                              | Description                                 |
+| ------------------ | ------- | ------------------------------------ | ------------------------------------------- |
+| `PORT`             | number  | `3000`                               | Server listen port                          |
+| `HOST`             | string  | `0.0.0.0`                            | Server listen host                          |
+| `NODE_ENV`         | string  | `development`                        | Runtime environment                         |
+| `LOG_LEVEL`        | string  | `info`                               | Pino log level                              |
+| `CORS_ORIGIN`      | string  | `*`                                  | Allowed CORS origin                         |
+| `MONGODB_URI`      | string  | `mongodb://localhost:27017/todo-app` | MongoDB connection string                   |
+| `USE_IN_MEMORY_DB` | boolean | `false`                              | Use in-memory MongoDB server (for dev/test) |
+
+## Database
+
+By default, the application connects to a MongoDB instance at `MONGODB_URI`.
+
+### Local Development (In-Memory)
+
+To run the application without a local MongoDB installation, you can enable the in-memory server:
+
+```bash
+export USE_IN_MEMORY_DB=true
+pnpm dev
+```
+
+The in-memory server (`mongodb-memory-server`) will download the necessary binaries on the first run, spin up a temporary instance, and automatically shut it down when the application exits.
 
 ## Security Defaults
 
