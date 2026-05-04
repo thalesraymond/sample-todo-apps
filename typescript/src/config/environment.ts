@@ -35,7 +35,7 @@ const environmentSchema = {
     },
     USE_IN_MEMORY_DB: {
       type: 'boolean',
-      default: false,
+      default: true,
     },
   },
 } as const

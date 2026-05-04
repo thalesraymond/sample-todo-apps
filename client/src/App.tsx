@@ -1,42 +1,38 @@
-import { useEffect, useState } from 'react'
-import { fetchHealth } from './api'
-import type { HealthResponse } from './api'
-import './App.css'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { AuthProvider } from './hooks/useAuth';
+import { AuthGuard } from './components/AuthGuard';
+import { Header } from './components/Header';
+import { LoginView } from './views/auth/LoginView';
+import { RegisterView } from './views/auth/RegisterView';
+import { DashboardView } from './views/dashboard/DashboardView';
+import './App.css';
 
 function App() {
-  const [health, setHealth] = useState<HealthResponse | null>(null)
-  const [error, setError] = useState<string | null>(null)
-  const [loading, setLoading] = useState<boolean>(true)
-
-  useEffect(() => {
-    fetchHealth()
-      .then((data) => {
-        setHealth(data)
-        setError(null)
-      })
-      .catch((err: Error) => {
-        setError(err.message || 'Failed to connect to backend')
-      })
-      .finally(() => {
-        setLoading(false)
-      })
-  }, [])
-
   return (
-    <div className="App">
-      <h1>Todo API Client</h1>
-      <div className="status-container">
-        <h2>Backend Status:</h2>
-        {loading && <p>Loading...</p>}
-        {error && <p className="error" role="alert">{error}</p>}
-        {health && (
-          <pre data-testid="health-response">
-            {JSON.stringify(health, null, 2)}
-          </pre>
-        )}
-      </div>
-    </div>
-  )
+    <AuthProvider>
+      <BrowserRouter>
+        <div className="App">
+          <Header />
+          <main className="main-content">
+            <Routes>
+              <Route path="/login" element={<LoginView />} />
+              <Route path="/register" element={<RegisterView />} />
+              <Route
+                path="/dashboard"
+                element={
+                  <AuthGuard>
+                    <DashboardView />
+                  </AuthGuard>
+                }
+              />
+              <Route path="/" element={<Navigate to="/dashboard" replace />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+          </main>
+        </div>
+      </BrowserRouter>
+    </AuthProvider>
+  );
 }
 
-export default App
+export default App;

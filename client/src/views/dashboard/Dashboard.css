@@ -1,0 +1,34 @@
+.dashboard-container {
+  padding: var(--spacing-xl);
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+  flex: 1;
+}
+
+.dashboard-card {
+  margin-top: var(--spacing-lg);
+}
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.loading-state,
+.empty-state {
+  padding: var(--spacing-xl);
+  text-align: center;
+  color: var(--text);
+  font-style: italic;
+}
+
+.error-alert {
+  margin: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid var(--error);
+  color: var(--error);
+  border-radius: var(--radius);
+  font-size: 14px;
+}

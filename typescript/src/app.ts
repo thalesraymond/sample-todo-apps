@@ -20,6 +20,7 @@ export interface BuildAppOptions {
 export async function buildApp(options: BuildAppOptions = {}): Promise<FastifyInstance> {
   const app = Fastify({
     logger: options.logger ?? true,
+    pluginTimeout: 60000,
   })
 
   await registerEnvironment(app)

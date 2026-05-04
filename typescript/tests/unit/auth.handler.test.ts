@@ -21,14 +21,14 @@ vi.mock('bcryptjs', () => ({
 }))
 
 describe('authHandler', () => {
-  let mockRequest: Partial<FastifyRequest>
-  let mockReply: unknown
+  let mockRequest: FastifyRequest
+  let mockReply: FastifyReply
 
   beforeEach(() => {
     vi.clearAllMocks()
     mockRequest = {
       body: {},
-    }
+    } as unknown as FastifyRequest
     mockReply = {
       status: vi.fn().mockReturnThis(),
       send: vi.fn().mockReturnThis(),
@@ -37,19 +37,19 @@ describe('authHandler', () => {
           sign: vi.fn().mockReturnValue('mock-token'),
         },
       },
-    }
+    } as unknown as FastifyReply
   })
 
   describe('register', () => {
     it('should throw BadRequestError if email or password missing', async () => {
       mockRequest.body = { email: 'test@example.com' }
       await expect(
-        authHandler.register(mockRequest as any, mockReply as any),
+        authHandler.register(mockRequest, mockReply),
       ).rejects.toThrow(BadRequestError)
 
       mockRequest.body = { password: 'password123' }
       await expect(
-        authHandler.register(mockRequest as any, mockReply as any),
+        authHandler.register(mockRequest, mockReply),
       ).rejects.toThrow(BadRequestError)
     })
 
@@ -62,7 +62,7 @@ describe('authHandler', () => {
       } as unknown as User)
 
       await expect(
-        authHandler.register(mockRequest as any, mockReply as any),
+        authHandler.register(mockRequest, mockReply),
       ).rejects.toThrow(BadRequestError)
       expect(userRepository.findByEmail).toHaveBeenCalledWith('exists@example.com')
     })
@@ -77,15 +77,15 @@ describe('authHandler', () => {
         passwordHash: 'hashed-password',
       } as unknown as User)
 
-      await authHandler.register(mockRequest as any, mockReply as any)
+      await authHandler.register(mockRequest, mockReply)
 
       expect(bcrypt.hash).toHaveBeenCalledWith('password123', 10)
       expect(userRepository.create).toHaveBeenCalledWith({
         email: 'new@example.com',
         passwordHash: 'hashed-password',
       })
-      expect((mockReply as any).status).toHaveBeenCalledWith(201)
-      expect((mockReply as any).send).toHaveBeenCalledWith({
+      expect(mockReply.status).toHaveBeenCalledWith(201)
+      expect(mockReply.send).toHaveBeenCalledWith({
         message: 'User registered successfully',
         userId: 'new-id',
       })
@@ -96,7 +96,7 @@ describe('authHandler', () => {
     it('should throw BadRequestError if email or password missing', async () => {
       mockRequest.body = { email: 'test@example.com' }
       await expect(
-        authHandler.login(mockRequest as any, mockReply as any),
+        authHandler.login(mockRequest, mockReply),
       ).rejects.toThrow(BadRequestError)
     })
 
@@ -105,7 +105,7 @@ describe('authHandler', () => {
       vi.mocked(userRepository.findByEmail).mockResolvedValue(null)
 
       await expect(
-        authHandler.login(mockRequest as any, mockReply as any),
+        authHandler.login(mockRequest, mockReply),
       ).rejects.toThrow(UnauthorizedError)
     })
 
@@ -119,7 +119,7 @@ describe('authHandler', () => {
       vi.mocked(bcrypt.compare).mockResolvedValue(false as never)
 
       await expect(
-        authHandler.login(mockRequest as any, mockReply as any),
+        authHandler.login(mockRequest, mockReply),
       ).rejects.toThrow(UnauthorizedError)
     })
 
@@ -129,12 +129,12 @@ describe('authHandler', () => {
       vi.mocked(userRepository.findByEmail).mockResolvedValue(user as unknown as User)
       vi.mocked(bcrypt.compare).mockResolvedValue(true as never)
 
-      await authHandler.login(mockRequest as any, mockReply as any)
+      await authHandler.login(mockRequest, mockReply)
 
     expect(
-        (mockReply as any).server.jwt.sign,
+        mockReply.server.jwt.sign,
       ).toHaveBeenCalledWith({ sub: user.id, email: user.email })
-      expect((mockReply as any).send).toHaveBeenCalledWith({ token: 'mock-token' })
+      expect(mockReply.send).toHaveBeenCalledWith({ token: 'mock-token' })
     })
   })
 })

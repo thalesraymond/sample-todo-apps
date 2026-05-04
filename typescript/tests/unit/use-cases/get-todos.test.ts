@@ -25,7 +25,7 @@ describe('GetTodos Use Cases', () => {
       const result = await useCase.execute()
 
       expect(result.length).toBe(1)
-      expect(result[0]!.title).toBe('Test')
+      expect(result[0]?.title).toBe('Test')
     })
   })
 
@@ -37,7 +37,7 @@ describe('GetTodos Use Cases', () => {
       const useCase = new GetTodoByIdUseCase(repository)
       const result = await useCase.execute(todo.toJSON().id)
 
-      expect(result!.title).toBe('Test')
+      expect(result?.title).toBe('Test')
     })
 
     it('should return null if todo not found', async () => {
