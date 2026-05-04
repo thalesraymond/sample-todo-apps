@@ -114,6 +114,7 @@ Each implementation must use the **latest stable version** of its language and f
 
 ## 6. General Engineering Standards
 
+- **Validation** — Before proceeding to the next task or finishing work, you **must** run all tests, build the project, and execute the linter. Every change is incomplete until its behavioral correctness, structural integrity, and stylistic consistency are verified.
 - **Linters** — Every implementation must pass its language's linter with **zero warnings and zero errors**. Never bypass, disable, or suppress linter rules (e.g., no `// nolint`, `// eslint-disable`, `#pragma warning disable`, or `# rubocop:disable`). If a rule conflicts with the codebase, fix the code — do not silence the tool.
 - **Conventional Commits** — All commits **must** follow the [Conventional Commits](https://www.conventionalcommits.org/) specification. Use small, atomic commits with descriptive messages (e.g., `feat: add create todo endpoint`, `test: add integration tests for delete todo`, `refactor: extract todo repository interface`).
 - **No dead code** — Remove unused imports, variables, and functions.
