@@ -7,7 +7,7 @@ describe('Authentication Integration', () => {
 
   beforeAll(async () => {
     // Force in-memory DB for integration tests
-    process.env.USE_IN_MEMORY_DB = 'true'
+    process.env['USE_IN_MEMORY_DB'] = 'true'
     app = await buildApp({ logger: false })
   })
 

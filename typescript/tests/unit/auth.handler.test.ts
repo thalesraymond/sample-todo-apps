@@ -44,12 +44,12 @@ describe('authHandler', () => {
     it('should throw BadRequestError if email or password missing', async () => {
       mockRequest.body = { email: 'test@example.com' }
       await expect(
-        authHandler.register(mockRequest as FastifyRequest, mockReply as FastifyReply),
+        authHandler.register(mockRequest as any, mockReply as any),
       ).rejects.toThrow(BadRequestError)
 
       mockRequest.body = { password: 'password123' }
       await expect(
-        authHandler.register(mockRequest as FastifyRequest, mockReply as FastifyReply),
+        authHandler.register(mockRequest as any, mockReply as any),
       ).rejects.toThrow(BadRequestError)
     })
 
@@ -62,7 +62,7 @@ describe('authHandler', () => {
       } as unknown as User)
 
       await expect(
-        authHandler.register(mockRequest as FastifyRequest, mockReply as FastifyReply),
+        authHandler.register(mockRequest as any, mockReply as any),
       ).rejects.toThrow(BadRequestError)
       expect(userRepository.findByEmail).toHaveBeenCalledWith('exists@example.com')
     })
@@ -77,15 +77,15 @@ describe('authHandler', () => {
         passwordHash: 'hashed-password',
       } as unknown as User)
 
-      await authHandler.register(mockRequest as FastifyRequest, mockReply as FastifyReply)
+      await authHandler.register(mockRequest as any, mockReply as any)
 
       expect(bcrypt.hash).toHaveBeenCalledWith('password123', 10)
       expect(userRepository.create).toHaveBeenCalledWith({
         email: 'new@example.com',
         passwordHash: 'hashed-password',
       })
-      expect((mockReply as FastifyReply).status).toHaveBeenCalledWith(201)
-      expect((mockReply as FastifyReply).send).toHaveBeenCalledWith({
+      expect((mockReply as any).status).toHaveBeenCalledWith(201)
+      expect((mockReply as any).send).toHaveBeenCalledWith({
         message: 'User registered successfully',
         userId: 'new-id',
       })
@@ -96,7 +96,7 @@ describe('authHandler', () => {
     it('should throw BadRequestError if email or password missing', async () => {
       mockRequest.body = { email: 'test@example.com' }
       await expect(
-        authHandler.login(mockRequest as FastifyRequest, mockReply as FastifyReply),
+        authHandler.login(mockRequest as any, mockReply as any),
       ).rejects.toThrow(BadRequestError)
     })
 
@@ -105,7 +105,7 @@ describe('authHandler', () => {
       vi.mocked(userRepository.findByEmail).mockResolvedValue(null)
 
       await expect(
-        authHandler.login(mockRequest as FastifyRequest, mockReply as FastifyReply),
+        authHandler.login(mockRequest as any, mockReply as any),
       ).rejects.toThrow(UnauthorizedError)
     })
 
@@ -119,7 +119,7 @@ describe('authHandler', () => {
       vi.mocked(bcrypt.compare).mockResolvedValue(false as never)
 
       await expect(
-        authHandler.login(mockRequest as FastifyRequest, mockReply as FastifyReply),
+        authHandler.login(mockRequest as any, mockReply as any),
       ).rejects.toThrow(UnauthorizedError)
     })
 
@@ -129,12 +129,12 @@ describe('authHandler', () => {
       vi.mocked(userRepository.findByEmail).mockResolvedValue(user as unknown as User)
       vi.mocked(bcrypt.compare).mockResolvedValue(true as never)
 
-      await authHandler.login(mockRequest as FastifyRequest, mockReply as FastifyReply)
+      await authHandler.login(mockRequest as any, mockReply as any)
 
-      expect(
-        (mockReply as { server: { jwt: { sign: vi.Mock } } }).server.jwt.sign,
+    expect(
+        (mockReply as any).server.jwt.sign,
       ).toHaveBeenCalledWith({ sub: user.id, email: user.email })
-      expect((mockReply as FastifyReply).send).toHaveBeenCalledWith({ token: 'mock-token' })
+      expect((mockReply as any).send).toHaveBeenCalledWith({ token: 'mock-token' })
     })
   })
 })
