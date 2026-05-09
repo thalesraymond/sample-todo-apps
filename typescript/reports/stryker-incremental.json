@@ -11,17 +11,8 @@
           "status": "Killed",
           "testsCompleted": 4,
           "static": true,
-          "killedBy": [
-            "30",
-            "31",
-            "32",
-            "14"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["30", "31", "32", "14"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 2,
@@ -41,11 +32,7 @@
           "testsCompleted": 25,
           "static": true,
           "killedBy": [],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 4,
@@ -65,11 +52,7 @@
           "testsCompleted": 25,
           "static": true,
           "killedBy": [],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 35,
@@ -89,9 +72,7 @@
           "testsCompleted": 1,
           "static": false,
           "killedBy": [],
-          "coveredBy": [
-            "11"
-          ],
+          "coveredBy": ["11"],
           "location": {
             "end": {
               "column": 35,
@@ -111,22 +92,8 @@
           "status": "Killed",
           "testsCompleted": 9,
           "static": true,
-          "killedBy": [
-            "22",
-            "23",
-            "24",
-            "25",
-            "26",
-            "27",
-            "28",
-            "29",
-            "11"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["22", "23", "24", "25", "26", "27", "28", "29", "11"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 4,
@@ -146,14 +113,8 @@
           "status": "Killed",
           "testsCompleted": 12,
           "static": true,
-          "killedBy": [
-            "14"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["14"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 65,
@@ -173,14 +134,8 @@
           "status": "Killed",
           "testsCompleted": 12,
           "static": true,
-          "killedBy": [
-            "14"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["14"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 63,
@@ -206,17 +161,8 @@
           "status": "Killed",
           "testsCompleted": 4,
           "static": true,
-          "killedBy": [
-            "30",
-            "31",
-            "32",
-            "11"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["30", "31", "32", "11"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 2,
@@ -255,11 +201,7 @@
             "18",
             "11"
           ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 4,
@@ -279,11 +221,7 @@
           "testsCompleted": 25,
           "static": true,
           "killedBy": [],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 17,
@@ -309,9 +247,7 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "22"
-          ],
+          "killedBy": ["22"],
           "coveredBy": [
             "7",
             "10",
@@ -352,9 +288,7 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "24"
-          ],
+          "killedBy": ["24"],
           "coveredBy": [
             "8",
             "9",
@@ -396,9 +330,7 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "24"
-          ],
+          "killedBy": ["24"],
           "coveredBy": [
             "8",
             "9",
@@ -440,9 +372,7 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "24"
-          ],
+          "killedBy": ["24"],
           "coveredBy": [
             "8",
             "9",
@@ -484,9 +414,7 @@
           "status": "Killed",
           "testsCompleted": 5,
           "static": false,
-          "killedBy": [
-            "28"
-          ],
+          "killedBy": ["28"],
           "coveredBy": [
             "8",
             "9",
@@ -528,17 +456,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "28"
-          ],
-          "coveredBy": [
-            "9",
-            "28",
-            "38",
-            "44",
-            "45",
-            "58"
-          ],
+          "killedBy": ["28"],
+          "coveredBy": ["9", "28", "38", "44", "45", "58"],
           "location": {
             "end": {
               "column": 6,
@@ -558,17 +477,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "28"
-          ],
-          "coveredBy": [
-            "9",
-            "28",
-            "38",
-            "44",
-            "45",
-            "58"
-          ],
+          "killedBy": ["28"],
+          "coveredBy": ["9", "28", "38", "44", "45", "58"],
           "location": {
             "end": {
               "column": 39,
@@ -588,9 +498,7 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "22"
-          ],
+          "killedBy": ["22"],
           "coveredBy": [
             "7",
             "8",
@@ -634,12 +542,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "10"
-          ],
-          "coveredBy": [
-            "10"
-          ],
+          "killedBy": ["10"],
+          "coveredBy": ["10"],
           "location": {
             "end": {
               "column": 4,
@@ -659,12 +563,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "10"
-          ],
-          "coveredBy": [
-            "10"
-          ],
+          "killedBy": ["10"],
+          "coveredBy": ["10"],
           "location": {
             "end": {
               "column": 38,
@@ -684,12 +584,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "10"
-          ],
-          "coveredBy": [
-            "10"
-          ],
+          "killedBy": ["10"],
+          "coveredBy": ["10"],
           "location": {
             "end": {
               "column": 38,
@@ -709,12 +605,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "10"
-          ],
-          "coveredBy": [
-            "10"
-          ],
+          "killedBy": ["10"],
+          "coveredBy": ["10"],
           "location": {
             "end": {
               "column": 38,
@@ -740,9 +632,7 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "22"
-          ],
+          "killedBy": ["22"],
           "coveredBy": [
             "22",
             "24",
@@ -785,9 +675,7 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "22"
-          ],
+          "killedBy": ["22"],
           "coveredBy": [
             "22",
             "24",
@@ -830,9 +718,7 @@
           "status": "Killed",
           "testsCompleted": 11,
           "static": false,
-          "killedBy": [
-            "40"
-          ],
+          "killedBy": ["40"],
           "coveredBy": [
             "22",
             "24",
@@ -875,9 +761,7 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "22"
-          ],
+          "killedBy": ["22"],
           "coveredBy": [
             "22",
             "24",
@@ -920,13 +804,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "40"
-          ],
-          "coveredBy": [
-            "40",
-            "47"
-          ],
+          "killedBy": ["40"],
+          "coveredBy": ["40", "47"],
           "location": {
             "end": {
               "column": 6,
@@ -946,13 +825,8 @@
           "status": "Killed",
           "testsCompleted": 2,
           "static": false,
-          "killedBy": [
-            "47"
-          ],
-          "coveredBy": [
-            "40",
-            "47"
-          ],
+          "killedBy": ["47"],
+          "coveredBy": ["40", "47"],
           "location": {
             "end": {
               "column": 51,
@@ -972,9 +846,7 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "22"
-          ],
+          "killedBy": ["22"],
           "coveredBy": [
             "22",
             "24",
@@ -1015,9 +887,7 @@
           "status": "Killed",
           "testsCompleted": 15,
           "static": false,
-          "killedBy": [
-            "48"
-          ],
+          "killedBy": ["48"],
           "coveredBy": [
             "22",
             "24",
@@ -1098,9 +968,7 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "22"
-          ],
+          "killedBy": ["22"],
           "coveredBy": [
             "22",
             "24",
@@ -1141,12 +1009,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "48"
-          ],
-          "coveredBy": [
-            "48"
-          ],
+          "killedBy": ["48"],
+          "coveredBy": ["48"],
           "location": {
             "end": {
               "column": 6,
@@ -1166,12 +1030,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "48"
-          ],
-          "coveredBy": [
-            "48"
-          ],
+          "killedBy": ["48"],
+          "coveredBy": ["48"],
           "location": {
             "end": {
               "column": 47,
@@ -1191,9 +1051,7 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "39"
-          ],
+          "killedBy": ["39"],
           "coveredBy": [
             "22",
             "23",
@@ -1233,12 +1091,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "49"
-          ],
-          "coveredBy": [
-            "49"
-          ],
+          "killedBy": ["49"],
+          "coveredBy": ["49"],
           "location": {
             "end": {
               "column": 4,
@@ -1258,12 +1112,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "49"
-          ],
-          "coveredBy": [
-            "49"
-          ],
+          "killedBy": ["49"],
+          "coveredBy": ["49"],
           "location": {
             "end": {
               "column": 38,
@@ -1283,12 +1133,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "49"
-          ],
-          "coveredBy": [
-            "49"
-          ],
+          "killedBy": ["49"],
+          "coveredBy": ["49"],
           "location": {
             "end": {
               "column": 38,
@@ -1308,12 +1154,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "49"
-          ],
-          "coveredBy": [
-            "49"
-          ],
+          "killedBy": ["49"],
+          "coveredBy": ["49"],
           "location": {
             "end": {
               "column": 38,
@@ -1339,9 +1181,7 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "22"
-          ],
+          "killedBy": ["22"],
           "coveredBy": [
             "22",
             "24",
@@ -1379,17 +1219,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "25"
-          ],
-          "coveredBy": [
-            "25",
-            "41",
-            "42",
-            "43",
-            "55",
-            "56"
-          ],
+          "killedBy": ["25"],
+          "coveredBy": ["25", "41", "42", "43", "55", "56"],
           "location": {
             "end": {
               "column": 4,
@@ -1409,9 +1240,7 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "22"
-          ],
+          "killedBy": ["22"],
           "coveredBy": [
             "22",
             "24",
@@ -1449,9 +1278,7 @@
           "status": "Killed",
           "testsCompleted": 6,
           "static": false,
-          "killedBy": [
-            "42"
-          ],
+          "killedBy": ["42"],
           "coveredBy": [
             "22",
             "24",
@@ -1489,15 +1316,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "25"
-          ],
-          "coveredBy": [
-            "25",
-            "41",
-            "43",
-            "55"
-          ],
+          "killedBy": ["25"],
+          "coveredBy": ["25", "41", "43", "55"],
           "location": {
             "end": {
               "column": 4,
@@ -1517,15 +1337,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "25"
-          ],
-          "coveredBy": [
-            "25",
-            "41",
-            "43",
-            "55"
-          ],
+          "killedBy": ["25"],
+          "coveredBy": ["25", "41", "43", "55"],
           "location": {
             "end": {
               "column": 42,
@@ -1545,15 +1358,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "25"
-          ],
-          "coveredBy": [
-            "25",
-            "41",
-            "42",
-            "56"
-          ],
+          "killedBy": ["25"],
+          "coveredBy": ["25", "41", "42", "56"],
           "location": {
             "end": {
               "column": 4,
@@ -1573,9 +1379,7 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "22"
-          ],
+          "killedBy": ["22"],
           "coveredBy": [
             "22",
             "23",
@@ -1614,9 +1418,7 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "22"
-          ],
+          "killedBy": ["22"],
           "coveredBy": [
             "22",
             "23",
@@ -1703,17 +1505,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "14"
-          ],
-          "coveredBy": [
-            "0",
-            "1",
-            "2",
-            "14",
-            "15",
-            "16"
-          ],
+          "killedBy": ["14"],
+          "coveredBy": ["0", "1", "2", "14", "15", "16"],
           "location": {
             "end": {
               "column": 4,
@@ -1733,17 +1526,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "14"
-          ],
-          "coveredBy": [
-            "0",
-            "1",
-            "2",
-            "14",
-            "15",
-            "16"
-          ],
+          "killedBy": ["14"],
+          "coveredBy": ["0", "1", "2", "14", "15", "16"],
           "location": {
             "end": {
               "column": 28,
@@ -1763,17 +1547,8 @@
           "status": "Killed",
           "testsCompleted": 3,
           "static": false,
-          "killedBy": [
-            "16"
-          ],
-          "coveredBy": [
-            "0",
-            "1",
-            "2",
-            "14",
-            "15",
-            "16"
-          ],
+          "killedBy": ["16"],
+          "coveredBy": ["0", "1", "2", "14", "15", "16"],
           "location": {
             "end": {
               "column": 28,
@@ -1793,17 +1568,8 @@
           "status": "Killed",
           "testsCompleted": 3,
           "static": false,
-          "killedBy": [
-            "16"
-          ],
-          "coveredBy": [
-            "0",
-            "1",
-            "2",
-            "14",
-            "15",
-            "16"
-          ],
+          "killedBy": ["16"],
+          "coveredBy": ["0", "1", "2", "14", "15", "16"],
           "location": {
             "end": {
               "column": 28,
@@ -1823,17 +1589,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "14"
-          ],
-          "coveredBy": [
-            "0",
-            "1",
-            "2",
-            "14",
-            "15",
-            "16"
-          ],
+          "killedBy": ["14"],
+          "coveredBy": ["0", "1", "2", "14", "15", "16"],
           "location": {
             "end": {
               "column": 15,
@@ -1853,17 +1610,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "14"
-          ],
-          "coveredBy": [
-            "0",
-            "1",
-            "2",
-            "14",
-            "15",
-            "16"
-          ],
+          "killedBy": ["14"],
+          "coveredBy": ["0", "1", "2", "14", "15", "16"],
           "location": {
             "end": {
               "column": 28,
@@ -1883,13 +1631,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "16"
-          ],
-          "coveredBy": [
-            "0",
-            "16"
-          ],
+          "killedBy": ["16"],
+          "coveredBy": ["0", "16"],
           "location": {
             "end": {
               "column": 6,
@@ -1909,10 +1652,7 @@
           "testsCompleted": 2,
           "static": false,
           "killedBy": [],
-          "coveredBy": [
-            "0",
-            "16"
-          ],
+          "coveredBy": ["0", "16"],
           "location": {
             "end": {
               "column": 66,
@@ -1932,15 +1672,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "14"
-          ],
-          "coveredBy": [
-            "1",
-            "2",
-            "14",
-            "15"
-          ],
+          "killedBy": ["14"],
+          "coveredBy": ["1", "2", "14", "15"],
           "location": {
             "end": {
               "column": 21,
@@ -1960,15 +1693,8 @@
           "status": "Killed",
           "testsCompleted": 2,
           "static": false,
-          "killedBy": [
-            "15"
-          ],
-          "coveredBy": [
-            "1",
-            "2",
-            "14",
-            "15"
-          ],
+          "killedBy": ["15"],
+          "coveredBy": ["1", "2", "14", "15"],
           "location": {
             "end": {
               "column": 21,
@@ -1988,13 +1714,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "15"
-          ],
-          "coveredBy": [
-            "1",
-            "15"
-          ],
+          "killedBy": ["15"],
+          "coveredBy": ["1", "15"],
           "location": {
             "end": {
               "column": 6,
@@ -2014,13 +1735,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "15"
-          ],
-          "coveredBy": [
-            "1",
-            "15"
-          ],
+          "killedBy": ["15"],
+          "coveredBy": ["1", "15"],
           "location": {
             "end": {
               "column": 59,
@@ -2040,14 +1756,8 @@
           "status": "Killed",
           "testsCompleted": 2,
           "static": false,
-          "killedBy": [
-            "15"
-          ],
-          "coveredBy": [
-            "2",
-            "14",
-            "15"
-          ],
+          "killedBy": ["15"],
+          "coveredBy": ["2", "14", "15"],
           "location": {
             "end": {
               "column": 69,
@@ -2067,14 +1777,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "14"
-          ],
-          "coveredBy": [
-            "2",
-            "14",
-            "15"
-          ],
+          "killedBy": ["14"],
+          "coveredBy": ["2", "14", "15"],
           "location": {
             "end": {
               "column": 6,
@@ -2094,14 +1798,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "14"
-          ],
-          "coveredBy": [
-            "2",
-            "14",
-            "15"
-          ],
+          "killedBy": ["14"],
+          "coveredBy": ["2", "14", "15"],
           "location": {
             "end": {
               "column": 46,
@@ -2121,17 +1819,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "17"
-          ],
-          "coveredBy": [
-            "3",
-            "4",
-            "5",
-            "6",
-            "17",
-            "18"
-          ],
+          "killedBy": ["17"],
+          "coveredBy": ["3", "4", "5", "6", "17", "18"],
           "location": {
             "end": {
               "column": 4,
@@ -2151,17 +1840,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "17"
-          ],
-          "coveredBy": [
-            "3",
-            "4",
-            "5",
-            "6",
-            "17",
-            "18"
-          ],
+          "killedBy": ["17"],
+          "coveredBy": ["3", "4", "5", "6", "17", "18"],
           "location": {
             "end": {
               "column": 28,
@@ -2181,17 +1861,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "17"
-          ],
-          "coveredBy": [
-            "3",
-            "4",
-            "5",
-            "6",
-            "17",
-            "18"
-          ],
+          "killedBy": ["17"],
+          "coveredBy": ["3", "4", "5", "6", "17", "18"],
           "location": {
             "end": {
               "column": 28,
@@ -2211,17 +1882,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "17"
-          ],
-          "coveredBy": [
-            "3",
-            "4",
-            "5",
-            "6",
-            "17",
-            "18"
-          ],
+          "killedBy": ["17"],
+          "coveredBy": ["3", "4", "5", "6", "17", "18"],
           "location": {
             "end": {
               "column": 28,
@@ -2241,17 +1903,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "17"
-          ],
-          "coveredBy": [
-            "3",
-            "4",
-            "5",
-            "6",
-            "17",
-            "18"
-          ],
+          "killedBy": ["17"],
+          "coveredBy": ["3", "4", "5", "6", "17", "18"],
           "location": {
             "end": {
               "column": 15,
@@ -2271,17 +1924,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "17"
-          ],
-          "coveredBy": [
-            "3",
-            "4",
-            "5",
-            "6",
-            "17",
-            "18"
-          ],
+          "killedBy": ["17"],
+          "coveredBy": ["3", "4", "5", "6", "17", "18"],
           "location": {
             "end": {
               "column": 28,
@@ -2301,12 +1945,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "3"
-          ],
-          "coveredBy": [
-            "3"
-          ],
+          "killedBy": ["3"],
+          "coveredBy": ["3"],
           "location": {
             "end": {
               "column": 6,
@@ -2326,9 +1966,7 @@
           "testsCompleted": 1,
           "static": false,
           "killedBy": [],
-          "coveredBy": [
-            "3"
-          ],
+          "coveredBy": ["3"],
           "location": {
             "end": {
               "column": 66,
@@ -2348,16 +1986,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "17"
-          ],
-          "coveredBy": [
-            "4",
-            "5",
-            "6",
-            "17",
-            "18"
-          ],
+          "killedBy": ["17"],
+          "coveredBy": ["4", "5", "6", "17", "18"],
           "location": {
             "end": {
               "column": 14,
@@ -2377,16 +2007,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "17"
-          ],
-          "coveredBy": [
-            "4",
-            "5",
-            "6",
-            "17",
-            "18"
-          ],
+          "killedBy": ["17"],
+          "coveredBy": ["4", "5", "6", "17", "18"],
           "location": {
             "end": {
               "column": 14,
@@ -2406,16 +2028,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "17"
-          ],
-          "coveredBy": [
-            "4",
-            "5",
-            "6",
-            "17",
-            "18"
-          ],
+          "killedBy": ["17"],
+          "coveredBy": ["4", "5", "6", "17", "18"],
           "location": {
             "end": {
               "column": 14,
@@ -2435,12 +2049,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "4"
-          ],
-          "coveredBy": [
-            "4"
-          ],
+          "killedBy": ["4"],
+          "coveredBy": ["4"],
           "location": {
             "end": {
               "column": 6,
@@ -2460,9 +2070,7 @@
           "testsCompleted": 1,
           "static": false,
           "killedBy": [],
-          "coveredBy": [
-            "4"
-          ],
+          "coveredBy": ["4"],
           "location": {
             "end": {
               "column": 56,
@@ -2482,15 +2090,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "17"
-          ],
-          "coveredBy": [
-            "5",
-            "6",
-            "17",
-            "18"
-          ],
+          "killedBy": ["17"],
+          "coveredBy": ["5", "6", "17", "18"],
           "location": {
             "end": {
               "column": 25,
@@ -2510,15 +2111,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "17"
-          ],
-          "coveredBy": [
-            "5",
-            "6",
-            "17",
-            "18"
-          ],
+          "killedBy": ["17"],
+          "coveredBy": ["5", "6", "17", "18"],
           "location": {
             "end": {
               "column": 25,
@@ -2538,15 +2132,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "17"
-          ],
-          "coveredBy": [
-            "5",
-            "6",
-            "17",
-            "18"
-          ],
+          "killedBy": ["17"],
+          "coveredBy": ["5", "6", "17", "18"],
           "location": {
             "end": {
               "column": 25,
@@ -2566,13 +2153,8 @@
           "status": "Killed",
           "testsCompleted": 2,
           "static": false,
-          "killedBy": [
-            "5"
-          ],
-          "coveredBy": [
-            "5",
-            "18"
-          ],
+          "killedBy": ["5"],
+          "coveredBy": ["5", "18"],
           "location": {
             "end": {
               "column": 6,
@@ -2592,10 +2174,7 @@
           "testsCompleted": 2,
           "static": false,
           "killedBy": [],
-          "coveredBy": [
-            "5",
-            "18"
-          ],
+          "coveredBy": ["5", "18"],
           "location": {
             "end": {
               "column": 56,
@@ -2615,13 +2194,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "17"
-          ],
-          "coveredBy": [
-            "6",
-            "17"
-          ],
+          "killedBy": ["17"],
+          "coveredBy": ["6", "17"],
           "location": {
             "end": {
               "column": 76,
@@ -2641,13 +2215,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "17"
-          ],
-          "coveredBy": [
-            "6",
-            "17"
-          ],
+          "killedBy": ["17"],
+          "coveredBy": ["6", "17"],
           "location": {
             "end": {
               "column": 32,
@@ -2673,14 +2242,8 @@
           "status": "Killed",
           "testsCompleted": 18,
           "static": true,
-          "killedBy": [
-            "14"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["14"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 2,
@@ -2700,14 +2263,8 @@
           "status": "Killed",
           "testsCompleted": 15,
           "static": true,
-          "killedBy": [
-            "14"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["14"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 23,
@@ -2727,14 +2284,8 @@
           "status": "Killed",
           "testsCompleted": 7,
           "static": true,
-          "killedBy": [
-            "14"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["14"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 53,
@@ -2754,14 +2305,8 @@
           "status": "Killed",
           "testsCompleted": 15,
           "static": true,
-          "killedBy": [
-            "14"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["14"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 51,
@@ -2781,14 +2326,8 @@
           "status": "Killed",
           "testsCompleted": 4,
           "static": true,
-          "killedBy": [
-            "14"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["14"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 49,
@@ -2808,14 +2347,8 @@
           "status": "Killed",
           "testsCompleted": 4,
           "static": true,
-          "killedBy": [
-            "17"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["17"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 20,
@@ -2835,14 +2368,8 @@
           "status": "Killed",
           "testsCompleted": 4,
           "static": true,
-          "killedBy": [
-            "17"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["17"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 50,
@@ -2862,14 +2389,8 @@
           "status": "Killed",
           "testsCompleted": 4,
           "static": true,
-          "killedBy": [
-            "17"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["17"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 48,
@@ -2889,14 +2410,8 @@
           "status": "Killed",
           "testsCompleted": 4,
           "static": true,
-          "killedBy": [
-            "17"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["17"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 46,
@@ -2922,14 +2437,8 @@
           "status": "Killed",
           "testsCompleted": 2,
           "static": false,
-          "killedBy": [
-            "19"
-          ],
-          "coveredBy": [
-            "13",
-            "19",
-            "20"
-          ],
+          "killedBy": ["19"],
+          "coveredBy": ["13", "19", "20"],
           "location": {
             "end": {
               "column": 2,
@@ -2949,14 +2458,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "13"
-          ],
-          "coveredBy": [
-            "13",
-            "19",
-            "20"
-          ],
+          "killedBy": ["13"],
+          "coveredBy": ["13", "19", "20"],
           "location": {
             "end": {
               "column": 28,
@@ -2976,11 +2479,7 @@
           "testsCompleted": 3,
           "static": false,
           "killedBy": [],
-          "coveredBy": [
-            "13",
-            "19",
-            "20"
-          ],
+          "coveredBy": ["13", "19", "20"],
           "location": {
             "end": {
               "column": 4,
@@ -3000,14 +2499,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "13"
-          ],
-          "coveredBy": [
-            "13",
-            "19",
-            "20"
-          ],
+          "killedBy": ["13"],
+          "coveredBy": ["13", "19", "20"],
           "location": {
             "end": {
               "column": 48,
@@ -3084,14 +2577,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "13"
-          ],
-          "coveredBy": [
-            "13",
-            "19",
-            "20"
-          ],
+          "killedBy": ["13"],
+          "coveredBy": ["13", "19", "20"],
           "location": {
             "end": {
               "column": 4,
@@ -3111,11 +2598,7 @@
           "testsCompleted": 3,
           "static": false,
           "killedBy": [],
-          "coveredBy": [
-            "13",
-            "19",
-            "20"
-          ],
+          "coveredBy": ["13", "19", "20"],
           "location": {
             "end": {
               "column": 36,
@@ -3135,14 +2618,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "13"
-          ],
-          "coveredBy": [
-            "13",
-            "19",
-            "20"
-          ],
+          "killedBy": ["13"],
+          "coveredBy": ["13", "19", "20"],
           "location": {
             "end": {
               "column": 36,
@@ -3162,14 +2639,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "13"
-          ],
-          "coveredBy": [
-            "13",
-            "19",
-            "20"
-          ],
+          "killedBy": ["13"],
+          "coveredBy": ["13", "19", "20"],
           "location": {
             "end": {
               "column": 36,
@@ -3189,14 +2660,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "13"
-          ],
-          "coveredBy": [
-            "13",
-            "19",
-            "20"
-          ],
+          "killedBy": ["13"],
+          "coveredBy": ["13", "19", "20"],
           "location": {
             "end": {
               "column": 36,
@@ -3216,14 +2681,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "13"
-          ],
-          "coveredBy": [
-            "13",
-            "19",
-            "20"
-          ],
+          "killedBy": ["13"],
+          "coveredBy": ["13", "19", "20"],
           "location": {
             "end": {
               "column": 43,
@@ -3262,11 +2721,7 @@
           "testsCompleted": 3,
           "static": false,
           "killedBy": [],
-          "coveredBy": [
-            "13",
-            "19",
-            "20"
-          ],
+          "coveredBy": ["13", "19", "20"],
           "location": {
             "end": {
               "column": 46,
@@ -3286,14 +2741,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "13"
-          ],
-          "coveredBy": [
-            "13",
-            "19",
-            "20"
-          ],
+          "killedBy": ["13"],
+          "coveredBy": ["13", "19", "20"],
           "location": {
             "end": {
               "column": 46,
@@ -3313,14 +2762,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "13"
-          ],
-          "coveredBy": [
-            "13",
-            "19",
-            "20"
-          ],
+          "killedBy": ["13"],
+          "coveredBy": ["13", "19", "20"],
           "location": {
             "end": {
               "column": 46,
@@ -3340,14 +2783,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "13"
-          ],
-          "coveredBy": [
-            "13",
-            "19",
-            "20"
-          ],
+          "killedBy": ["13"],
+          "coveredBy": ["13", "19", "20"],
           "location": {
             "end": {
               "column": 46,
@@ -3373,14 +2810,8 @@
           "status": "Killed",
           "testsCompleted": 8,
           "static": true,
-          "killedBy": [
-            "13"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["13"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 2,
@@ -3400,19 +2831,8 @@
           "status": "Killed",
           "testsCompleted": 6,
           "static": true,
-          "killedBy": [
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "11"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["14", "15", "16", "17", "18", "11"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 14,
@@ -3432,14 +2852,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": true,
-          "killedBy": [
-            "19"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["19"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 6,
@@ -3459,14 +2873,8 @@
           "status": "Killed",
           "testsCompleted": 6,
           "static": true,
-          "killedBy": [
-            "19"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["19"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 31,
@@ -3486,14 +2894,8 @@
           "status": "Killed",
           "testsCompleted": 11,
           "static": true,
-          "killedBy": [
-            "13"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["13"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 29,
@@ -3513,11 +2915,7 @@
           "testsCompleted": 25,
           "static": true,
           "killedBy": [],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 8,
@@ -3537,11 +2935,7 @@
           "testsCompleted": 25,
           "static": true,
           "killedBy": [],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 55,
@@ -3561,11 +2955,7 @@
           "testsCompleted": 25,
           "static": true,
           "killedBy": [],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 25,
@@ -3585,11 +2975,7 @@
           "testsCompleted": 25,
           "static": true,
           "killedBy": [],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 24,
@@ -3609,11 +2995,7 @@
           "testsCompleted": 25,
           "static": true,
           "killedBy": [],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 10,
@@ -3633,11 +3015,7 @@
           "testsCompleted": 25,
           "static": true,
           "killedBy": [],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 12,
@@ -3657,11 +3035,7 @@
           "testsCompleted": 25,
           "static": true,
           "killedBy": [],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 51,
@@ -3681,14 +3055,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": true,
-          "killedBy": [
-            "14"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["14"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 27,
@@ -3708,14 +3076,8 @@
           "status": "Killed",
           "testsCompleted": 12,
           "static": true,
-          "killedBy": [
-            "19"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["19"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 14,
@@ -3735,11 +3097,7 @@
           "testsCompleted": 25,
           "static": true,
           "killedBy": [],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 56,
@@ -3759,14 +3117,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": true,
-          "killedBy": [
-            "14"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["14"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 39,
@@ -3786,11 +3138,7 @@
           "testsCompleted": 25,
           "static": true,
           "killedBy": [],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 54,
@@ -3810,11 +3158,7 @@
           "testsCompleted": 25,
           "static": true,
           "killedBy": [],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 58,
@@ -3834,14 +3178,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": true,
-          "killedBy": [
-            "19"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["19"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 41,
@@ -3861,11 +3199,7 @@
           "testsCompleted": 25,
           "static": true,
           "killedBy": [],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 56,
@@ -3891,14 +3225,8 @@
           "status": "Killed",
           "testsCompleted": 18,
           "static": true,
-          "killedBy": [
-            "22"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["22"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 4,
@@ -3918,15 +3246,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "22"
-          ],
-          "coveredBy": [
-            "22",
-            "24",
-            "25",
-            "26"
-          ],
+          "killedBy": ["22"],
+          "coveredBy": ["22", "24", "25", "26"],
           "location": {
             "end": {
               "column": 4,
@@ -3946,12 +3267,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "23"
-          ],
-          "coveredBy": [
-            "23"
-          ],
+          "killedBy": ["23"],
+          "coveredBy": ["23"],
           "location": {
             "end": {
               "column": 4,
@@ -3971,14 +3288,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "24"
-          ],
-          "coveredBy": [
-            "24",
-            "26",
-            "29"
-          ],
+          "killedBy": ["24"],
+          "coveredBy": ["24", "26", "29"],
           "location": {
             "end": {
               "column": 4,
@@ -3998,14 +3309,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "24"
-          ],
-          "coveredBy": [
-            "24",
-            "26",
-            "29"
-          ],
+          "killedBy": ["24"],
+          "coveredBy": ["24", "26", "29"],
           "location": {
             "end": {
               "column": 16,
@@ -4025,14 +3330,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "24"
-          ],
-          "coveredBy": [
-            "24",
-            "26",
-            "29"
-          ],
+          "killedBy": ["24"],
+          "coveredBy": ["24", "26", "29"],
           "location": {
             "end": {
               "column": 16,
@@ -4052,14 +3351,8 @@
           "status": "Killed",
           "testsCompleted": 2,
           "static": false,
-          "killedBy": [
-            "26"
-          ],
-          "coveredBy": [
-            "24",
-            "26",
-            "29"
-          ],
+          "killedBy": ["26"],
+          "coveredBy": ["24", "26", "29"],
           "location": {
             "end": {
               "column": 16,
@@ -4079,13 +3372,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "26"
-          ],
-          "coveredBy": [
-            "26",
-            "29"
-          ],
+          "killedBy": ["26"],
+          "coveredBy": ["26", "29"],
           "location": {
             "end": {
               "column": 6,
@@ -4105,10 +3393,7 @@
           "testsCompleted": 2,
           "static": false,
           "killedBy": [],
-          "coveredBy": [
-            "26",
-            "29"
-          ],
+          "coveredBy": ["26", "29"],
           "location": {
             "end": {
               "column": 47,
@@ -4128,13 +3413,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "25"
-          ],
-          "coveredBy": [
-            "25",
-            "27"
-          ],
+          "killedBy": ["25"],
+          "coveredBy": ["25", "27"],
           "location": {
             "end": {
               "column": 4,
@@ -4154,13 +3434,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "25"
-          ],
-          "coveredBy": [
-            "25",
-            "27"
-          ],
+          "killedBy": ["25"],
+          "coveredBy": ["25", "27"],
           "location": {
             "end": {
               "column": 16,
@@ -4180,13 +3455,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "25"
-          ],
-          "coveredBy": [
-            "25",
-            "27"
-          ],
+          "killedBy": ["25"],
+          "coveredBy": ["25", "27"],
           "location": {
             "end": {
               "column": 16,
@@ -4206,13 +3476,8 @@
           "status": "Killed",
           "testsCompleted": 2,
           "static": false,
-          "killedBy": [
-            "27"
-          ],
-          "coveredBy": [
-            "25",
-            "27"
-          ],
+          "killedBy": ["27"],
+          "coveredBy": ["25", "27"],
           "location": {
             "end": {
               "column": 16,
@@ -4232,12 +3497,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "27"
-          ],
-          "coveredBy": [
-            "27"
-          ],
+          "killedBy": ["27"],
+          "coveredBy": ["27"],
           "location": {
             "end": {
               "column": 6,
@@ -4257,9 +3518,7 @@
           "testsCompleted": 1,
           "static": false,
           "killedBy": [],
-          "coveredBy": [
-            "27"
-          ],
+          "coveredBy": ["27"],
           "location": {
             "end": {
               "column": 47,
@@ -4279,13 +3538,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "26"
-          ],
-          "coveredBy": [
-            "26",
-            "28"
-          ],
+          "killedBy": ["26"],
+          "coveredBy": ["26", "28"],
           "location": {
             "end": {
               "column": 4,
@@ -4305,13 +3559,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "26"
-          ],
-          "coveredBy": [
-            "26",
-            "28"
-          ],
+          "killedBy": ["26"],
+          "coveredBy": ["26", "28"],
           "location": {
             "end": {
               "column": 6,
@@ -4331,12 +3580,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "28"
-          ],
-          "coveredBy": [
-            "28"
-          ],
+          "killedBy": ["28"],
+          "coveredBy": ["28"],
           "location": {
             "end": {
               "column": 6,
@@ -4356,9 +3601,7 @@
           "testsCompleted": 1,
           "static": false,
           "killedBy": [],
-          "coveredBy": [
-            "28"
-          ],
+          "coveredBy": ["28"],
           "location": {
             "end": {
               "column": 79,
@@ -4378,12 +3621,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "28"
-          ],
-          "coveredBy": [
-            "28"
-          ],
+          "killedBy": ["28"],
+          "coveredBy": ["28"],
           "location": {
             "end": {
               "column": 79,
@@ -4403,9 +3642,7 @@
           "testsCompleted": 1,
           "static": false,
           "killedBy": [],
-          "coveredBy": [
-            "28"
-          ],
+          "coveredBy": ["28"],
           "location": {
             "end": {
               "column": 79,
@@ -4425,12 +3662,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "28"
-          ],
-          "coveredBy": [
-            "28"
-          ],
+          "killedBy": ["28"],
+          "coveredBy": ["28"],
           "location": {
             "end": {
               "column": 64,
@@ -4450,9 +3683,7 @@
           "testsCompleted": 1,
           "static": false,
           "killedBy": [],
-          "coveredBy": [
-            "28"
-          ],
+          "coveredBy": ["28"],
           "location": {
             "end": {
               "column": 78,
@@ -4472,12 +3703,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "28"
-          ],
-          "coveredBy": [
-            "28"
-          ],
+          "killedBy": ["28"],
+          "coveredBy": ["28"],
           "location": {
             "end": {
               "column": 8,
@@ -4497,9 +3724,7 @@
           "testsCompleted": 1,
           "static": false,
           "killedBy": [],
-          "coveredBy": [
-            "28"
-          ],
+          "coveredBy": ["28"],
           "location": {
             "end": {
               "column": 47,
@@ -4525,14 +3750,8 @@
           "status": "Killed",
           "testsCompleted": 12,
           "static": true,
-          "killedBy": [
-            "22"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["22"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 2,
@@ -4552,11 +3771,7 @@
           "testsCompleted": 25,
           "static": true,
           "killedBy": [],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 15,
@@ -4576,14 +3791,8 @@
           "status": "Killed",
           "testsCompleted": 12,
           "static": true,
-          "killedBy": [
-            "22"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["22"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 45,
@@ -4603,14 +3812,8 @@
           "status": "Killed",
           "testsCompleted": 18,
           "static": true,
-          "killedBy": [
-            "22"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["22"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 43,
@@ -4630,14 +3833,8 @@
           "status": "Killed",
           "testsCompleted": 15,
           "static": true,
-          "killedBy": [
-            "22"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["22"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 41,
@@ -4657,11 +3854,7 @@
           "testsCompleted": 25,
           "static": true,
           "killedBy": [],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 14,
@@ -4681,14 +3874,8 @@
           "status": "Killed",
           "testsCompleted": 16,
           "static": true,
-          "killedBy": [
-            "23"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["23"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 44,
@@ -4708,14 +3895,8 @@
           "status": "Killed",
           "testsCompleted": 13,
           "static": true,
-          "killedBy": [
-            "23"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["23"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 42,
@@ -4735,14 +3916,8 @@
           "status": "Killed",
           "testsCompleted": 13,
           "static": true,
-          "killedBy": [
-            "23"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["23"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 40,
@@ -4762,22 +3937,8 @@
           "status": "Killed",
           "testsCompleted": 9,
           "static": true,
-          "killedBy": [
-            "22",
-            "23",
-            "24",
-            "25",
-            "26",
-            "27",
-            "28",
-            "29",
-            "11"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["22", "23", "24", "25", "26", "27", "28", "29", "11"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 17,
@@ -4797,14 +3958,8 @@
           "status": "Killed",
           "testsCompleted": 3,
           "static": true,
-          "killedBy": [
-            "24"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["24"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 47,
@@ -4824,14 +3979,8 @@
           "status": "Killed",
           "testsCompleted": 20,
           "static": true,
-          "killedBy": [
-            "24"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["24"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 45,
@@ -4851,14 +4000,8 @@
           "status": "Killed",
           "testsCompleted": 3,
           "static": true,
-          "killedBy": [
-            "24"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["24"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 43,
@@ -4878,14 +4021,8 @@
           "status": "Killed",
           "testsCompleted": 4,
           "static": true,
-          "killedBy": [
-            "25"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["25"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 17,
@@ -4905,14 +4042,8 @@
           "status": "Killed",
           "testsCompleted": 18,
           "static": true,
-          "killedBy": [
-            "25"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["25"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 47,
@@ -4932,14 +4063,8 @@
           "status": "Killed",
           "testsCompleted": 4,
           "static": true,
-          "killedBy": [
-            "25"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["25"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 45,
@@ -4959,14 +4084,8 @@
           "status": "Killed",
           "testsCompleted": 4,
           "static": true,
-          "killedBy": [
-            "25"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["25"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 43,
@@ -4986,14 +4105,8 @@
           "status": "Killed",
           "testsCompleted": 5,
           "static": true,
-          "killedBy": [
-            "26"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["26"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 20,
@@ -5013,14 +4126,8 @@
           "status": "Killed",
           "testsCompleted": 5,
           "static": true,
-          "killedBy": [
-            "26"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["26"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 50,
@@ -5040,14 +4147,8 @@
           "status": "Killed",
           "testsCompleted": 5,
           "static": true,
-          "killedBy": [
-            "26"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["26"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 48,
@@ -5067,14 +4168,8 @@
           "status": "Killed",
           "testsCompleted": 5,
           "static": true,
-          "killedBy": [
-            "26"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["26"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 46,
@@ -5100,18 +4195,8 @@
           "status": "Killed",
           "testsCompleted": 2,
           "static": false,
-          "killedBy": [
-            "24"
-          ],
-          "coveredBy": [
-            "22",
-            "24",
-            "25",
-            "26",
-            "50",
-            "52",
-            "53"
-          ],
+          "killedBy": ["24"],
+          "coveredBy": ["22", "24", "25", "26", "50", "52", "53"],
           "location": {
             "end": {
               "column": 4,
@@ -5131,19 +4216,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "24"
-          ],
-          "coveredBy": [
-            "24",
-            "25",
-            "26",
-            "27",
-            "29",
-            "50",
-            "51",
-            "53"
-          ],
+          "killedBy": ["24"],
+          "coveredBy": ["24", "25", "26", "27", "29", "50", "51", "53"],
           "location": {
             "end": {
               "column": 4,
@@ -5163,19 +4237,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "24"
-          ],
-          "coveredBy": [
-            "24",
-            "25",
-            "26",
-            "27",
-            "29",
-            "50",
-            "51",
-            "53"
-          ],
+          "killedBy": ["24"],
+          "coveredBy": ["24", "25", "26", "27", "29", "50", "51", "53"],
           "location": {
             "end": {
               "column": 49,
@@ -5195,19 +4258,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "24"
-          ],
-          "coveredBy": [
-            "24",
-            "25",
-            "26",
-            "27",
-            "29",
-            "50",
-            "51",
-            "53"
-          ],
+          "killedBy": ["24"],
+          "coveredBy": ["24", "25", "26", "27", "29", "50", "51", "53"],
           "location": {
             "end": {
               "column": 49,
@@ -5227,19 +4279,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "24"
-          ],
-          "coveredBy": [
-            "24",
-            "25",
-            "26",
-            "27",
-            "29",
-            "50",
-            "51",
-            "53"
-          ],
+          "killedBy": ["24"],
+          "coveredBy": ["24", "25", "26", "27", "29", "50", "51", "53"],
           "location": {
             "end": {
               "column": 49,
@@ -5259,13 +4300,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "23"
-          ],
-          "coveredBy": [
-            "23",
-            "52"
-          ],
+          "killedBy": ["23"],
+          "coveredBy": ["23", "52"],
           "location": {
             "end": {
               "column": 4,
@@ -5285,13 +4321,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "26"
-          ],
-          "coveredBy": [
-            "26",
-            "53"
-          ],
+          "killedBy": ["26"],
+          "coveredBy": ["26", "53"],
           "location": {
             "end": {
               "column": 4,
@@ -5317,9 +4348,7 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "22"
-          ],
+          "killedBy": ["22"],
           "coveredBy": [
             "13",
             "14",
@@ -5364,9 +4393,7 @@
           "status": "Killed",
           "testsCompleted": 17,
           "static": false,
-          "killedBy": [
-            "21"
-          ],
+          "killedBy": ["21"],
           "coveredBy": [
             "13",
             "14",
@@ -5411,9 +4438,7 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "22"
-          ],
+          "killedBy": ["22"],
           "coveredBy": [
             "13",
             "14",
@@ -5458,9 +4483,7 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "13"
-          ],
+          "killedBy": ["13"],
           "coveredBy": [
             "13",
             "14",
@@ -5505,9 +4528,7 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "22"
-          ],
+          "killedBy": ["22"],
           "coveredBy": [
             "13",
             "14",
@@ -5552,9 +4573,7 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "22"
-          ],
+          "killedBy": ["22"],
           "coveredBy": [
             "13",
             "14",
@@ -5599,9 +4618,7 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "19"
-          ],
+          "killedBy": ["19"],
           "coveredBy": [
             "13",
             "14",
@@ -5646,15 +4663,8 @@
           "status": "Killed",
           "testsCompleted": 3,
           "static": false,
-          "killedBy": [
-            "34"
-          ],
-          "coveredBy": [
-            "21",
-            "33",
-            "34",
-            "35"
-          ],
+          "killedBy": ["34"],
+          "coveredBy": ["21", "33", "34", "35"],
           "location": {
             "end": {
               "column": 88,
@@ -5674,15 +4684,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "21"
-          ],
-          "coveredBy": [
-            "21",
-            "33",
-            "34",
-            "35"
-          ],
+          "killedBy": ["21"],
+          "coveredBy": ["21", "33", "34", "35"],
           "location": {
             "end": {
               "column": 87,
@@ -5702,9 +4705,7 @@
           "status": "Killed",
           "testsCompleted": 16,
           "static": false,
-          "killedBy": [
-            "21"
-          ],
+          "killedBy": ["21"],
           "coveredBy": [
             "13",
             "14",
@@ -5749,9 +4750,7 @@
           "status": "Killed",
           "testsCompleted": 17,
           "static": false,
-          "killedBy": [
-            "21"
-          ],
+          "killedBy": ["21"],
           "coveredBy": [
             "13",
             "14",
@@ -5796,9 +4795,7 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "22"
-          ],
+          "killedBy": ["22"],
           "coveredBy": [
             "13",
             "14",
@@ -5843,9 +4840,7 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "22"
-          ],
+          "killedBy": ["22"],
           "coveredBy": [
             "13",
             "14",
@@ -5889,12 +4884,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "21"
-          ],
-          "coveredBy": [
-            "21"
-          ],
+          "killedBy": ["21"],
+          "coveredBy": ["21"],
           "location": {
             "end": {
               "column": 4,
@@ -5914,12 +4905,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "21"
-          ],
-          "coveredBy": [
-            "21"
-          ],
+          "killedBy": ["21"],
+          "coveredBy": ["21"],
           "location": {
             "end": {
               "column": 4,
@@ -5939,9 +4926,7 @@
           "testsCompleted": 1,
           "static": false,
           "killedBy": [],
-          "coveredBy": [
-            "21"
-          ],
+          "coveredBy": ["21"],
           "location": {
             "end": {
               "column": 58,
@@ -5961,14 +4946,8 @@
           "status": "Killed",
           "testsCompleted": 19,
           "static": true,
-          "killedBy": [
-            "21"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["21"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 2,
@@ -5988,22 +4967,8 @@
           "status": "Killed",
           "testsCompleted": 9,
           "static": true,
-          "killedBy": [
-            "22",
-            "23",
-            "24",
-            "25",
-            "26",
-            "27",
-            "28",
-            "29",
-            "11"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["22", "23", "24", "25", "26", "27", "28", "29", "11"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 26,
@@ -6069,11 +5034,7 @@
           "testsCompleted": 25,
           "static": true,
           "killedBy": [],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 2,
@@ -6093,11 +5054,7 @@
           "testsCompleted": 25,
           "static": true,
           "killedBy": [],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 4,
@@ -6123,14 +5080,8 @@
           "status": "Killed",
           "testsCompleted": 11,
           "static": true,
-          "killedBy": [
-            "13"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["13"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 2,
@@ -6150,11 +5101,7 @@
           "testsCompleted": 25,
           "static": true,
           "killedBy": [],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 34,
@@ -6174,22 +5121,8 @@
           "status": "Killed",
           "testsCompleted": 9,
           "static": true,
-          "killedBy": [
-            "22",
-            "23",
-            "24",
-            "25",
-            "26",
-            "27",
-            "28",
-            "29",
-            "11"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["22", "23", "24", "25", "26", "27", "28", "29", "11"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 34,
@@ -6209,14 +5142,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": true,
-          "killedBy": [
-            "11"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["11"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 4,
@@ -6236,11 +5163,7 @@
           "testsCompleted": 25,
           "static": true,
           "killedBy": [],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 56,
@@ -6260,22 +5183,8 @@
           "status": "Killed",
           "testsCompleted": 9,
           "static": true,
-          "killedBy": [
-            "22",
-            "23",
-            "24",
-            "25",
-            "26",
-            "27",
-            "28",
-            "29",
-            "11"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["22", "23", "24", "25", "26", "27", "28", "29", "11"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 6,
@@ -6295,11 +5204,7 @@
           "testsCompleted": 25,
           "static": true,
           "killedBy": [],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 64,
@@ -6357,14 +5262,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": true,
-          "killedBy": [
-            "19"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["19"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 4,
@@ -6384,11 +5283,7 @@
           "testsCompleted": 25,
           "static": true,
           "killedBy": [],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 40,
@@ -6408,14 +5303,8 @@
           "status": "Killed",
           "testsCompleted": 3,
           "static": true,
-          "killedBy": [
-            "13"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["13"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 22,
@@ -6435,11 +5324,7 @@
           "testsCompleted": 25,
           "static": true,
           "killedBy": [],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 31,
@@ -6459,14 +5344,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": true,
-          "killedBy": [
-            "11"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["11"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 26,
@@ -6486,11 +5365,7 @@
           "testsCompleted": 25,
           "static": true,
           "killedBy": [],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 6,
@@ -6510,11 +5385,7 @@
           "testsCompleted": 25,
           "static": true,
           "killedBy": [],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 51,
@@ -6534,11 +5405,7 @@
           "testsCompleted": 25,
           "static": true,
           "killedBy": [],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 17,
@@ -6558,11 +5425,7 @@
           "testsCompleted": 25,
           "static": true,
           "killedBy": [],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 17,
@@ -6582,11 +5445,7 @@
           "testsCompleted": 25,
           "static": true,
           "killedBy": [],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 8,
@@ -6606,11 +5465,7 @@
           "testsCompleted": 25,
           "static": true,
           "killedBy": [],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 60,
@@ -6714,11 +5569,7 @@
           "testsCompleted": 25,
           "static": true,
           "killedBy": [],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 2,
@@ -6744,11 +5595,7 @@
           "testsCompleted": 25,
           "static": true,
           "killedBy": [],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 2,
@@ -6768,11 +5615,7 @@
           "testsCompleted": 25,
           "static": true,
           "killedBy": [],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 4,
@@ -6798,14 +5641,8 @@
           "status": "Killed",
           "testsCompleted": 15,
           "static": true,
-          "killedBy": [
-            "33"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["33"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 2,
@@ -6825,14 +5662,8 @@
           "status": "Killed",
           "testsCompleted": 13,
           "static": true,
-          "killedBy": [
-            "34"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["34"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 4,
@@ -6852,14 +5683,8 @@
           "status": "Killed",
           "testsCompleted": 16,
           "static": true,
-          "killedBy": [
-            "34"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["34"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 6,
@@ -6879,14 +5704,8 @@
           "status": "Killed",
           "testsCompleted": 24,
           "static": true,
-          "killedBy": [
-            "34"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["34"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 8,
@@ -6906,14 +5725,8 @@
           "status": "Killed",
           "testsCompleted": 13,
           "static": true,
-          "killedBy": [
-            "34"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["34"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 31,
@@ -6933,11 +5746,7 @@
           "testsCompleted": 25,
           "static": true,
           "killedBy": [],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 51,
@@ -6957,11 +5766,7 @@
           "testsCompleted": 25,
           "static": true,
           "killedBy": [],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 25,
@@ -6981,11 +5786,7 @@
           "testsCompleted": 25,
           "static": true,
           "killedBy": [],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 8,
@@ -7005,14 +5806,8 @@
           "status": "Killed",
           "testsCompleted": 24,
           "static": true,
-          "killedBy": [
-            "34"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["34"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 10,
@@ -7032,14 +5827,8 @@
           "status": "Killed",
           "testsCompleted": 2,
           "static": true,
-          "killedBy": [
-            "34"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["34"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 39,
@@ -7059,11 +5848,7 @@
           "testsCompleted": 25,
           "static": true,
           "killedBy": [],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 44,
@@ -7083,14 +5868,8 @@
           "status": "Killed",
           "testsCompleted": 23,
           "static": true,
-          "killedBy": [
-            "33"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["33"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 4,
@@ -7110,14 +5889,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": true,
-          "killedBy": [
-            "33"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["33"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 25,
@@ -7137,11 +5910,7 @@
           "testsCompleted": 25,
           "static": true,
           "killedBy": [],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 6,
@@ -7161,11 +5930,7 @@
           "testsCompleted": 25,
           "static": true,
           "killedBy": [],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 27,
@@ -7185,11 +5950,7 @@
           "testsCompleted": 25,
           "static": true,
           "killedBy": [],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 25,
@@ -7209,11 +5970,7 @@
           "testsCompleted": 25,
           "static": true,
           "killedBy": [],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 20,
@@ -7233,11 +5990,7 @@
           "testsCompleted": 25,
           "static": true,
           "killedBy": [],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 43,
@@ -7263,14 +6016,8 @@
           "status": "Killed",
           "testsCompleted": 4,
           "static": true,
-          "killedBy": [
-            "22"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["22"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 2,
@@ -7290,14 +6037,8 @@
           "status": "Killed",
           "testsCompleted": 11,
           "static": true,
-          "killedBy": [
-            "21"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["21"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 4,
@@ -7317,14 +6058,8 @@
           "status": "Killed",
           "testsCompleted": 14,
           "static": true,
-          "killedBy": [
-            "21"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["21"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 21,
@@ -7472,14 +6207,8 @@
           "status": "Killed",
           "testsCompleted": 4,
           "static": true,
-          "killedBy": [
-            "14"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["14"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 2,
@@ -7499,16 +6228,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "14"
-          ],
-          "coveredBy": [
-            "14",
-            "15",
-            "17",
-            "18",
-            "66"
-          ],
+          "killedBy": ["14"],
+          "coveredBy": ["14", "15", "17", "18", "66"],
           "location": {
             "end": {
               "column": 2,
@@ -7528,16 +6249,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "14"
-          ],
-          "coveredBy": [
-            "14",
-            "15",
-            "17",
-            "18",
-            "66"
-          ],
+          "killedBy": ["14"],
+          "coveredBy": ["14", "15", "17", "18", "66"],
           "location": {
             "end": {
               "column": 10,
@@ -7557,16 +6270,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "14"
-          ],
-          "coveredBy": [
-            "14",
-            "15",
-            "17",
-            "18",
-            "66"
-          ],
+          "killedBy": ["14"],
+          "coveredBy": ["14", "15", "17", "18", "66"],
           "location": {
             "end": {
               "column": 10,
@@ -7586,16 +6291,8 @@
           "status": "Killed",
           "testsCompleted": 5,
           "static": false,
-          "killedBy": [
-            "66"
-          ],
-          "coveredBy": [
-            "14",
-            "15",
-            "17",
-            "18",
-            "66"
-          ],
+          "killedBy": ["66"],
+          "coveredBy": ["14", "15", "17", "18", "66"],
           "location": {
             "end": {
               "column": 10,
@@ -7615,12 +6312,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "66"
-          ],
-          "coveredBy": [
-            "66"
-          ],
+          "killedBy": ["66"],
+          "coveredBy": ["66"],
           "location": {
             "end": {
               "column": 4,
@@ -7640,12 +6333,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "66"
-          ],
-          "coveredBy": [
-            "66"
-          ],
+          "killedBy": ["66"],
+          "coveredBy": ["66"],
           "location": {
             "end": {
               "column": 45,
@@ -7665,15 +6354,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "14"
-          ],
-          "coveredBy": [
-            "14",
-            "15",
-            "17",
-            "18"
-          ],
+          "killedBy": ["14"],
+          "coveredBy": ["14", "15", "17", "18"],
           "location": {
             "end": {
               "column": 37,
@@ -7693,9 +6375,7 @@
           "status": "Killed",
           "testsCompleted": 8,
           "static": true,
-          "killedBy": [
-            "14"
-          ],
+          "killedBy": ["14"],
           "coveredBy": [],
           "location": {
             "end": {
@@ -7716,15 +6396,8 @@
           "status": "Killed",
           "testsCompleted": 2,
           "static": false,
-          "killedBy": [
-            "15"
-          ],
-          "coveredBy": [
-            "14",
-            "15",
-            "17",
-            "18"
-          ],
+          "killedBy": ["15"],
+          "coveredBy": ["14", "15", "17", "18"],
           "location": {
             "end": {
               "column": 4,
@@ -7744,12 +6417,7 @@
           "testsCompleted": 4,
           "static": false,
           "killedBy": [],
-          "coveredBy": [
-            "14",
-            "15",
-            "17",
-            "18"
-          ],
+          "coveredBy": ["14", "15", "17", "18"],
           "location": {
             "end": {
               "column": 50,
@@ -7769,13 +6437,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "14"
-          ],
-          "coveredBy": [
-            "14",
-            "15"
-          ],
+          "killedBy": ["14"],
+          "coveredBy": ["14", "15"],
           "location": {
             "end": {
               "column": 4,
@@ -7795,13 +6458,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "14"
-          ],
-          "coveredBy": [
-            "14",
-            "15"
-          ],
+          "killedBy": ["14"],
+          "coveredBy": ["14", "15"],
           "location": {
             "end": {
               "column": 6,
@@ -7821,10 +6479,7 @@
           "testsCompleted": 2,
           "static": false,
           "killedBy": [],
-          "coveredBy": [
-            "14",
-            "15"
-          ],
+          "coveredBy": ["14", "15"],
           "location": {
             "end": {
               "column": 54,
@@ -7850,22 +6505,8 @@
           "status": "Killed",
           "testsCompleted": 11,
           "static": false,
-          "killedBy": [
-            "32"
-          ],
-          "coveredBy": [
-            "15",
-            "16",
-            "18",
-            "21",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30",
-            "31",
-            "32"
-          ],
+          "killedBy": ["32"],
+          "coveredBy": ["15", "16", "18", "21", "26", "27", "28", "29", "30", "31", "32"],
           "location": {
             "end": {
               "column": 2,
@@ -7885,22 +6526,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "21"
-          ],
-          "coveredBy": [
-            "15",
-            "16",
-            "18",
-            "21",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30",
-            "31",
-            "32"
-          ],
+          "killedBy": ["21"],
+          "coveredBy": ["15", "16", "18", "21", "26", "27", "28", "29", "30", "31", "32"],
           "location": {
             "end": {
               "column": 40,
@@ -7920,22 +6547,8 @@
           "status": "Killed",
           "testsCompleted": 11,
           "static": false,
-          "killedBy": [
-            "32"
-          ],
-          "coveredBy": [
-            "15",
-            "16",
-            "18",
-            "21",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30",
-            "31",
-            "32"
-          ],
+          "killedBy": ["32"],
+          "coveredBy": ["15", "16", "18", "21", "26", "27", "28", "29", "30", "31", "32"],
           "location": {
             "end": {
               "column": 40,
@@ -7955,22 +6568,8 @@
           "status": "Killed",
           "testsCompleted": 3,
           "static": false,
-          "killedBy": [
-            "18"
-          ],
-          "coveredBy": [
-            "15",
-            "16",
-            "18",
-            "21",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30",
-            "31",
-            "32"
-          ],
+          "killedBy": ["18"],
+          "coveredBy": ["15", "16", "18", "21", "26", "27", "28", "29", "30", "31", "32"],
           "location": {
             "end": {
               "column": 40,
@@ -7990,12 +6589,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "32"
-          ],
-          "coveredBy": [
-            "32"
-          ],
+          "killedBy": ["32"],
+          "coveredBy": ["32"],
           "location": {
             "end": {
               "column": 2,
@@ -8015,12 +6610,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "32"
-          ],
-          "coveredBy": [
-            "32"
-          ],
+          "killedBy": ["32"],
+          "coveredBy": ["32"],
           "location": {
             "end": {
               "column": 4,
@@ -8040,12 +6631,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "32"
-          ],
-          "coveredBy": [
-            "32"
-          ],
+          "killedBy": ["32"],
+          "coveredBy": ["32"],
           "location": {
             "end": {
               "column": 25,
@@ -8065,20 +6652,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "26"
-          ],
-          "coveredBy": [
-            "15",
-            "16",
-            "18",
-            "21",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30"
-          ],
+          "killedBy": ["26"],
+          "coveredBy": ["15", "16", "18", "21", "26", "27", "28", "29", "30"],
           "location": {
             "end": {
               "column": 2,
@@ -8098,20 +6673,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "21"
-          ],
-          "coveredBy": [
-            "15",
-            "16",
-            "18",
-            "21",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30"
-          ],
+          "killedBy": ["21"],
+          "coveredBy": ["15", "16", "18", "21", "26", "27", "28", "29", "30"],
           "location": {
             "end": {
               "column": 4,
@@ -8131,12 +6694,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "31"
-          ],
-          "coveredBy": [
-            "31"
-          ],
+          "killedBy": ["31"],
+          "coveredBy": ["31"],
           "location": {
             "end": {
               "column": 2,
@@ -8156,12 +6715,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "31"
-          ],
-          "coveredBy": [
-            "31"
-          ],
+          "killedBy": ["31"],
+          "coveredBy": ["31"],
           "location": {
             "end": {
               "column": 4,
@@ -8181,12 +6736,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "31"
-          ],
-          "coveredBy": [
-            "31"
-          ],
+          "killedBy": ["31"],
+          "coveredBy": ["31"],
           "location": {
             "end": {
               "column": 35,
@@ -8206,12 +6757,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "31"
-          ],
-          "coveredBy": [
-            "31"
-          ],
+          "killedBy": ["31"],
+          "coveredBy": ["31"],
           "location": {
             "end": {
               "column": 44,
@@ -8231,14 +6778,8 @@
           "status": "Killed",
           "testsCompleted": 15,
           "static": true,
-          "killedBy": [
-            "30"
-          ],
-          "coveredBy": [
-            "11",
-            "12",
-            "13"
-          ],
+          "killedBy": ["30"],
+          "coveredBy": ["11", "12", "13"],
           "location": {
             "end": {
               "column": 2,
@@ -8258,22 +6799,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "30"
-          ],
-          "coveredBy": [
-            "15",
-            "16",
-            "18",
-            "21",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30",
-            "31",
-            "32"
-          ],
+          "killedBy": ["30"],
+          "coveredBy": ["15", "16", "18", "21", "26", "27", "28", "29", "30", "31", "32"],
           "location": {
             "end": {
               "column": 4,
@@ -8293,22 +6820,8 @@
           "status": "Killed",
           "testsCompleted": 3,
           "static": false,
-          "killedBy": [
-            "18"
-          ],
-          "coveredBy": [
-            "15",
-            "16",
-            "18",
-            "21",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30",
-            "31",
-            "32"
-          ],
+          "killedBy": ["18"],
+          "coveredBy": ["15", "16", "18", "21", "26", "27", "28", "29", "30", "31", "32"],
           "location": {
             "end": {
               "column": 49,
@@ -8328,22 +6841,8 @@
           "status": "Killed",
           "testsCompleted": 11,
           "static": false,
-          "killedBy": [
-            "32"
-          ],
-          "coveredBy": [
-            "15",
-            "16",
-            "18",
-            "21",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30",
-            "31",
-            "32"
-          ],
+          "killedBy": ["32"],
+          "coveredBy": ["15", "16", "18", "21", "26", "27", "28", "29", "30", "31", "32"],
           "location": {
             "end": {
               "column": 49,
@@ -8363,12 +6862,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "32"
-          ],
-          "coveredBy": [
-            "32"
-          ],
+          "killedBy": ["32"],
+          "coveredBy": ["32"],
           "location": {
             "end": {
               "column": 6,
@@ -8388,21 +6883,8 @@
           "status": "Killed",
           "testsCompleted": 3,
           "static": false,
-          "killedBy": [
-            "31"
-          ],
-          "coveredBy": [
-            "15",
-            "16",
-            "18",
-            "21",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30",
-            "31"
-          ],
+          "killedBy": ["31"],
+          "coveredBy": ["15", "16", "18", "21", "26", "27", "28", "29", "30", "31"],
           "location": {
             "end": {
               "column": 35,
@@ -8422,21 +6904,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "21"
-          ],
-          "coveredBy": [
-            "15",
-            "16",
-            "18",
-            "21",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30",
-            "31"
-          ],
+          "killedBy": ["21"],
+          "coveredBy": ["15", "16", "18", "21", "26", "27", "28", "29", "30", "31"],
           "location": {
             "end": {
               "column": 35,
@@ -8456,20 +6925,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "21"
-          ],
-          "coveredBy": [
-            "15",
-            "16",
-            "18",
-            "21",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30"
-          ],
+          "killedBy": ["21"],
+          "coveredBy": ["15", "16", "18", "21", "26", "27", "28", "29", "30"],
           "location": {
             "end": {
               "column": 6,
@@ -8495,9 +6952,7 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "15"
-          ],
+          "killedBy": ["15"],
           "coveredBy": [
             "0",
             "1",
@@ -8540,9 +6995,7 @@
           "status": "Killed",
           "testsCompleted": 15,
           "static": false,
-          "killedBy": [
-            "59"
-          ],
+          "killedBy": ["59"],
           "coveredBy": [
             "0",
             "1",
@@ -8585,18 +7038,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "15"
-          ],
-          "coveredBy": [
-            "0",
-            "1",
-            "3",
-            "15",
-            "16",
-            "28",
-            "61"
-          ],
+          "killedBy": ["15"],
+          "coveredBy": ["0", "1", "3", "15", "16", "28", "61"],
           "location": {
             "end": {
               "column": 4,
@@ -8616,18 +7059,8 @@
           "status": "Killed",
           "testsCompleted": 7,
           "static": false,
-          "killedBy": [
-            "61"
-          ],
-          "coveredBy": [
-            "0",
-            "1",
-            "3",
-            "15",
-            "16",
-            "28",
-            "61"
-          ],
+          "killedBy": ["61"],
+          "coveredBy": ["0", "1", "3", "15", "16", "28", "61"],
           "location": {
             "end": {
               "column": 34,
@@ -8647,16 +7080,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "21"
-          ],
-          "coveredBy": [
-            "4",
-            "5",
-            "18",
-            "21",
-            "62"
-          ],
+          "killedBy": ["21"],
+          "coveredBy": ["4", "5", "18", "21", "62"],
           "location": {
             "end": {
               "column": 4,
@@ -8676,16 +7101,8 @@
           "status": "Killed",
           "testsCompleted": 5,
           "static": false,
-          "killedBy": [
-            "62"
-          ],
-          "coveredBy": [
-            "4",
-            "5",
-            "18",
-            "21",
-            "62"
-          ],
+          "killedBy": ["62"],
+          "coveredBy": ["4", "5", "18", "21", "62"],
           "location": {
             "end": {
               "column": 36,
@@ -8705,16 +7122,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "30"
-          ],
-          "coveredBy": [
-            "26",
-            "27",
-            "29",
-            "30",
-            "63"
-          ],
+          "killedBy": ["30"],
+          "coveredBy": ["26", "27", "29", "30", "63"],
           "location": {
             "end": {
               "column": 4,
@@ -8734,16 +7143,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "30"
-          ],
-          "coveredBy": [
-            "26",
-            "27",
-            "29",
-            "30",
-            "63"
-          ],
+          "killedBy": ["30"],
+          "coveredBy": ["26", "27", "29", "30", "63"],
           "location": {
             "end": {
               "column": 32,
@@ -8763,12 +7164,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "64"
-          ],
-          "coveredBy": [
-            "64"
-          ],
+          "killedBy": ["64"],
+          "coveredBy": ["64"],
           "location": {
             "end": {
               "column": 4,
@@ -8788,12 +7185,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "64"
-          ],
-          "coveredBy": [
-            "64"
-          ],
+          "killedBy": ["64"],
+          "coveredBy": ["64"],
           "location": {
             "end": {
               "column": 32,
@@ -8813,12 +7206,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "65"
-          ],
-          "coveredBy": [
-            "65"
-          ],
+          "killedBy": ["65"],
+          "coveredBy": ["65"],
           "location": {
             "end": {
               "column": 4,
@@ -8838,12 +7227,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "65"
-          ],
-          "coveredBy": [
-            "65"
-          ],
+          "killedBy": ["65"],
+          "coveredBy": ["65"],
           "location": {
             "end": {
               "column": 38,
@@ -8869,17 +7254,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "22"
-          ],
-          "coveredBy": [
-            "22",
-            "24",
-            "25",
-            "26",
-            "39",
-            "40"
-          ],
+          "killedBy": ["22"],
+          "coveredBy": ["22", "24", "25", "26", "39", "40"],
           "location": {
             "end": {
               "column": 4,
@@ -8905,15 +7281,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "26"
-          ],
-          "coveredBy": [
-            "26",
-            "28",
-            "57",
-            "58"
-          ],
+          "killedBy": ["26"],
+          "coveredBy": ["26", "28", "57", "58"],
           "location": {
             "end": {
               "column": 4,
@@ -8939,13 +7308,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "23"
-          ],
-          "coveredBy": [
-            "23",
-            "36"
-          ],
+          "killedBy": ["23"],
+          "coveredBy": ["23", "36"],
           "location": {
             "end": {
               "column": 4,
@@ -8965,13 +7329,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "23"
-          ],
-          "coveredBy": [
-            "23",
-            "36"
-          ],
+          "killedBy": ["23"],
+          "coveredBy": ["23", "36"],
           "location": {
             "end": {
               "column": 45,
@@ -8991,16 +7350,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "24"
-          ],
-          "coveredBy": [
-            "24",
-            "26",
-            "29",
-            "37",
-            "38"
-          ],
+          "killedBy": ["24"],
+          "coveredBy": ["24", "26", "29", "37", "38"],
           "location": {
             "end": {
               "column": 4,
@@ -9020,16 +7371,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "24"
-          ],
-          "coveredBy": [
-            "24",
-            "26",
-            "29",
-            "37",
-            "38"
-          ],
+          "killedBy": ["24"],
+          "coveredBy": ["24", "26", "29", "37", "38"],
           "location": {
             "end": {
               "column": 6,
@@ -9049,12 +7392,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "38"
-          ],
-          "coveredBy": [
-            "38"
-          ],
+          "killedBy": ["38"],
+          "coveredBy": ["38"],
           "location": {
             "end": {
               "column": 6,
@@ -9080,18 +7419,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "25"
-          ],
-          "coveredBy": [
-            "25",
-            "27",
-            "41",
-            "42",
-            "43",
-            "44",
-            "45"
-          ],
+          "killedBy": ["25"],
+          "coveredBy": ["25", "27", "41", "42", "43", "44", "45"],
           "location": {
             "end": {
               "column": 4,
@@ -9111,18 +7440,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "25"
-          ],
-          "coveredBy": [
-            "25",
-            "27",
-            "41",
-            "42",
-            "43",
-            "44",
-            "45"
-          ],
+          "killedBy": ["25"],
+          "coveredBy": ["25", "27", "41", "42", "43", "44", "45"],
           "location": {
             "end": {
               "column": 6,
@@ -9142,16 +7461,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "25"
-          ],
-          "coveredBy": [
-            "25",
-            "27",
-            "41",
-            "42",
-            "43"
-          ],
+          "killedBy": ["25"],
+          "coveredBy": ["25", "27", "41", "42", "43"],
           "location": {
             "end": {
               "column": 16,
@@ -9171,16 +7482,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "25"
-          ],
-          "coveredBy": [
-            "25",
-            "27",
-            "41",
-            "42",
-            "43"
-          ],
+          "killedBy": ["25"],
+          "coveredBy": ["25", "27", "41", "42", "43"],
           "location": {
             "end": {
               "column": 16,
@@ -9200,13 +7503,7 @@
           "testsCompleted": 5,
           "static": false,
           "killedBy": [],
-          "coveredBy": [
-            "25",
-            "27",
-            "41",
-            "42",
-            "43"
-          ],
+          "coveredBy": ["25", "27", "41", "42", "43"],
           "location": {
             "end": {
               "column": 16,
@@ -9226,15 +7523,8 @@
           "status": "Killed",
           "testsCompleted": 4,
           "static": false,
-          "killedBy": [
-            "43"
-          ],
-          "coveredBy": [
-            "25",
-            "41",
-            "42",
-            "43"
-          ],
+          "killedBy": ["43"],
+          "coveredBy": ["25", "41", "42", "43"],
           "location": {
             "end": {
               "column": 22,
@@ -9254,15 +7544,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "25"
-          ],
-          "coveredBy": [
-            "25",
-            "41",
-            "42",
-            "43"
-          ],
+          "killedBy": ["25"],
+          "coveredBy": ["25", "41", "42", "43"],
           "location": {
             "end": {
               "column": 22,
@@ -9282,14 +7565,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "25"
-          ],
-          "coveredBy": [
-            "25",
-            "41",
-            "42"
-          ],
+          "killedBy": ["25"],
+          "coveredBy": ["25", "41", "42"],
           "location": {
             "end": {
               "column": 8,
@@ -9309,15 +7586,8 @@
           "status": "Killed",
           "testsCompleted": 3,
           "static": false,
-          "killedBy": [
-            "42"
-          ],
-          "coveredBy": [
-            "25",
-            "41",
-            "42",
-            "43"
-          ],
+          "killedBy": ["42"],
+          "coveredBy": ["25", "41", "42", "43"],
           "location": {
             "end": {
               "column": 35,
@@ -9337,15 +7607,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "25"
-          ],
-          "coveredBy": [
-            "25",
-            "41",
-            "42",
-            "43"
-          ],
+          "killedBy": ["25"],
+          "coveredBy": ["25", "41", "42", "43"],
           "location": {
             "end": {
               "column": 35,
@@ -9365,15 +7628,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "25"
-          ],
-          "coveredBy": [
-            "25",
-            "41",
-            "42",
-            "43"
-          ],
+          "killedBy": ["25"],
+          "coveredBy": ["25", "41", "42", "43"],
           "location": {
             "end": {
               "column": 35,
@@ -9393,15 +7649,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "25"
-          ],
-          "coveredBy": [
-            "25",
-            "41",
-            "42",
-            "43"
-          ],
+          "killedBy": ["25"],
+          "coveredBy": ["25", "41", "42", "43"],
           "location": {
             "end": {
               "column": 35,
@@ -9421,14 +7670,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "25"
-          ],
-          "coveredBy": [
-            "25",
-            "41",
-            "43"
-          ],
+          "killedBy": ["25"],
+          "coveredBy": ["25", "41", "43"],
           "location": {
             "end": {
               "column": 8,
@@ -9448,13 +7691,8 @@
           "status": "Killed",
           "testsCompleted": 1,
           "static": false,
-          "killedBy": [
-            "44"
-          ],
-          "coveredBy": [
-            "44",
-            "45"
-          ],
+          "killedBy": ["44"],
+          "coveredBy": ["44", "45"],
           "location": {
             "end": {
               "column": 6,
@@ -9834,21 +8072,10 @@
   "projectRoot": "/home/thales/projects/sample-todo-apps/typescript",
   "config": {
     "$schema": "https://schema.stryker-mutator.io/stryker-config.json",
-    "mutate": [
-      "src/**/*.ts",
-      "!src/**/index.ts",
-      "!src/shared/types/*.ts"
-    ],
+    "mutate": ["src/**/*.ts", "!src/**/index.ts", "!src/shared/types/*.ts"],
     "testRunner": "vitest",
-    "reporters": [
-      "progress",
-      "clear-text",
-      "html",
-      "json"
-    ],
-    "plugins": [
-      "@stryker-mutator/vitest-runner"
-    ],
+    "reporters": ["progress", "clear-text", "html", "json"],
+    "plugins": ["@stryker-mutator/vitest-runner"],
     "checkers": [],
     "tsconfigFile": "tsconfig.json",
     "incremental": true,
