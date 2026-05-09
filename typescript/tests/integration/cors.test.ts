@@ -27,9 +27,8 @@ describe('CORS', () => {
     })
 
     // It should not be '*' anymore.
-    // Depending on @fastify/cors, if the origin doesn't match, it might not return the header at all
-    // or it might return the configured origin if it matched.
-    expect(response.headers['access-control-allow-origin']).not.toBe('*')
+    // When the origin doesn't match, @fastify/cors should not return the header at all.
+    expect(response.headers['access-control-allow-origin']).toBeUndefined()
   })
 
   it('should allow configured origin', async () => {

@@ -23,6 +23,7 @@ const environmentSchema = {
     },
     CORS_ORIGIN: {
       type: 'string',
+      minLength: 1,
     },
     JWT_SECRET: {
       type: 'string',
