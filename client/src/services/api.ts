@@ -39,7 +39,7 @@ class ApiService {
       headers.set('Authorization', `Bearer ${this.token}`);
     }
 
-    if (!headers.has('Content-Type') && !(options.body instanceof FormData) && options.method !== 'DELETE' && options.method !== 'GET' && options.method !== 'HEAD') {
+    if (options.body != null && !headers.has('Content-Type') && !(options.body instanceof FormData)) {
       headers.set('Content-Type', 'application/json');
     }
 
@@ -56,7 +56,7 @@ class ApiService {
     }
 
     if (response.status === 204) {
-      return {} as T;
+      return null as T;
     }
 
     if (!response.ok) {
