@@ -11,19 +11,19 @@ export class InMemoryTodoRepository implements TodoRepository {
   }
 
   async findById(id: TodoId, userId: string): Promise<Todo | null> {
-    const todo = this.todos.get(id.toString());
+    const todo = this.todos.get(id.toString())
     if (todo && todo.toJSON().userId === userId) {
-      return todo;
+      return todo
     }
-    return null;
+    return null
   }
 
   async findAll(userId: string): Promise<Todo[]> {
-    return Array.from(this.todos.values()).filter(todo => todo.toJSON().userId === userId);
+    return Array.from(this.todos.values()).filter((todo) => todo.toJSON().userId === userId)
   }
 
   async delete(id: TodoId, userId: string): Promise<void> {
-    const todo = this.todos.get(id.toString());
+    const todo = this.todos.get(id.toString())
     if (todo && todo.toJSON().userId === userId) {
       this.todos.delete(id.toString())
     }

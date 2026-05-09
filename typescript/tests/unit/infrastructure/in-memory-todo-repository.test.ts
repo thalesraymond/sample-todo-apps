@@ -45,7 +45,7 @@ describe('InMemoryTodoRepository', () => {
 
     const todos = await repository.findAll(userId)
     expect(todos.length).toBe(1)
-    expect(todos[0].toJSON().title).toBe('Todo 1')
+    expect(todos[0]?.toJSON().title).toBe('Todo 1')
   })
 
   it('should delete a todo', async () => {

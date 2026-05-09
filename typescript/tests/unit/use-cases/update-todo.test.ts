@@ -22,10 +22,14 @@ describe('UpdateTodoUseCase', () => {
     const todo = Todo.create(TodoTitle.fromString('Old title'), 'user-123')
     vi.mocked(repository.findById).mockResolvedValue(todo)
 
-    const result = await useCase.execute(todo.toJSON().id, {
-      title: 'New title',
-      completed: true,
-    }, 'user-123')
+    const result = await useCase.execute(
+      todo.toJSON().id,
+      {
+        title: 'New title',
+        completed: true,
+      },
+      'user-123',
+    )
 
     expect(result?.title).toBe('New title')
     expect(result?.completed).toBe(true)
@@ -36,9 +40,13 @@ describe('UpdateTodoUseCase', () => {
     const todo = Todo.create(TodoTitle.fromString('Old title'), 'user-123')
     vi.mocked(repository.findById).mockResolvedValue(todo)
 
-    const result = await useCase.execute(todo.toJSON().id, {
-      title: 'New title',
-    }, 'user-123')
+    const result = await useCase.execute(
+      todo.toJSON().id,
+      {
+        title: 'New title',
+      },
+      'user-123',
+    )
 
     expect(result?.title).toBe('New title')
     expect(result?.completed).toBe(false)
@@ -48,9 +56,13 @@ describe('UpdateTodoUseCase', () => {
     const todo = Todo.create(TodoTitle.fromString('Same title'), 'user-123')
     vi.mocked(repository.findById).mockResolvedValue(todo)
 
-    const result = await useCase.execute(todo.toJSON().id, {
-      completed: true,
-    }, 'user-123')
+    const result = await useCase.execute(
+      todo.toJSON().id,
+      {
+        completed: true,
+      },
+      'user-123',
+    )
 
     expect(result?.title).toBe('Same title')
     expect(result?.completed).toBe(true)
