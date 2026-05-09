@@ -19,11 +19,11 @@ describe('DeleteTodoUseCase', () => {
 
   it('should delete a todo', async () => {
     const id = '550e8400-e29b-41d4-a716-446655440000'
-    await useCase.execute(id)
-    expect(repository.delete).toHaveBeenCalledWith(expect.any(TodoId))
+    await useCase.execute(id, 'user-123')
+    expect(repository.delete).toHaveBeenCalledWith(expect.any(TodoId), 'user-123')
   })
 
   it('should throw error for invalid id', async () => {
-    await expect(useCase.execute('invalid')).rejects.toThrow()
+    await expect(useCase.execute('invalid', 'user-123')).rejects.toThrow()
   })
 })

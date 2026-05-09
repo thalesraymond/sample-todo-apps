@@ -22,17 +22,20 @@ export class TodoController {
   }
 
   async create(request: FastifyRequest<{ Body: { title: string } }>, reply: FastifyReply) {
-    const result = await this.createTodoUseCase.execute(request.body)
+    const userId = request.user.sub
+    const result = await this.createTodoUseCase.execute(request.body, userId)
     return reply.status(201).send(result)
   }
 
-  async getAll(_request: FastifyRequest, reply: FastifyReply) {
-    const result = await this.getTodosUseCase.execute()
+  async getAll(request: FastifyRequest, reply: FastifyReply) {
+    const userId = request.user.sub
+    const result = await this.getTodosUseCase.execute(userId)
     return reply.send(result)
   }
 
   async getById(request: FastifyRequest<{ Params: { id: string } }>, reply: FastifyReply) {
-    const result = await this.getTodoByIdUseCase.execute(request.params.id)
+    const userId = request.user.sub
+    const result = await this.getTodoByIdUseCase.execute(request.params.id, userId)
     if (!result) {
       throw new NotFoundError('Todo not found')
     }
@@ -46,7 +49,8 @@ export class TodoController {
     }>,
     reply: FastifyReply,
   ) {
-    const result = await this.updateTodoUseCase.execute(request.params.id, request.body)
+    const userId = request.user.sub
+    const result = await this.updateTodoUseCase.execute(request.params.id, request.body, userId)
     if (!result) {
       throw new NotFoundError('Todo not found')
     }
@@ -54,8 +58,9 @@ export class TodoController {
   }
 
   async delete(request: FastifyRequest<{ Params: { id: string } }>, reply: FastifyReply) {
+    const userId = request.user.sub
     try {
-      await this.deleteTodoUseCase.execute(request.params.id)
+      await this.deleteTodoUseCase.execute(request.params.id, userId)
       return reply.status(204).send()
     } catch (error) {
       if (error instanceof Error && error.message.toLowerCase().includes('id')) {

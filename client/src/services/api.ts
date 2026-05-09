@@ -1,3 +1,5 @@
+import Cookies from 'js-cookie';
+
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
 
 export interface ApiError {
@@ -7,7 +9,7 @@ export interface ApiError {
 
 class ApiService {
   private static instance: ApiService;
-  private token: string | null = localStorage.getItem('token');
+  private token: string | null = Cookies.get('token') || null;
 
   private constructor() {}
 
@@ -21,9 +23,9 @@ class ApiService {
   public setToken(token: string | null) {
     this.token = token;
     if (token) {
-      localStorage.setItem('token', token);
+      Cookies.set('token', token, { path: '/' });
     } else {
-      localStorage.removeItem('token');
+      Cookies.remove('token', { path: '/' });
     }
   }
 
@@ -52,7 +54,7 @@ class ApiService {
 
     if (response.status === 401) {
       this.setToken(null);
-      // Optional: window.location.href = '/login';
+      window.location.href = '/login';
     }
 
     if (response.status === 204) {

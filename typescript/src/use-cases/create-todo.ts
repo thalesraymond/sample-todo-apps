@@ -9,9 +9,9 @@ export interface CreateTodoInput {
 export class CreateTodoUseCase {
   constructor(private readonly repository: TodoRepository) {}
 
-  async execute(input: CreateTodoInput) {
+  async execute(input: CreateTodoInput, userId: string) {
     const title = TodoTitle.fromString(input.title)
-    const todo = Todo.create(title)
+    const todo = Todo.create(title, userId)
     await this.repository.save(todo)
     return todo.toJSON()
   }

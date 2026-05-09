@@ -5,7 +5,7 @@ import { TodoTitle } from '../../../src/domain/todo-title.js'
 describe('Todo', () => {
   it('should create a new Todo', () => {
     const title = TodoTitle.fromString('Buy milk')
-    const todo = Todo.create(title)
+    const todo = Todo.create(title, 'test-user-id')
 
     const data = todo.toJSON()
     expect(data.id).toBeDefined()
@@ -17,7 +17,7 @@ describe('Todo', () => {
 
   it('should mark as completed', () => {
     const title = TodoTitle.fromString('Buy milk')
-    const todo = Todo.create(title)
+    const todo = Todo.create(title, 'test-user-id')
 
     todo.complete()
     expect(todo.toJSON().completed).toBe(true)
@@ -25,7 +25,7 @@ describe('Todo', () => {
 
   it('should update title', () => {
     const title = TodoTitle.fromString('Buy milk')
-    const todo = Todo.create(title)
+    const todo = Todo.create(title, 'test-user-id')
 
     const newTitle = TodoTitle.fromString('Buy bread')
     todo.updateTitle(newTitle)

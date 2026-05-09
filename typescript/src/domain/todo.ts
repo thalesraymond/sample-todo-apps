@@ -28,6 +28,7 @@ class TodoDetails {
   constructor(
     public readonly title: TodoTitle,
     public readonly status: TodoStatus,
+    public readonly userId: string,
   ) {}
 }
 
@@ -37,15 +38,15 @@ export class Todo {
     private details: TodoDetails,
   ) {}
 
-  static create(title: TodoTitle): Todo {
+  static create(title: TodoTitle, userId: string): Todo {
     const status = new TodoStatus(false, TodoTimestamps.now())
-    const details = new TodoDetails(title, status)
+    const details = new TodoDetails(title, status, userId)
     return new Todo(TodoId.create(), details)
   }
 
   complete(): void {
     const newStatus = new TodoStatus(true, this.details.status.timestamps.update())
-    this.details = new TodoDetails(this.details.title, newStatus)
+    this.details = new TodoDetails(this.details.title, newStatus, this.details.userId)
   }
 
   updateTitle(title: TodoTitle): void {
@@ -53,7 +54,7 @@ export class Todo {
       this.details.status.completed,
       this.details.status.timestamps.update(),
     )
-    this.details = new TodoDetails(title, newStatus)
+    this.details = new TodoDetails(title, newStatus, this.details.userId)
   }
 
   toJSON() {
@@ -63,6 +64,7 @@ export class Todo {
       completed: this.details.status.completed,
       createdAt: this.details.status.timestamps.createdAt,
       updatedAt: this.details.status.timestamps.updatedAt,
+      userId: this.details.userId,
     }
   }
 }
