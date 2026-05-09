@@ -1,20 +1,9 @@
 {
   "$schema": "https://schema.stryker-mutator.io/stryker-config.json",
-  "mutate": [
-    "src/**/*.ts",
-    "!src/**/index.ts",
-    "!src/shared/types/*.ts"
-  ],
+  "mutate": ["src/**/*.ts", "!src/**/index.ts", "!src/shared/types/*.ts"],
   "testRunner": "vitest",
-  "reporters": [
-    "progress",
-    "clear-text",
-    "html",
-    "json"
-  ],
-  "plugins": [
-    "@stryker-mutator/vitest-runner"
-  ],
+  "reporters": ["progress", "clear-text", "html", "json"],
+  "plugins": ["@stryker-mutator/vitest-runner"],
   "checkers": [],
   "tsconfigFile": "tsconfig.json",
   "incremental": true,
