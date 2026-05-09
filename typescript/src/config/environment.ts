@@ -3,7 +3,7 @@ import fastifyEnv from '@fastify/env'
 
 const environmentSchema = {
   type: 'object',
-  required: [],
+  required: ['CORS_ORIGIN'],
   properties: {
     PORT: {
       type: 'number',
@@ -23,7 +23,6 @@ const environmentSchema = {
     },
     CORS_ORIGIN: {
       type: 'string',
-      default: '*',
     },
     JWT_SECRET: {
       type: 'string',
