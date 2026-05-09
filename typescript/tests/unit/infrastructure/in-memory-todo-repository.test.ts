@@ -58,4 +58,15 @@ describe('InMemoryTodoRepository', () => {
     const found = await repository.findById(id, userId)
     expect(found).toBeNull()
   })
+
+  it('should not delete a todo if it belongs to another user', async () => {
+    const todo = Todo.create(TodoTitle.fromString('Do not delete me'), userId)
+    await repository.save(todo)
+
+    const id = TodoId.fromString(todo.toJSON().id)
+    await repository.delete(id, otherUserId)
+
+    const found = await repository.findById(id, userId)
+    expect(found).not.toBeNull()
+  })
 })
