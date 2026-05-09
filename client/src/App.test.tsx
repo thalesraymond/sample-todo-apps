@@ -7,7 +7,7 @@ import App from './App'
 describe('App Component', () => {
   it('renders login link when not authenticated', () => {
     render(<App />)
-    expect(screen.getByText('Login')).toBeInTheDocument()
+    expect(screen.getAllByText('Login').length).toBeGreaterThan(0)
   })
 
   it('renders logo', () => {

@@ -39,7 +39,7 @@ class ApiService {
       headers.set('Authorization', `Bearer ${this.token}`);
     }
 
-    if (!headers.has('Content-Type') && !(options.body instanceof FormData)) {
+    if (options.body != null && !headers.has('Content-Type') && !(options.body instanceof FormData)) {
       headers.set('Content-Type', 'application/json');
     }
 
@@ -53,6 +53,10 @@ class ApiService {
     if (response.status === 401) {
       this.setToken(null);
       // Optional: window.location.href = '/login';
+    }
+
+    if (response.status === 204) {
+      return null as T;
     }
 
     if (!response.ok) {
