@@ -43,10 +43,14 @@ describe('authHandler', () => {
   describe('register', () => {
     it('should throw BadRequestError if email or password missing', async () => {
       mockRequest.body = { email: 'test@example.com' }
-      await expect(authHandler.register(mockRequest, mockReply)).rejects.toThrow(BadRequestError)
+      await expect(authHandler.register(mockRequest, mockReply)).rejects.toThrowError(
+        new BadRequestError('Email and password are required'),
+      )
 
       mockRequest.body = { password: 'password123' }
-      await expect(authHandler.register(mockRequest, mockReply)).rejects.toThrow(BadRequestError)
+      await expect(authHandler.register(mockRequest, mockReply)).rejects.toThrowError(
+        new BadRequestError('Email and password are required'),
+      )
     })
 
     it('should throw BadRequestError if email already registered', async () => {
@@ -57,7 +61,9 @@ describe('authHandler', () => {
         passwordHash: 'hash',
       } as unknown as User)
 
-      await expect(authHandler.register(mockRequest, mockReply)).rejects.toThrow(BadRequestError)
+      await expect(authHandler.register(mockRequest, mockReply)).rejects.toThrowError(
+        new BadRequestError('Email already registered'),
+      )
       expect(userRepository.findByEmail).toHaveBeenCalledWith('exists@example.com')
     })
 
@@ -89,14 +95,18 @@ describe('authHandler', () => {
   describe('login', () => {
     it('should throw BadRequestError if email or password missing', async () => {
       mockRequest.body = { email: 'test@example.com' }
-      await expect(authHandler.login(mockRequest, mockReply)).rejects.toThrow(BadRequestError)
+      await expect(authHandler.login(mockRequest, mockReply)).rejects.toThrowError(
+        new BadRequestError('Email and password are required'),
+      )
     })
 
     it('should throw UnauthorizedError if user not found', async () => {
       mockRequest.body = { email: 'notfound@example.com', password: 'password123' }
       vi.mocked(userRepository.findByEmail).mockResolvedValue(null)
 
-      await expect(authHandler.login(mockRequest, mockReply)).rejects.toThrow(UnauthorizedError)
+      await expect(authHandler.login(mockRequest, mockReply)).rejects.toThrowError(
+        new UnauthorizedError('Invalid credentials'),
+      )
     })
 
     it('should throw UnauthorizedError if password invalid', async () => {
@@ -108,7 +118,9 @@ describe('authHandler', () => {
       } as unknown as User)
       vi.mocked(bcrypt.compare).mockResolvedValue(false as never)
 
-      await expect(authHandler.login(mockRequest, mockReply)).rejects.toThrow(UnauthorizedError)
+      await expect(authHandler.login(mockRequest, mockReply)).rejects.toThrowError(
+        new UnauthorizedError('Invalid credentials'),
+      )
     })
 
     it('should return token on successful login', async () => {
