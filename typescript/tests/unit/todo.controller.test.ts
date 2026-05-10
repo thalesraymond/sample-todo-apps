@@ -17,7 +17,7 @@ describe('TodoController', () => {
     const controller = new TodoController(mockRepository)
 
     const request = {
-      params: { id: 'invalid-id' }
+      params: { id: 'invalid-id' },
     } as unknown as FastifyRequest<{ Params: { id: string } }>
 
     const reply = {} as FastifyReply
@@ -36,7 +36,7 @@ describe('TodoController', () => {
     const controller = new TodoController(mockRepository)
 
     const request = {
-      params: { id: '550e8400-e29b-41d4-a716-446655440000' }
+      params: { id: '550e8400-e29b-41d4-a716-446655440000' },
     } as unknown as FastifyRequest<{ Params: { id: string } }>
 
     const reply = {} as FastifyReply
