@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { MemoryRouter, Route, Routes } from 'react-router-dom';
+import { MemoryRouter, Route, Routes, useLocation } from 'react-router-dom';
 import { AuthGuard } from './AuthGuard';
 import { useAuth } from '../hooks/useAuth';
 
@@ -17,7 +17,13 @@ describe('AuthGuard Component', () => {
   });
 
   const TestComponent = () => <div>Protected Content</div>;
-  const LoginComponent = () => <div>Login Page</div>;
+  const LoginComponent = () => {
+    const location = useLocation();
+    return <div>
+      Login Page
+      {location.state?.from?.pathname && <span data-testid="from-path">{location.state.from.pathname}</span>}
+    </div>;
+  };
 
   const renderWithRouter = () => {
     return render(
@@ -70,6 +76,7 @@ describe('AuthGuard Component', () => {
 
     expect(screen.getByText('Login Page')).toBeInTheDocument();
     expect(screen.queryByText('Protected Content')).not.toBeInTheDocument();
+    expect(screen.getByTestId('from-path')).toHaveTextContent('/protected');
   });
 
   it('renders children when authenticated', () => {
