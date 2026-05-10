@@ -30,7 +30,9 @@ describe('TodoController', () => {
 
       const request = {
         params: { id: 'non-existent-id' },
-        user: { sub: 'user-123' },
+        user: {
+          sub: 'user-123',
+        },
       } as unknown as FastifyRequest<{ Params: { id: string } }>
 
       await expect(controller.getById(request, mockReply)).rejects.toThrow(NotFoundError)

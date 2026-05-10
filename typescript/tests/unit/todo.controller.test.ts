@@ -18,7 +18,9 @@ describe('TodoController', () => {
 
     const request = {
       params: { id: 'invalid-id' },
-      user: { sub: 'user-123' },
+      user: {
+        sub: 'user-123',
+      },
     } as unknown as FastifyRequest<{ Params: { id: string } }>
 
     const reply = {} as FastifyReply
@@ -38,7 +40,9 @@ describe('TodoController', () => {
 
     const request = {
       params: { id: '550e8400-e29b-41d4-a716-446655440000' },
-      user: { sub: 'user-123' },
+      user: {
+        sub: 'user-123',
+      },
     } as unknown as FastifyRequest<{ Params: { id: string } }>
 
     const reply = {} as FastifyReply
