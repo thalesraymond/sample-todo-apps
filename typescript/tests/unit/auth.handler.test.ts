@@ -3,7 +3,6 @@ import type { FastifyRequest, FastifyReply } from 'fastify'
 import { authHandler } from '../../src/features/auth/auth.handler.js'
 import { userRepository } from '../../src/shared/database.js'
 import bcrypt from 'bcryptjs'
-import { BadRequestError, UnauthorizedError } from '../../src/shared/errors/http-error.js'
 import type { User } from '../../src/shared/types/index.js'
 
 vi.mock('../../src/shared/database.js', () => ({
@@ -48,7 +47,7 @@ describe('authHandler', () => {
           mockRequest as FastifyRequest<{ Body: { email?: string; password?: string } }>,
           mockReply,
         ),
-      ).rejects.toThrow(BadRequestError)
+      ).rejects.toThrowError('Email and password are required')
 
       mockRequest.body = { password: 'password123' }
       await expect(
@@ -56,7 +55,7 @@ describe('authHandler', () => {
           mockRequest as FastifyRequest<{ Body: { email?: string; password?: string } }>,
           mockReply,
         ),
-      ).rejects.toThrow(BadRequestError)
+      ).rejects.toThrowError('Email and password are required')
     })
 
     it('should throw BadRequestError if email already registered', async () => {
@@ -72,7 +71,7 @@ describe('authHandler', () => {
           mockRequest as FastifyRequest<{ Body: { email?: string; password?: string } }>,
           mockReply,
         ),
-      ).rejects.toThrow(BadRequestError)
+      ).rejects.toThrowError('Email already registered')
       expect(userRepository.findByEmail).toHaveBeenCalledWith('exists@example.com')
     })
 
@@ -112,7 +111,7 @@ describe('authHandler', () => {
           mockRequest as FastifyRequest<{ Body: { email?: string; password?: string } }>,
           mockReply,
         ),
-      ).rejects.toThrow(BadRequestError)
+      ).rejects.toThrowError('Email and password are required')
     })
 
     it('should throw UnauthorizedError if user not found', async () => {
@@ -124,7 +123,7 @@ describe('authHandler', () => {
           mockRequest as FastifyRequest<{ Body: { email?: string; password?: string } }>,
           mockReply,
         ),
-      ).rejects.toThrow(UnauthorizedError)
+      ).rejects.toThrowError('Invalid credentials')
     })
 
     it('should throw UnauthorizedError if password invalid', async () => {
@@ -141,7 +140,7 @@ describe('authHandler', () => {
           mockRequest as FastifyRequest<{ Body: { email?: string; password?: string } }>,
           mockReply,
         ),
-      ).rejects.toThrow(UnauthorizedError)
+      ).rejects.toThrowError('Invalid credentials')
     })
 
     it('should return token on successful login', async () => {
