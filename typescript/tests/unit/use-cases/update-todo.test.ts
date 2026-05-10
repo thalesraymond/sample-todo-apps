@@ -19,13 +19,17 @@ describe('UpdateTodoUseCase', () => {
   })
 
   it('should update a todo', async () => {
-    const todo = Todo.create(TodoTitle.fromString('Old title'))
+    const todo = Todo.create(TodoTitle.fromString('Old title'), 'user-123')
     vi.mocked(repository.findById).mockResolvedValue(todo)
 
-    const result = await useCase.execute(todo.toJSON().id, {
-      title: 'New title',
-      completed: true,
-    })
+    const result = await useCase.execute(
+      todo.toJSON().id,
+      {
+        title: 'New title',
+        completed: true,
+      },
+      'user-123',
+    )
 
     expect(result?.title).toBe('New title')
     expect(result?.completed).toBe(true)
@@ -33,37 +37,45 @@ describe('UpdateTodoUseCase', () => {
   })
 
   it('should update only title', async () => {
-    const todo = Todo.create(TodoTitle.fromString('Old title'))
+    const todo = Todo.create(TodoTitle.fromString('Old title'), 'user-123')
     vi.mocked(repository.findById).mockResolvedValue(todo)
 
-    const result = await useCase.execute(todo.toJSON().id, {
-      title: 'New title',
-    })
+    const result = await useCase.execute(
+      todo.toJSON().id,
+      {
+        title: 'New title',
+      },
+      'user-123',
+    )
 
     expect(result?.title).toBe('New title')
     expect(result?.completed).toBe(false)
   })
 
   it('should update only completed status', async () => {
-    const todo = Todo.create(TodoTitle.fromString('Same title'))
+    const todo = Todo.create(TodoTitle.fromString('Same title'), 'user-123')
     vi.mocked(repository.findById).mockResolvedValue(todo)
 
-    const result = await useCase.execute(todo.toJSON().id, {
-      completed: true,
-    })
+    const result = await useCase.execute(
+      todo.toJSON().id,
+      {
+        completed: true,
+      },
+      'user-123',
+    )
 
     expect(result?.title).toBe('Same title')
     expect(result?.completed).toBe(true)
   })
 
   it('should return null if id is invalid', async () => {
-    const result = await useCase.execute('invalid-uuid', { title: 'New' })
+    const result = await useCase.execute('invalid-uuid', { title: 'New' }, 'user-123')
     expect(result).toBeNull()
   })
 
   it('should return null if todo not found', async () => {
     vi.mocked(repository.findById).mockResolvedValue(null)
-    const result = await useCase.execute('non-existent', { title: 'New' })
+    const result = await useCase.execute('non-existent', { title: 'New' }, 'user-123')
     expect(result).toBeNull()
   })
 })

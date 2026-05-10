@@ -10,10 +10,10 @@ export interface UpdateTodoInput {
 export class UpdateTodoUseCase {
   constructor(private readonly repository: TodoRepository) {}
 
-  async execute(id: string, input: UpdateTodoInput) {
+  async execute(id: string, input: UpdateTodoInput, userId: string) {
     try {
       const todoId = TodoId.fromString(id)
-      const todo = await this.repository.findById(todoId)
+      const todo = await this.repository.findById(todoId, userId)
 
       if (!todo) return null
 

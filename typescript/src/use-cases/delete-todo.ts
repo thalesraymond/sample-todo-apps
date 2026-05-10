@@ -4,8 +4,8 @@ import { TodoId } from '../domain/todo-id.js'
 export class DeleteTodoUseCase {
   constructor(private readonly repository: TodoRepository) {}
 
-  async execute(id: string) {
+  async execute(id: string, userId: string) {
     const todoId = TodoId.fromString(id)
-    await this.repository.delete(todoId)
+    await this.repository.delete(todoId, userId)
   }
 }

@@ -4,9 +4,26 @@ import { buildTestServer } from '../helpers/test-server.js'
 
 describe('Todo Integration Tests', () => {
   let app: FastifyInstance
+  let token: string
 
   beforeAll(async () => {
     app = await buildTestServer()
+
+    // Register and login to get a token
+    const credentials = { email: 'test@example.com', password: 'password123' }
+    await app.inject({
+      method: 'POST',
+      url: '/api/auth/register',
+      payload: credentials,
+    })
+
+    const loginResponse = await app.inject({
+      method: 'POST',
+      url: '/api/auth/login',
+      payload: credentials,
+    })
+
+    token = loginResponse.json().token
   })
 
   afterAll(async () => {
@@ -17,6 +34,7 @@ describe('Todo Integration Tests', () => {
     const response = await app.inject({
       method: 'POST',
       url: '/todos',
+      headers: { authorization: `Bearer ${token}` },
       payload: { title: 'Integration test todo' },
     })
 
@@ -31,6 +49,7 @@ describe('Todo Integration Tests', () => {
     const response = await app.inject({
       method: 'GET',
       url: '/todos',
+      headers: { authorization: `Bearer ${token}` },
     })
 
     expect(response.statusCode).toBe(200)
@@ -43,6 +62,7 @@ describe('Todo Integration Tests', () => {
     const createResponse = await app.inject({
       method: 'POST',
       url: '/todos',
+      headers: { authorization: `Bearer ${token}` },
       payload: { title: 'Find me' },
     })
     const { id } = createResponse.json()
@@ -50,6 +70,7 @@ describe('Todo Integration Tests', () => {
     const response = await app.inject({
       method: 'GET',
       url: `/todos/${id}`,
+      headers: { authorization: `Bearer ${token}` },
     })
 
     expect(response.statusCode).toBe(200)
@@ -60,6 +81,7 @@ describe('Todo Integration Tests', () => {
     const createResponse = await app.inject({
       method: 'POST',
       url: '/todos',
+      headers: { authorization: `Bearer ${token}` },
       payload: { title: 'Update me' },
     })
     const { id } = createResponse.json()
@@ -67,6 +89,7 @@ describe('Todo Integration Tests', () => {
     const response = await app.inject({
       method: 'PUT',
       url: `/todos/${id}`,
+      headers: { authorization: `Bearer ${token}` },
       payload: { title: 'Updated title', completed: true },
     })
 
@@ -80,6 +103,7 @@ describe('Todo Integration Tests', () => {
     const createResponse = await app.inject({
       method: 'POST',
       url: '/todos',
+      headers: { authorization: `Bearer ${token}` },
       payload: { title: 'Delete me' },
     })
     const { id } = createResponse.json()
@@ -87,6 +111,7 @@ describe('Todo Integration Tests', () => {
     const deleteResponse = await app.inject({
       method: 'DELETE',
       url: `/todos/${id}`,
+      headers: { authorization: `Bearer ${token}` },
     })
 
     expect(deleteResponse.statusCode).toBe(204)
@@ -94,6 +119,7 @@ describe('Todo Integration Tests', () => {
     const getResponse = await app.inject({
       method: 'GET',
       url: `/todos/${id}`,
+      headers: { authorization: `Bearer ${token}` },
     })
     expect(getResponse.statusCode).toBe(404)
   })
@@ -102,6 +128,7 @@ describe('Todo Integration Tests', () => {
     const response = await app.inject({
       method: 'PUT',
       url: '/todos/550e8400-e29b-41d4-a716-446655440000',
+      headers: { authorization: `Bearer ${token}` },
       payload: { title: 'New' },
     })
     expect(response.statusCode).toBe(404)
@@ -111,6 +138,7 @@ describe('Todo Integration Tests', () => {
     const response = await app.inject({
       method: 'DELETE',
       url: '/todos/invalid-id',
+      headers: { authorization: `Bearer ${token}` },
     })
     expect(response.statusCode).toBe(400)
   })
@@ -119,6 +147,7 @@ describe('Todo Integration Tests', () => {
     const response = await app.inject({
       method: 'GET',
       url: '/todos/550e8400-e29b-41d4-a716-446655440000',
+      headers: { authorization: `Bearer ${token}` },
     })
     expect(response.statusCode).toBe(404)
   })

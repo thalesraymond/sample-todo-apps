@@ -18,13 +18,13 @@ describe('CreateTodoUseCase', () => {
 
   it('should create a todo and save it to the repository', async () => {
     const title = 'Buy milk'
-    const result = await useCase.execute({ title })
+    const result = await useCase.execute({ title }, 'user-123')
 
     expect(result.title).toBe(title)
     expect(repository.save).toHaveBeenCalled()
   })
 
   it('should throw error if title is invalid', async () => {
-    await expect(useCase.execute({ title: '' })).rejects.toThrow()
+    await expect(useCase.execute({ title: '' }, 'user-123')).rejects.toThrow()
   })
 })

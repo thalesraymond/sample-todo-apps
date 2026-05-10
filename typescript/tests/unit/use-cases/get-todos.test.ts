@@ -18,11 +18,11 @@ describe('GetTodos Use Cases', () => {
 
   describe('GetTodosUseCase', () => {
     it('should return all todos', async () => {
-      const todo = Todo.create(TodoTitle.fromString('Test'))
+      const todo = Todo.create(TodoTitle.fromString('Test'), 'user-123')
       vi.mocked(repository.findAll).mockResolvedValue([todo])
 
       const useCase = new GetTodosUseCase(repository)
-      const result = await useCase.execute()
+      const result = await useCase.execute('user-123')
 
       expect(result.length).toBe(1)
       expect(result[0]?.title).toBe('Test')
@@ -31,11 +31,11 @@ describe('GetTodos Use Cases', () => {
 
   describe('GetTodoByIdUseCase', () => {
     it('should return a todo by id', async () => {
-      const todo = Todo.create(TodoTitle.fromString('Test'))
+      const todo = Todo.create(TodoTitle.fromString('Test'), 'user-123')
       vi.mocked(repository.findById).mockResolvedValue(todo)
 
       const useCase = new GetTodoByIdUseCase(repository)
-      const result = await useCase.execute(todo.toJSON().id)
+      const result = await useCase.execute(todo.toJSON().id, 'user-123')
 
       expect(result?.title).toBe('Test')
     })
@@ -43,7 +43,7 @@ describe('GetTodos Use Cases', () => {
     it('should return null if todo not found', async () => {
       vi.mocked(repository.findById).mockResolvedValue(null)
       const useCase = new GetTodoByIdUseCase(repository)
-      const result = await useCase.execute('non-existent')
+      const result = await useCase.execute('non-existent', 'user-123')
       expect(result).toBeNull()
     })
   })
