@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { TodoForm } from './TodoForm';
 
@@ -55,6 +55,20 @@ describe('TodoForm', () => {
 
     // Attempting to submit via form event
     await user.type(input, '{enter}');
+    expect(onSubmit).not.toHaveBeenCalled();
+  });
+
+  it('early returns and does not call onSubmit when form is submitted with empty title', () => {
+    const onSubmit = vi.fn();
+    const { container } = render(<TodoForm onSubmit={onSubmit} />);
+
+    const form = container.querySelector('form');
+    expect(form).toBeInTheDocument();
+
+    // Simulate form submission directly
+    if (form) {
+      fireEvent.submit(form);
+    }
     expect(onSubmit).not.toHaveBeenCalled();
   });
 
