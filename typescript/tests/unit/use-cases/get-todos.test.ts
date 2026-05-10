@@ -43,7 +43,7 @@ describe('GetTodos Use Cases', () => {
     it('should return null if todo not found', async () => {
       vi.mocked(repository.findById).mockResolvedValue(null)
       const useCase = new GetTodoByIdUseCase(repository)
-      const result = await useCase.execute('non-existent', 'user-123')
+      const result = await useCase.execute('00000000-0000-0000-0000-000000000000', 'user-123')
       expect(result).toBeNull()
     })
 
@@ -52,7 +52,16 @@ describe('GetTodos Use Cases', () => {
       vi.mocked(repository.findById).mockRejectedValue(new Error('Database error'))
 
       const useCase = new GetTodoByIdUseCase(repository)
-      await expect(useCase.execute(todo.toJSON().id)).rejects.toThrow('Database error')
+      await expect(useCase.execute(todo.toJSON().id, 'user-123')).rejects.toThrow('Database error')
+    })
+
+    it('should return null if repository throws an error containing "id"', async () => {
+      const todo = Todo.create(TodoTitle.fromString('Test'))
+      vi.mocked(repository.findById).mockRejectedValue(new Error('Invalid TodoId'))
+
+      const useCase = new GetTodoByIdUseCase(repository)
+      const result = await useCase.execute(todo.toJSON().id, 'user-123')
+      expect(result).toBeNull()
     })
   })
 })
