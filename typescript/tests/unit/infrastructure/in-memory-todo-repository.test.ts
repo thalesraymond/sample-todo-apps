@@ -39,6 +39,20 @@ describe('InMemoryTodoRepository', () => {
     expect(found).toBeNull()
   })
 
+  it('should update an existing todo', async () => {
+    const todo = Todo.create(TodoTitle.fromString('Initial title'), userId)
+    await repository.save(todo)
+
+    todo.updateTitle(TodoTitle.fromString('Updated title'))
+    await repository.save(todo)
+
+    const id = TodoId.fromString(todo.toJSON().id)
+    const found = await repository.findById(id, userId)
+
+    expect(found).toBeDefined()
+    expect(found?.toJSON().title).toBe('Updated title')
+  })
+
   it('should find all todos for the specific user', async () => {
     await repository.save(Todo.create(TodoTitle.fromString('Todo 1'), userId))
     await repository.save(Todo.create(TodoTitle.fromString('Todo 2'), otherUserId))
@@ -46,6 +60,11 @@ describe('InMemoryTodoRepository', () => {
     const todos = await repository.findAll(userId)
     expect(todos.length).toBe(1)
     expect(todos[0]?.toJSON().title).toBe('Todo 1')
+  })
+
+  it('should return empty array if user has no todos', async () => {
+    const todos = await repository.findAll(userId)
+    expect(todos).toEqual([])
   })
 
   it('should delete a todo', async () => {
@@ -68,5 +87,10 @@ describe('InMemoryTodoRepository', () => {
 
     const found = await repository.findById(id, userId)
     expect(found).not.toBeNull()
+  })
+
+  it('should handle deleting a non-existent todo gracefully', async () => {
+    const id = TodoId.create()
+    await expect(repository.delete(id, userId)).resolves.toBeUndefined()
   })
 })
