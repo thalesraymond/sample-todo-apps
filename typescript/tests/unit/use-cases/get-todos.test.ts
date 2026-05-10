@@ -46,5 +46,13 @@ describe('GetTodos Use Cases', () => {
       const result = await useCase.execute('non-existent')
       expect(result).toBeNull()
     })
+
+    it('should throw if repository throws an unknown error', async () => {
+      const todo = Todo.create(TodoTitle.fromString('Test'))
+      vi.mocked(repository.findById).mockRejectedValue(new Error('Database error'))
+
+      const useCase = new GetTodoByIdUseCase(repository)
+      await expect(useCase.execute(todo.toJSON().id)).rejects.toThrow('Database error')
+    })
   })
 })

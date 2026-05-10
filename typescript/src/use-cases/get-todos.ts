@@ -18,8 +18,11 @@ export class GetTodoByIdUseCase {
       const todoId = TodoId.fromString(id)
       const todo = await this.repository.findById(todoId)
       return todo ? todo.toJSON() : null
-    } catch {
-      return null
+    } catch (error) {
+      if (error instanceof Error && error.message.toLowerCase().includes('id')) {
+        return null
+      }
+      throw error
     }
   }
 }
