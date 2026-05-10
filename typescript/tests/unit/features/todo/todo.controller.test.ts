@@ -1,7 +1,6 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest'
 import { TodoController } from '../../../../src/features/todo/todo.controller.js'
 import type { TodoRepository } from '../../../../src/domain/todo-repository.js'
-import { NotFoundError } from '../../../../src/shared/errors/http-error.js'
 import type { FastifyRequest, FastifyReply } from 'fastify'
 
 describe('TodoController', () => {
