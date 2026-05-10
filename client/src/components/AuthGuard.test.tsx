@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { MemoryRouter, Route, Routes } from 'react-router-dom';
+import { MemoryRouter, Route, Routes, useLocation } from 'react-router-dom';
 import { AuthGuard } from './AuthGuard';
 import { useAuth } from '../hooks/useAuth';
 
@@ -17,7 +17,11 @@ describe('AuthGuard Component', () => {
   });
 
   const TestComponent = () => <div>Protected Content</div>;
-  const LoginComponent = () => <div>Login Page</div>;
+  const LoginComponent = () => {
+    const location = useLocation();
+    const fromPath = location.state?.from?.pathname || 'none';
+    return <div>Login Page (from: {fromPath})</div>;
+  };
 
   const renderWithRouter = () => {
     return render(
@@ -68,7 +72,7 @@ describe('AuthGuard Component', () => {
 
     renderWithRouter();
 
-    expect(screen.getByText('Login Page')).toBeInTheDocument();
+    expect(screen.getByText('Login Page (from: /protected)')).toBeInTheDocument();
     expect(screen.queryByText('Protected Content')).not.toBeInTheDocument();
   });
 
