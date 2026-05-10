@@ -57,6 +57,10 @@ export class Todo {
     this.details = new TodoDetails(title, newStatus, this.details.userId)
   }
 
+  get userId(): string {
+    return this.details.userId
+  }
+
   toJSON() {
     return {
       id: this.id.toString(),

@@ -23,7 +23,7 @@ class ApiService {
   public setToken(token: string | null) {
     this.token = token;
     if (token) {
-      Cookies.set('token', token, { path: '/' });
+      Cookies.set('token', token, { path: '/', secure: true, sameSite: 'strict' });
     } else {
       Cookies.remove('token', { path: '/' });
     }
