@@ -44,12 +44,12 @@ describe('authHandler', () => {
     it('should throw BadRequestError if email or password missing', async () => {
       mockRequest.body = { email: 'test@example.com' }
       await expect(authHandler.register(mockRequest, mockReply)).rejects.toThrowError(
-        new BadRequestError('Email and password are required')
+        new BadRequestError('Email and password are required'),
       )
 
       mockRequest.body = { password: 'password123' }
       await expect(authHandler.register(mockRequest, mockReply)).rejects.toThrowError(
-        new BadRequestError('Email and password are required')
+        new BadRequestError('Email and password are required'),
       )
     })
 
@@ -62,7 +62,7 @@ describe('authHandler', () => {
       } as unknown as User)
 
       await expect(authHandler.register(mockRequest, mockReply)).rejects.toThrowError(
-        new BadRequestError('Email already registered')
+        new BadRequestError('Email already registered'),
       )
       expect(userRepository.findByEmail).toHaveBeenCalledWith('exists@example.com')
     })
@@ -96,7 +96,7 @@ describe('authHandler', () => {
     it('should throw BadRequestError if email or password missing', async () => {
       mockRequest.body = { email: 'test@example.com' }
       await expect(authHandler.login(mockRequest, mockReply)).rejects.toThrowError(
-        new BadRequestError('Email and password are required')
+        new BadRequestError('Email and password are required'),
       )
     })
 
@@ -105,7 +105,7 @@ describe('authHandler', () => {
       vi.mocked(userRepository.findByEmail).mockResolvedValue(null)
 
       await expect(authHandler.login(mockRequest, mockReply)).rejects.toThrowError(
-        new UnauthorizedError('Invalid credentials')
+        new UnauthorizedError('Invalid credentials'),
       )
     })
 
@@ -119,7 +119,7 @@ describe('authHandler', () => {
       vi.mocked(bcrypt.compare).mockResolvedValue(false as never)
 
       await expect(authHandler.login(mockRequest, mockReply)).rejects.toThrowError(
-        new UnauthorizedError('Invalid credentials')
+        new UnauthorizedError('Invalid credentials'),
       )
     })
 
