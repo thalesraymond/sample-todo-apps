@@ -27,6 +27,11 @@ describe('todoService', () => {
       expect(api.get).toHaveBeenCalledWith('/todos');
       expect(result).toEqual(mockTodos);
     });
+
+    it('should propagate errors from api.get', async () => {
+      vi.mocked(api.get).mockRejectedValue(new Error('API Error'));
+      await expect(todoService.getTodos()).rejects.toThrowError('API Error');
+    });
   });
 
   describe('createTodo', () => {
@@ -39,6 +44,12 @@ describe('todoService', () => {
 
       expect(api.post).toHaveBeenCalledWith('/todos', createData);
       expect(result).toEqual(mockTodo);
+    });
+
+    it('should propagate errors from api.post', async () => {
+      const createData = { title: 'New Todo' };
+      vi.mocked(api.post).mockRejectedValue(new Error('API Error'));
+      await expect(todoService.createTodo(createData)).rejects.toThrowError('API Error');
     });
   });
 
@@ -53,6 +64,12 @@ describe('todoService', () => {
       expect(api.put).toHaveBeenCalledWith('/todos/1', updateData);
       expect(result).toEqual(mockTodo);
     });
+
+    it('should propagate errors from api.put', async () => {
+      const updateData = { title: 'Updated Todo', completed: true };
+      vi.mocked(api.put).mockRejectedValue(new Error('API Error'));
+      await expect(todoService.updateTodo('1', updateData)).rejects.toThrowError('API Error');
+    });
   });
 
   describe('deleteTodo', () => {
@@ -62,6 +79,11 @@ describe('todoService', () => {
       await todoService.deleteTodo('1');
 
       expect(api.delete).toHaveBeenCalledWith('/todos/1');
+    });
+
+    it('should propagate errors from api.delete', async () => {
+      vi.mocked(api.delete).mockRejectedValue(new Error('API Error'));
+      await expect(todoService.deleteTodo('1')).rejects.toThrowError('API Error');
     });
   });
 });
