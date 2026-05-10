@@ -56,7 +56,9 @@ describe('TodoController', () => {
         params: { id: '550e8400-e29b-41d4-a716-446655440000' },
       } as unknown as FastifyRequest<{ Params: { id: string } }>
 
-      await expect(controller.delete(request, mockReply)).rejects.toThrowError('Database connection failed')
+      await expect(controller.delete(request, mockReply)).rejects.toThrowError(
+        'Database connection failed',
+      )
     })
   })
 })
