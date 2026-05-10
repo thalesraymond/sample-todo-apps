@@ -29,9 +29,11 @@ describe('TodoController', () => {
       vi.mocked(repository.findById).mockResolvedValue(null)
 
       const request = {
-        params: { id: '00000000-0000-0000-0000-000000000000' },
-        user: { sub: 'user-id' },
-      } as unknown as FastifyRequest<{ Params: { id: string } }>
+        params: { id: 'non-existent-id' },
+        user: {
+          sub: 'user-123',
+        },
+      } as FastifyRequest<{ Params: { id: string } }>
 
       await expect(controller.getById(request, mockReply)).rejects.toThrow(NotFoundError)
       await expect(controller.getById(request, mockReply)).rejects.toThrow('Todo not found')
