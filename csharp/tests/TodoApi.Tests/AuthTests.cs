@@ -1,0 +1,91 @@
+using FluentAssertions;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
+using System.Net;
+using System.Net.Http.Json;
+using System.Threading.Tasks;
+using TodoApi.Services;
+using Xunit;
+using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.Extensions.DependencyInjection;
+using TodoApi.Repositories;
+using TodoApi.Models;
+
+namespace TodoApi.Tests;
+
+public class AuthTests : IClassFixture<WebApplicationFactory<Program>>
+{
+    private readonly WebApplicationFactory<Program> _factory;
+
+    public AuthTests(WebApplicationFactory<Program> factory)
+    {
+        _factory = factory;
+    }
+
+    [Fact]
+    public void JwtService_ShouldGenerateValidToken()
+    {
+        var service = new JwtService("my_super_secret_key_that_is_at_least_32_characters_long!");
+        var tokenString = service.GenerateToken("u1", "test@test.com");
+
+        tokenString.Should().NotBeNullOrEmpty();
+
+        var handler = new JwtSecurityTokenHandler();
+        var token = handler.ReadJwtToken(tokenString);
+
+        token.Claims.First(c => c.Type == JwtRegisteredClaimNames.Sub).Value.Should().Be("u1");
+    }
+
+    [Fact]
+    public async Task Register_WithValidData_Returns201()
+    {
+        var client = _factory.CreateClient();
+        var email = $"test{System.Guid.NewGuid()}@example.com";
+        var response = await client.PostAsJsonAsync("/api/auth/register", new { email = email, password = "Password123" });
+
+        response.StatusCode.Should().Be(HttpStatusCode.Created);
+        var content = await response.Content.ReadFromJsonAsync<System.Text.Json.JsonElement>();
+        content.GetProperty("message").GetString().Should().Be("User registered successfully");
+        content.GetProperty("userId").GetString().Should().NotBeNullOrEmpty();
+    }
+
+    [Fact]
+    public async Task Register_WithExistingEmail_Returns400()
+    {
+        var client = _factory.CreateClient();
+        var email = $"test{System.Guid.NewGuid()}@example.com";
+        await client.PostAsJsonAsync("/api/auth/register", new { email = email, password = "Password123" });
+
+        var response = await client.PostAsJsonAsync("/api/auth/register", new { email = email, password = "Password123" });
+
+        response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+        var content = await response.Content.ReadFromJsonAsync<System.Text.Json.JsonElement>();
+        content.GetProperty("message").GetString().Should().Be("Email already registered");
+    }
+
+    [Fact]
+    public async Task Login_WithValidData_ReturnsToken()
+    {
+        var client = _factory.CreateClient();
+        var email = $"login{System.Guid.NewGuid()}@example.com";
+        await client.PostAsJsonAsync("/api/auth/register", new { email = email, password = "Password123" });
+
+        var response = await client.PostAsJsonAsync("/api/auth/login", new { email = email, password = "Password123" });
+
+        response.StatusCode.Should().Be(HttpStatusCode.OK);
+        var content = await response.Content.ReadFromJsonAsync<System.Text.Json.JsonElement>();
+        content.GetProperty("token").GetString().Should().NotBeNullOrEmpty();
+    }
+
+    [Fact]
+    public async Task Login_WithInvalidData_Returns401()
+    {
+        var client = _factory.CreateClient();
+
+        var response = await client.PostAsJsonAsync("/api/auth/login", new { email = "nonexistent@example.com", password = "Password123" });
+
+        response.StatusCode.Should().Be(HttpStatusCode.Unauthorized);
+        var content = await response.Content.ReadFromJsonAsync<System.Text.Json.JsonElement>();
+        content.GetProperty("message").GetString().Should().Be("Invalid credentials");
+    }
+}
