@@ -6,3 +6,15 @@ updates:
       interval: "weekly"
       day: "monday"
     open-pull-requests-limit: 10
+  - package-ecosystem: "nuget"
+    directory: "/csharp/src/TodoApi"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 10
+  - package-ecosystem: "nuget"
+    directory: "/csharp/tests/TodoApi.Tests"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 10
