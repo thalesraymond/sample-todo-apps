@@ -1,2 +1,5 @@
 node_modules
 typescript/reports/
+
+**/bin/
+**/obj/
