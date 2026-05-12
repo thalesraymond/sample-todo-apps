@@ -1,15 +1,14 @@
 using FluentAssertions;
+using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Net;
 using System.Net.Http.Json;
+using System.Text.Json;
 using System.Threading.Tasks;
 using TodoApi.Services;
 using Xunit;
 using Microsoft.AspNetCore.Mvc.Testing;
-using Microsoft.Extensions.DependencyInjection;
-using TodoApi.Repositories;
-using TodoApi.Models;
 
 namespace TodoApi.Tests;
 
@@ -40,26 +39,48 @@ public class AuthTests : IClassFixture<WebApplicationFactory<Program>>
     public async Task Register_WithValidData_Returns201()
     {
         var client = _factory.CreateClient();
-        var email = $"test{System.Guid.NewGuid()}@example.com";
-        var response = await client.PostAsJsonAsync("/api/auth/register", new { email = email, password = "Password123" });
+        var email = $"test{Guid.NewGuid()}@example.com";
+        var response = await client.PostAsJsonAsync("/api/auth/register", new { email, password = "Password123" });
 
         response.StatusCode.Should().Be(HttpStatusCode.Created);
-        var content = await response.Content.ReadFromJsonAsync<System.Text.Json.JsonElement>();
+        var content = await response.Content.ReadFromJsonAsync<JsonElement>();
         content.GetProperty("message").GetString().Should().Be("User registered successfully");
         content.GetProperty("userId").GetString().Should().NotBeNullOrEmpty();
+    }
+
+    [Fact]
+    public async Task Register_WithMissingEmail_Returns400()
+    {
+        var client = _factory.CreateClient();
+        var response = await client.PostAsJsonAsync("/api/auth/register", new { email = "", password = "Password123" });
+
+        response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+        var content = await response.Content.ReadFromJsonAsync<JsonElement>();
+        content.GetProperty("message").GetString().Should().Be("Email and password are required");
+    }
+
+    [Fact]
+    public async Task Register_WithMissingPassword_Returns400()
+    {
+        var client = _factory.CreateClient();
+        var response = await client.PostAsJsonAsync("/api/auth/register", new { email = "user@example.com", password = "" });
+
+        response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+        var content = await response.Content.ReadFromJsonAsync<JsonElement>();
+        content.GetProperty("message").GetString().Should().Be("Email and password are required");
     }
 
     [Fact]
     public async Task Register_WithExistingEmail_Returns400()
     {
         var client = _factory.CreateClient();
-        var email = $"test{System.Guid.NewGuid()}@example.com";
-        await client.PostAsJsonAsync("/api/auth/register", new { email = email, password = "Password123" });
+        var email = $"test{Guid.NewGuid()}@example.com";
+        await client.PostAsJsonAsync("/api/auth/register", new { email, password = "Password123" });
 
-        var response = await client.PostAsJsonAsync("/api/auth/register", new { email = email, password = "Password123" });
+        var response = await client.PostAsJsonAsync("/api/auth/register", new { email, password = "Password123" });
 
         response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
-        var content = await response.Content.ReadFromJsonAsync<System.Text.Json.JsonElement>();
+        var content = await response.Content.ReadFromJsonAsync<JsonElement>();
         content.GetProperty("message").GetString().Should().Be("Email already registered");
     }
 
@@ -67,25 +88,61 @@ public class AuthTests : IClassFixture<WebApplicationFactory<Program>>
     public async Task Login_WithValidData_ReturnsToken()
     {
         var client = _factory.CreateClient();
-        var email = $"login{System.Guid.NewGuid()}@example.com";
-        await client.PostAsJsonAsync("/api/auth/register", new { email = email, password = "Password123" });
+        var email = $"login{Guid.NewGuid()}@example.com";
+        await client.PostAsJsonAsync("/api/auth/register", new { email, password = "Password123" });
 
-        var response = await client.PostAsJsonAsync("/api/auth/login", new { email = email, password = "Password123" });
+        var response = await client.PostAsJsonAsync("/api/auth/login", new { email, password = "Password123" });
 
         response.StatusCode.Should().Be(HttpStatusCode.OK);
-        var content = await response.Content.ReadFromJsonAsync<System.Text.Json.JsonElement>();
+        var content = await response.Content.ReadFromJsonAsync<JsonElement>();
         content.GetProperty("token").GetString().Should().NotBeNullOrEmpty();
     }
 
     [Fact]
-    public async Task Login_WithInvalidData_Returns401()
+    public async Task Login_WithMissingEmail_Returns400()
+    {
+        var client = _factory.CreateClient();
+        var response = await client.PostAsJsonAsync("/api/auth/login", new { email = "", password = "Password123" });
+
+        response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+        var content = await response.Content.ReadFromJsonAsync<JsonElement>();
+        content.GetProperty("message").GetString().Should().Be("Email and password are required");
+    }
+
+    [Fact]
+    public async Task Login_WithMissingPassword_Returns400()
+    {
+        var client = _factory.CreateClient();
+        var response = await client.PostAsJsonAsync("/api/auth/login", new { email = "user@example.com", password = "" });
+
+        response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+        var content = await response.Content.ReadFromJsonAsync<JsonElement>();
+        content.GetProperty("message").GetString().Should().Be("Email and password are required");
+    }
+
+    [Fact]
+    public async Task Login_WithInvalidPassword_Returns401()
+    {
+        var client = _factory.CreateClient();
+        var email = $"login{Guid.NewGuid()}@example.com";
+        await client.PostAsJsonAsync("/api/auth/register", new { email, password = "Password123" });
+
+        var response = await client.PostAsJsonAsync("/api/auth/login", new { email, password = "WrongPassword" });
+
+        response.StatusCode.Should().Be(HttpStatusCode.Unauthorized);
+        var content = await response.Content.ReadFromJsonAsync<JsonElement>();
+        content.GetProperty("message").GetString().Should().Be("Invalid credentials");
+    }
+
+    [Fact]
+    public async Task Login_WithNonExistentEmail_Returns401()
     {
         var client = _factory.CreateClient();
 
         var response = await client.PostAsJsonAsync("/api/auth/login", new { email = "nonexistent@example.com", password = "Password123" });
 
         response.StatusCode.Should().Be(HttpStatusCode.Unauthorized);
-        var content = await response.Content.ReadFromJsonAsync<System.Text.Json.JsonElement>();
+        var content = await response.Content.ReadFromJsonAsync<JsonElement>();
         content.GetProperty("message").GetString().Should().Be("Invalid credentials");
     }
 }

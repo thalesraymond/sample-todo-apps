@@ -1,17 +1,12 @@
 using System.Text.Json;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using TodoApi.Repositories;
 using TodoApi.Services;
 using TodoApi.Models;
-using BCrypt.Net;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configure CORS to allow cross-origin requests
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
@@ -22,20 +17,19 @@ builder.Services.AddCors(options =>
     });
 });
 
-// Configure JSON serialization to match TypeScript (camelCase)
 builder.Services.ConfigureHttpJsonOptions(options =>
 {
     options.SerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
 });
 
-// Configure DI
 builder.Services.AddSingleton<IUserRepository, InMemoryUserRepository>();
 builder.Services.AddSingleton<ITodoRepository, InMemoryTodoRepository>();
 
-var jwtSecret = builder.Configuration["Jwt:Secret"] ?? "my_super_secret_key_that_is_at_least_32_characters_long!";
+var jwtSecret = builder.Configuration["Jwt:Secret"]
+    ?? throw new InvalidOperationException("JWT secret is not configured. Set 'Jwt:Secret' in configuration.");
+
 builder.Services.AddSingleton(new JwtService(jwtSecret));
 
-// Configure JWT Authentication
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -54,23 +48,20 @@ builder.Services.AddAuthorization();
 var app = builder.Build();
 
 app.UseCors();
-
 app.UseAuthentication();
 app.UseAuthorization();
 
-var api = app.MapGroup("/api/auth");
+var authApi = app.MapGroup("/api/auth");
 
-api.MapPost("/register", async (RegisterRequest req, IUserRepository userRepo, HttpResponse response) =>
+authApi.MapPost("/register", (RegisterRequest req, IUserRepository userRepo) =>
 {
-    if (string.IsNullOrEmpty(req.Email) || string.IsNullOrEmpty(req.Password))
+    if (string.IsNullOrWhiteSpace(req.Email) || string.IsNullOrWhiteSpace(req.Password))
     {
-        response.StatusCode = 400;
         return Results.Json(new { message = "Email and password are required" }, statusCode: 400);
     }
 
     if (userRepo.GetUserByEmail(req.Email) != null)
     {
-        response.StatusCode = 400;
         return Results.Json(new { message = "Email already registered" }, statusCode: 400);
     }
 
@@ -86,18 +77,16 @@ api.MapPost("/register", async (RegisterRequest req, IUserRepository userRepo, H
     return Results.Json(new { message = "User registered successfully", userId = user.Id }, statusCode: 201);
 });
 
-api.MapPost("/login", async (LoginRequest req, IUserRepository userRepo, JwtService jwtService, HttpResponse response) =>
+authApi.MapPost("/login", (LoginRequest req, IUserRepository userRepo, JwtService jwtService) =>
 {
-    if (string.IsNullOrEmpty(req.Email) || string.IsNullOrEmpty(req.Password))
+    if (string.IsNullOrWhiteSpace(req.Email) || string.IsNullOrWhiteSpace(req.Password))
     {
-        response.StatusCode = 400;
         return Results.Json(new { message = "Email and password are required" }, statusCode: 400);
     }
 
     var user = userRepo.GetUserByEmail(req.Email);
     if (user == null || !BCrypt.Net.BCrypt.Verify(req.Password, user.Password))
     {
-        response.StatusCode = 401;
         return Results.Json(new { message = "Invalid credentials" }, statusCode: 401);
     }
 
@@ -120,6 +109,11 @@ todosApi.MapPost("/", (TodoRequest req, System.Security.Claims.ClaimsPrincipal u
 {
     var userId = user.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
     if (userId == null) return Results.Unauthorized();
+
+    if (string.IsNullOrWhiteSpace(req.Title))
+    {
+        return Results.Json(new { message = "Title is required" }, statusCode: 400);
+    }
 
     var now = System.DateTime.UtcNow;
     var todo = new Todo
