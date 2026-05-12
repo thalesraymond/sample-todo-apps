@@ -9,15 +9,20 @@ interface TodoFormProps {
 
 export const TodoForm: React.FC<TodoFormProps> = ({ onSubmit, isLoading }) => {
   const [title, setTitle] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!title.trim()) return;
+    if (!title.trim() || isSubmitting) return;
+
+    setIsSubmitting(true);
     try {
       await onSubmit(title);
       setTitle('');
     } catch (err) {
       // Handle error
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -28,10 +33,10 @@ export const TodoForm: React.FC<TodoFormProps> = ({ onSubmit, isLoading }) => {
           placeholder="What needs to be done?"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          disabled={isLoading}
+          disabled={isLoading || isSubmitting}
           className="flex-1"
         />
-        <Button type="submit" isLoading={isLoading} disabled={!title.trim()}>
+        <Button type="submit" isLoading={isLoading || isSubmitting} disabled={!title.trim() || isSubmitting}>
           Add
         </Button>
       </div>
