@@ -97,7 +97,7 @@ typescript/
 │       │   ├── health.handler.ts # Health check handler
 │       │   └── health.route.ts   # GET /health (public)
 │       └── todo/
-│           ├── todo.controller.ts# Todo endpoints controller
+│           ├── todo.controller.ts # Todo endpoints controller
 │           └── todo.route.ts     # Todo endpoints
 ├── tests/
 │   ├── setup.ts                  # Global test setup
