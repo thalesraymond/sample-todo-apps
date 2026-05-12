@@ -48,11 +48,21 @@ describe('GetTodos Use Cases', () => {
     })
 
     it('should throw if repository throws an unknown error', async () => {
-      const todo = Todo.create(TodoTitle.fromString('Test'))
+      const todo = Todo.create(TodoTitle.fromString('Test'), 'user-123')
       vi.mocked(repository.findById).mockRejectedValue(new Error('Database error'))
 
       const useCase = new GetTodoByIdUseCase(repository)
-      await expect(useCase.execute(todo.toJSON().id)).rejects.toThrow('Database error')
+      await expect(useCase.execute(todo.toJSON().id, 'user-123')).rejects.toThrow('Database error')
+    })
+
+    it('should return null if repository throws an error with "id" in the message', async () => {
+      vi.mocked(repository.findById).mockRejectedValue(new Error('Invalid ID provided'))
+
+      const useCase = new GetTodoByIdUseCase(repository)
+      const validUuid = '00000000-0000-0000-0000-000000000000'
+      const result = await useCase.execute(validUuid, 'user-123')
+
+      expect(result).toBeNull()
     })
   })
 })
