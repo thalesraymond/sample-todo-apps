@@ -13,7 +13,7 @@ export const TodoForm: React.FC<TodoFormProps> = ({ onSubmit, isLoading }) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!title.trim() || isSubmitting) return;
+    if (!title.trim() || isSubmitting || isLoading) return;
 
     setIsSubmitting(true);
     try {
