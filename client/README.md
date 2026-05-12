@@ -1,73 +1,61 @@
-# React + TypeScript + Vite
+# Sample Todo App - Client
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend client application for the Sample Todo App project. It is built using a modern React stack, communicating with the backend APIs via REST.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Framework:** [React 19](https://react.dev/)
+- **Routing:** [React Router v7](https://reactrouter.com/)
+- **Build Tool:** [Vite 8](https://vitejs.dev/)
+- **Language:** [TypeScript](https://www.typescriptlang.org/)
+- **Testing:** [Vitest](https://vitest.dev/) & [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+- **Linting:** [ESLint](https://eslint.org/)
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- User Authentication (Login, Registration, JWT-based auth stored via `js-cookie`)
+- Route Protection (`AuthGuard`)
+- Todo Management (Create, Read, Update, Delete)
+- Responsive UI components
 
-## Expanding the ESLint configuration
+## Scripts
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+This project uses `pnpm` as its package manager. You can run the following scripts:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- `pnpm dev` - Starts the Vite development server.
+- `pnpm build` - Type-checks the code and builds the production app.
+- `pnpm preview` - Boots up a local static web server that serves the files of the production build (`dist`).
+- `pnpm lint` - Runs ESLint to find issues in the code.
+- `pnpm test` - Runs the test suite using Vitest in single-run mode.
+- `pnpm test:watch` - Runs the test suite in watch mode for active development.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Project Structure
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```text
+client/
+├── public/          # Static assets (favicon, etc.)
+├── src/             # Source code
+│   ├── assets/      # Images and other static files
+│   ├── components/  # Shared UI components (Button, Input, Card, Header)
+│   ├── features/    # Feature-specific components (e.g., todos)
+│   ├── hooks/       # Custom React hooks (e.g., useAuth)
+│   ├── services/    # API interaction services (api, auth, todo)
+│   ├── views/       # Route level components (Dashboard, Login, Register)
+│   ├── App.tsx      # Application root and router definition
+│   └── main.tsx     # React entry point
+├── package.json     # Project dependencies and scripts
+└── vite.config.ts   # Vite bundler and Vitest configuration
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Running Locally
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. Ensure dependencies are installed:
+   ```bash
+   pnpm install
+   ```
+2. Start the development server:
+   ```bash
+   pnpm dev
+   ```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+By default, the client expects the backend API to be running on its configured port (typically managed through environment variables or proxy settings during development).
