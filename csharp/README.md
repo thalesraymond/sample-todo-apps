@@ -53,7 +53,7 @@ cd src/TodoApi
 dotnet run
 ```
 
-The API starts on `http://localhost:3000` (or as configured in `launchSettings.json`).
+The API starts on `http://localhost:3000` (or `https://localhost:7024` if using the HTTPS profile). Configuration can be found in `Properties/launchSettings.json`.
 
 ## API Endpoints
 
