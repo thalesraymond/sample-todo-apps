@@ -13,14 +13,14 @@ export const TodoForm: React.FC<TodoFormProps> = ({ onSubmit, isLoading }) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!title.trim() || isSubmitting || isLoading) return;
+    if (!title.trim() || isSubmitting) return;
 
     setIsSubmitting(true);
     try {
       await onSubmit(title);
       setTitle('');
     } catch (err) {
-      console.error('Failed to submit todo:', err);
+      // Handle error
     } finally {
       setIsSubmitting(false);
     }

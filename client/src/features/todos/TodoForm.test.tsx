@@ -111,7 +111,7 @@ describe('TodoForm', () => {
     const input = screen.getByPlaceholderText('What needs to be done?');
     await user.type(input, 'Pending Todo');
 
-    const submitButton = screen.getByRole('button', { name: /add/i });
+    const submitButton = container.querySelector('button[type="submit"]') as HTMLButtonElement;
 
     // Start submission
     await user.click(submitButton);
