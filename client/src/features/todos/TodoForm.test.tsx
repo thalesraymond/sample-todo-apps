@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { TodoForm } from './TodoForm';
 
@@ -96,5 +96,75 @@ describe('TodoForm', () => {
 
     expect(onSubmit).toHaveBeenCalledWith('Failing Todo');
     expect(input).toHaveValue('Failing Todo'); // Input should not be cleared
+  });
+
+  it('disables inputs while submitting', async () => {
+    const user = userEvent.setup();
+    let resolveSubmit: () => void;
+    const submitPromise = new Promise<void>((resolve) => {
+      resolveSubmit = resolve;
+    });
+
+    const onSubmit = vi.fn().mockReturnValue(submitPromise);
+    const { container } = render(<TodoForm onSubmit={onSubmit} />);
+
+    const input = screen.getByPlaceholderText('What needs to be done?');
+    await user.type(input, 'Pending Todo');
+
+    const submitButton = container.querySelector('button[type="submit"]') as HTMLButtonElement;
+
+    // Start submission
+    await user.click(submitButton);
+
+    // Inputs should be disabled during submission
+    expect(input).toBeDisabled();
+    expect(submitButton).toBeDisabled();
+
+    // Resolve the promise
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    await act(async () => {
+      resolveSubmit!();
+    });
+
+    // Wait for promise to resolve and state to update
+    await vi.waitFor(() => {
+      expect(input).not.toBeDisabled();
+    });
+  });
+
+  it('prevents multiple simultaneous submissions', async () => {
+    const user = userEvent.setup();
+    let resolveSubmit: () => void;
+    const submitPromise = new Promise<void>((resolve) => {
+      resolveSubmit = resolve;
+    });
+
+    const onSubmit = vi.fn().mockReturnValue(submitPromise);
+    const { container } = render(<TodoForm onSubmit={onSubmit} />);
+
+    const input = screen.getByPlaceholderText('What needs to be done?');
+    await user.type(input, 'Double Submit Todo');
+
+    const form = container.querySelector('form');
+    expect(form).toBeInTheDocument();
+
+    // Trigger multiple submits
+    if (form) {
+      fireEvent.submit(form);
+      fireEvent.submit(form);
+      fireEvent.submit(form);
+    }
+
+    expect(onSubmit).toHaveBeenCalledTimes(1);
+
+    // Resolve the promise
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    await act(async () => {
+      resolveSubmit!();
+    });
+
+    await vi.waitFor(() => {
+      expect(input).not.toBeDisabled();
+    });
   });
 });
