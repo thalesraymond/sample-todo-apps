@@ -17,7 +17,7 @@ export const LoginView: React.FC = () => {
     try {
       await login({ email, password });
       navigate('/dashboard');
-    } catch (err) {
+    } catch {
       // Error handled by context
     }
   };

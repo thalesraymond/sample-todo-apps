@@ -19,7 +19,7 @@ describe('DashboardView', () => {
     vi.clearAllMocks();
 
     // Default mock implementation for getTodos
-    (todoService.getTodos as any).mockResolvedValue([
+    vi.mocked(todoService.getTodos).mockResolvedValue([
       { id: '1', title: 'Test Todo 1', completed: false, createdAt: '2023-01-01' },
       { id: '2', title: 'Test Todo 2', completed: true, createdAt: '2023-01-02' }
     ]);
@@ -41,7 +41,7 @@ describe('DashboardView', () => {
   it('handles error when adding a new todo fails', async () => {
     // Setup the mock to reject when createTodo is called
     const errorMessage = 'Network error while adding todo';
-    (todoService.createTodo as any).mockRejectedValue(new Error(errorMessage));
+    vi.mocked(todoService.createTodo).mockRejectedValue(new Error(errorMessage));
 
     render(<DashboardView />);
 
@@ -65,7 +65,7 @@ describe('DashboardView', () => {
     // Let's interact and see the error state
     try {
       await user.click(addButton);
-    } catch (e) {
+    } catch {
       // The component re-throws the error `throw err;`, so we might catch it here in the test environment
     }
 
@@ -78,7 +78,7 @@ describe('DashboardView', () => {
 
   it('displays fallback error message when adding a new todo fails without error message', async () => {
     // Setup the mock to reject without an error message
-    (todoService.createTodo as any).mockRejectedValue({});
+    vi.mocked(todoService.createTodo).mockRejectedValue({});
 
     render(<DashboardView />);
 
@@ -95,7 +95,9 @@ describe('DashboardView', () => {
 
     try {
       await user.click(addButton);
-    } catch (e) {}
+    } catch {
+      // ignore
+    }
 
     // Verify the fallback error message is displayed
     await waitFor(() => {
