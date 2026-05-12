@@ -97,7 +97,7 @@ typescript/
 │       │   ├── health.handler.ts # Health check handler
 │       │   └── health.route.ts   # GET /health (public)
 │       └── todo/
-│           ├── todo.controller.ts # Todo endpoints controller
+│           ├── todo.controller.ts# Todo endpoints controller
 │           └── todo.route.ts     # Todo endpoints
 ├── tests/
 │   ├── setup.ts                  # Global test setup
@@ -139,11 +139,17 @@ Cross-cutting concerns live in `src/shared/` (errors, types) and `src/plugins/` 
 
 ## Database
 
+While MongoDB is configured and available (via `MONGODB_URI` and `USE_IN_MEMORY_DB`), the `todo` feature currently uses an `InMemoryTodoRepository` by default (`src/plugins/todo.plugin.ts`).
+
+This means that Todos are **not** persisted to MongoDB and will be lost when the application restarts. The database configuration options below currently apply to other database connections but not the primary Todo functionality.
+
+### Local Development (In-Memory MongoDB)
+
 By default, the application uses an in-memory MongoDB server for development and testing.
 
 The in-memory server (`mongodb-memory-server`) will download the necessary binaries on the first run, spin up a temporary instance, and automatically shut it down when the application exits.
 
-### Persistent Database
+### Persistent MongoDB
 
 To run the application with a persistent, local MongoDB installation, you can disable the in-memory server and the application will connect to the `MONGODB_URI`:
 
