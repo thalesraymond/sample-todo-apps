@@ -121,7 +121,6 @@ describe('TodoForm', () => {
     expect(submitButton).toBeDisabled();
 
     // Resolve the promise
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     await act(async () => {
       resolveSubmit!();
     });
@@ -158,7 +157,6 @@ describe('TodoForm', () => {
     expect(onSubmit).toHaveBeenCalledTimes(1);
 
     // Resolve the promise
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     await act(async () => {
       resolveSubmit!();
     });

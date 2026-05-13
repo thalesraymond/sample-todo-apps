@@ -17,14 +17,15 @@ export const DashboardView: React.FC = () => {
       const data = await todoService.getTodos();
       setTodos(data);
       setError(null);
-    } catch (err: any) {
-      setError(err.message || 'Failed to load todos');
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Failed to load todos');
     } finally {
       setIsLoading(false);
     }
   };
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     fetchTodos();
   }, []);
 
@@ -32,8 +33,8 @@ export const DashboardView: React.FC = () => {
     try {
       const newTodo = await todoService.createTodo({ title });
       setTodos((prev) => [...prev, newTodo]);
-    } catch (err: any) {
-      setError(err.message || 'Failed to add todo');
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Failed to add todo');
       throw err;
     }
   };
@@ -42,8 +43,8 @@ export const DashboardView: React.FC = () => {
     try {
       const updatedTodo = await todoService.updateTodo(id, { completed });
       setTodos((prev) => prev.map((t) => (t.id === id ? updatedTodo : t)));
-    } catch (err: any) {
-      setError(err.message || 'Failed to update todo');
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Failed to update todo');
     }
   };
 
@@ -51,8 +52,8 @@ export const DashboardView: React.FC = () => {
     try {
       await todoService.deleteTodo(id);
       setTodos((prev) => prev.filter((t) => t.id !== id));
-    } catch (err: any) {
-      setError(err.message || 'Failed to delete todo');
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Failed to delete todo');
     }
   };
 

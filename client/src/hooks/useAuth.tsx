@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useState, useEffect } from 'react';
 import type { ReactNode } from 'react';
 import { authService } from '../services/auth.service';
@@ -30,7 +31,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
           // For now, if there's a token, we consider them logged in with minimal data
           // Or we could implement /api/auth/me if we want to be thorough
           setUser({ id: 'current', email: 'user@example.com' });
-        } catch (err) {
+        } catch {
           authService.logout();
         }
       }
@@ -46,8 +47,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     try {
       const { user } = await authService.login(credentials);
       setUser(user);
-    } catch (err: any) {
-      setError(err.message || 'Failed to login');
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Failed to login');
       throw err;
     } finally {
       setIsLoading(false);
@@ -61,8 +62,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       await authService.register(credentials);
       // After registration, usually we login automatically or redirect to login
       await login({ email: credentials.email, password: credentials.password });
-    } catch (err: any) {
-      setError(err.message || 'Failed to register');
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Failed to register');
       throw err;
     } finally {
       setIsLoading(false);
