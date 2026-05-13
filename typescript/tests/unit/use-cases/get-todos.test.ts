@@ -80,7 +80,9 @@ describe('GetTodos Use Cases', () => {
 
       const useCase = new GetTodoByIdUseCase(repository)
       // Since it's a string, it fails the `error instanceof Error` check and is re-thrown
-      await expect(useCase.execute(todo.toJSON().id, 'user-123')).rejects.toThrow('Database error id')
+      await expect(useCase.execute(todo.toJSON().id, 'user-123')).rejects.toThrow(
+        'Database error id',
+      )
     })
   })
 })
