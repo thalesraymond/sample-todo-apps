@@ -76,7 +76,7 @@ class ApiService {
     return this.request<T>(endpoint, { ...options, method: 'GET' });
   }
 
-  public post<T>(endpoint: string, body: unknown, options?: RequestInit): Promise<T> {
+  public post<T, B = unknown>(endpoint: string, body: B, options?: RequestInit): Promise<T> {
     return this.request<T>(endpoint, {
       ...options,
       method: 'POST',
@@ -84,7 +84,7 @@ class ApiService {
     });
   }
 
-  public put<T>(endpoint: string, body: unknown, options?: RequestInit): Promise<T> {
+  public put<T, B = unknown>(endpoint: string, body: B, options?: RequestInit): Promise<T> {
     return this.request<T>(endpoint, {
       ...options,
       method: 'PUT',
