@@ -43,7 +43,15 @@ describe('GetTodos Use Cases', () => {
     it('should return null if todo not found', async () => {
       vi.mocked(repository.findById).mockResolvedValue(null)
       const useCase = new GetTodoByIdUseCase(repository)
-      const result = await useCase.execute('non-existent', 'user-123')
+      const validUuid = '00000000-0000-0000-0000-000000000000'
+      const result = await useCase.execute(validUuid, 'user-123')
+      expect(result).toBeNull()
+    })
+
+    it('should return null if id is in invalid format', async () => {
+      vi.mocked(repository.findById).mockRejectedValue(new Error('invalid id'))
+      const useCase = new GetTodoByIdUseCase(repository)
+      const result = await useCase.execute('invalid-id', 'user-123')
       expect(result).toBeNull()
     })
 
@@ -63,6 +71,18 @@ describe('GetTodos Use Cases', () => {
       const result = await useCase.execute(validUuid, 'user-123')
 
       expect(result).toBeNull()
+    })
+
+    it('should throw if repository throws a non-Error object', async () => {
+      const todo = Todo.create(TodoTitle.fromString('Test'), 'user-123')
+      // Simulate throwing a string instead of an Error object
+      vi.mocked(repository.findById).mockRejectedValue('Database error id')
+
+      const useCase = new GetTodoByIdUseCase(repository)
+      // Since it's a string, it fails the `error instanceof Error` check and is re-thrown
+      await expect(useCase.execute(todo.toJSON().id, 'user-123')).rejects.toThrow(
+        'Database error id',
+      )
     })
   })
 })
