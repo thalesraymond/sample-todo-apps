@@ -32,7 +32,11 @@ type UpdateTodoRequest struct {
 }
 
 func (h *TodoHandler) List(w http.ResponseWriter, r *http.Request) {
-	userId := r.Context().Value(middleware.UserIdKey).(string)
+	userId, ok := r.Context().Value(middleware.UserIdKey).(string)
+	if !ok {
+		http.Error(w, `{"message": "Internal server error"}`, http.StatusInternalServerError)
+		return
+	}
 
 	todos, err := h.todoRepo.GetTodosByUserId(userId)
 	if err != nil {
@@ -44,7 +48,11 @@ func (h *TodoHandler) List(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *TodoHandler) Create(w http.ResponseWriter, r *http.Request) {
-	userId := r.Context().Value(middleware.UserIdKey).(string)
+	userId, ok := r.Context().Value(middleware.UserIdKey).(string)
+	if !ok {
+		http.Error(w, `{"message": "Internal server error"}`, http.StatusInternalServerError)
+		return
+	}
 
 	var req TodoRequest
 	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
@@ -77,7 +85,11 @@ func (h *TodoHandler) Create(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *TodoHandler) Get(w http.ResponseWriter, r *http.Request) {
-	userId := r.Context().Value(middleware.UserIdKey).(string)
+	userId, ok := r.Context().Value(middleware.UserIdKey).(string)
+	if !ok {
+		http.Error(w, `{"message": "Internal server error"}`, http.StatusInternalServerError)
+		return
+	}
 	id := r.PathValue("id")
 
 	todo, err := h.todoRepo.GetTodoById(id)
@@ -95,7 +107,11 @@ func (h *TodoHandler) Get(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *TodoHandler) Update(w http.ResponseWriter, r *http.Request) {
-	userId := r.Context().Value(middleware.UserIdKey).(string)
+	userId, ok := r.Context().Value(middleware.UserIdKey).(string)
+	if !ok {
+		http.Error(w, `{"message": "Internal server error"}`, http.StatusInternalServerError)
+		return
+	}
 	id := r.PathValue("id")
 
 	todo, err := h.todoRepo.GetTodoById(id)
@@ -132,7 +148,11 @@ func (h *TodoHandler) Update(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *TodoHandler) Delete(w http.ResponseWriter, r *http.Request) {
-	userId := r.Context().Value(middleware.UserIdKey).(string)
+	userId, ok := r.Context().Value(middleware.UserIdKey).(string)
+	if !ok {
+		http.Error(w, `{"message": "Internal server error"}`, http.StatusInternalServerError)
+		return
+	}
 	id := r.PathValue("id")
 
 	todo, err := h.todoRepo.GetTodoById(id)

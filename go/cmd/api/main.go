@@ -22,7 +22,7 @@ func main() {
 
 	jwtSecret := os.Getenv("JWT_SECRET")
 	if jwtSecret == "" {
-		jwtSecret = "super-secret-key"
+		log.Fatal("JWT_SECRET environment variable is required")
 	}
 
 	userRepo := repositories.NewInMemoryUserRepository()

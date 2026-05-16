@@ -4,7 +4,7 @@ This is the Go implementation of the Sample Todo API.
 
 ## Requirements
 
-- Go 1.22 or higher
+- Go 1.24 or higher
 
 ## Getting Started
 

@@ -45,7 +45,11 @@ func (h *AuthHandler) Register(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	existingUser, _ := h.userRepo.GetUserByEmail(req.Email)
+	existingUser, err := h.userRepo.GetUserByEmail(req.Email)
+	if err != nil {
+		http.Error(w, `{"message": "Internal server error"}`, http.StatusInternalServerError)
+		return
+	}
 	if existingUser != nil {
 		http.Error(w, `{"message": "Email already registered"}`, http.StatusBadRequest)
 		return
