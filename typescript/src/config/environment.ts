@@ -3,7 +3,7 @@ import fastifyEnv from '@fastify/env'
 
 const environmentSchema = {
   type: 'object',
-  required: [],
+  required: ['JWT_SECRET'],
   properties: {
     PORT: {
       type: 'number',
@@ -27,7 +27,7 @@ const environmentSchema = {
     },
     JWT_SECRET: {
       type: 'string',
-      default: 'super-secret-key',
+      minLength: 1,
     },
     MONGODB_URI: {
       type: 'string',

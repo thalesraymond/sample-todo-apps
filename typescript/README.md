@@ -133,7 +133,7 @@ Cross-cutting concerns live in `src/shared/` (errors, types) and `src/plugins/` 
 | `NODE_ENV`         | string  | `development`                        | Runtime environment                         |
 | `LOG_LEVEL`        | string  | `info`                               | Pino log level                              |
 | `CORS_ORIGIN`      | string  | `*`                                  | Allowed CORS origin                         |
-| `JWT_SECRET`       | string  | `super-secret-key`                   | Secret key for signing JWTs                 |
+| `JWT_SECRET`       | string  | **Required** (no default)            | Secret key for signing JWTs                 |
 | `MONGODB_URI`      | string  | `mongodb://localhost:27017/todo-app` | MongoDB connection string                   |
 | `USE_IN_MEMORY_DB` | boolean | `true`                               | Use in-memory MongoDB server (for dev/test) |
 
