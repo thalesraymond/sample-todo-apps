@@ -24,7 +24,7 @@ public class AuthTests : IClassFixture<WebApplicationFactory<Program>>
     [Fact]
     public void JwtService_ShouldGenerateValidToken()
     {
-        var service = new JwtService("my_super_secret_key_that_is_at_least_32_characters_long!");
+        var service = new JwtService("test_secret_key_that_is_at_least_32_characters_long!");
         var tokenString = service.GenerateToken("u1", "test@test.com");
 
         tokenString.Should().NotBeNullOrEmpty();
