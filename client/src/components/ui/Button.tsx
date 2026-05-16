@@ -1,5 +1,6 @@
 import React from 'react';
 import './Button.css';
+import { Spinner } from './Spinner';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'danger' | 'ghost';
@@ -22,7 +23,7 @@ export const Button: React.FC<ButtonProps> = ({
       disabled={disabled || isLoading}
       {...props}
     >
-      {isLoading ? <span className="loader"></span> : children}
+      {isLoading ? <Spinner /> : children}
     </button>
   );
 };
