@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"time"
 
 	"github.com/rs/cors"
 	"github.com/todo-app/go/internal/handlers"
@@ -80,15 +81,30 @@ func main() {
 	mux.Handle("/todos", authMiddleware(protectedMux))
 	mux.Handle("/todos/", authMiddleware(protectedMux))
 
+	allowedOriginsStr := os.Getenv("CORS_ORIGIN")
+	if allowedOriginsStr == "" {
+		allowedOriginsStr = "http://localhost:5173" // Default frontend port
+	}
+	allowedOrigins := []string{allowedOriginsStr}
+
 	corsHandler := cors.New(cors.Options{
-		AllowedOrigins:   []string{"*"},
+		AllowedOrigins:   allowedOrigins,
 		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
 		AllowedHeaders:   []string{"*"},
 		AllowCredentials: true,
 	}).Handler(mux)
 
+	server := &http.Server{
+		Addr:              fmt.Sprintf(":%s", port),
+		Handler:           corsHandler,
+		ReadHeaderTimeout: 5 * time.Second,
+		ReadTimeout:       15 * time.Second,
+		WriteTimeout:      15 * time.Second,
+		IdleTimeout:       120 * time.Second,
+	}
+
 	log.Printf("Server starting on port %s", port)
-	if err := http.ListenAndServe(fmt.Sprintf(":%s", port), corsHandler); err != nil {
+	if err := server.ListenAndServe(); err != nil {
 		log.Fatalf("Failed to start server: %v", err)
 	}
 }
