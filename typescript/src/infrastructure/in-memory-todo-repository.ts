@@ -36,7 +36,7 @@ export class InMemoryTodoRepository implements TodoRepository {
     const result: Todo[] = []
     for (const id of userSet) {
       const todo = this.todos.get(id)
-      if (todo) {
+      if (todo && todo.userId === userId) {
         result.push(todo)
       }
     }
