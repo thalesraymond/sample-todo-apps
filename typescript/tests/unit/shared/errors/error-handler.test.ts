@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach } from 'vitest'
-import type { FastifyInstance } from 'fastify';
+import type { FastifyInstance } from 'fastify'
 import Fastify from 'fastify'
 import { registerErrorHandler } from '../../../../src/shared/errors/error-handler.js'
 import { BadRequestError } from '../../../../src/shared/errors/http-error.js'
