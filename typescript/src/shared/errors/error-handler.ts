@@ -9,7 +9,7 @@ interface ErrorResponse {
 }
 
 function isValidationError(error: FastifyError): boolean {
-  return error.validation !== undefined
+  return error && error.validation !== undefined
 }
 
 function buildValidationResponse(error: FastifyError): ErrorResponse {
