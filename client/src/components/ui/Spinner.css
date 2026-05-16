@@ -6,6 +6,7 @@
   width: 100%;
   flex: 1;
   padding: var(--spacing-xl);
+  color: var(--accent);
 }
 
 .loader {
@@ -22,7 +23,6 @@
   width: 32px;
   height: 32px;
   border-width: 3px;
-  color: var(--accent);
 }
 
 @keyframes rotation {

@@ -9,7 +9,7 @@ interface SpinnerProps {
 export const Spinner = ({ fullPage = false, className = '', size = 'md' }: SpinnerProps) => {
   const loaderClass = `loader ${size === 'lg' ? 'loader-lg' : ''} ${className}`.trim();
 
-  const spinner = <span className={loaderClass} data-testid="spinner"></span>;
+  const spinner = <span className={loaderClass} data-testid="spinner" role="status" aria-label="Loading"></span>;
 
   if (fullPage) {
     return (

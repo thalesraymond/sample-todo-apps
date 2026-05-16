@@ -23,7 +23,7 @@ export const Button: React.FC<ButtonProps> = ({
       disabled={disabled || isLoading}
       {...props}
     >
-      {isLoading ? <Spinner /> : children}
+      {isLoading ? <Spinner size={size} /> : children}
     </button>
   );
 };
