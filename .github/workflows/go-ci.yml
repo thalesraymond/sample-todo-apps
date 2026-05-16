@@ -1,0 +1,46 @@
+name: Go CI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'go/**'
+      - '.github/workflows/go-ci.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'go/**'
+      - '.github/workflows/go-ci.yml'
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: go
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.24.x'
+
+      - name: Install dependencies
+        run: go mod download
+
+      - name: Verify Formatting
+        run: |
+          if [ -n "$(gofmt -l .)" ]; then
+            echo "Code is not formatted correctly. Run 'go fmt ./...'"
+            exit 1
+          fi
+
+      - name: Build
+        run: go build ./cmd/api
+
+      - name: Test and Coverage
+        run: go test -v ./... -cover
