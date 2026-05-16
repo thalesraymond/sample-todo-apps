@@ -29,6 +29,15 @@ func NewInMemoryTodoRepository() *InMemoryTodoRepository {
 func (r *InMemoryTodoRepository) AddTodo(todo models.Todo) error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
+
+	if oldTodo, exists := r.todos[todo.Id]; exists {
+		if oldTodo.UserId != todo.UserId {
+			if r.userTodos[oldTodo.UserId] != nil {
+				delete(r.userTodos[oldTodo.UserId], todo.Id)
+			}
+		}
+	}
+
 	r.todos[todo.Id] = todo
 	if r.userTodos[todo.UserId] == nil {
 		r.userTodos[todo.UserId] = make(map[string]struct{})
@@ -54,6 +63,7 @@ func (r *InMemoryTodoRepository) GetTodosByUserId(userId string) ([]models.Todo,
 
 	var userTodos []models.Todo
 	if todoIds, exists := r.userTodos[userId]; exists {
+		userTodos = make([]models.Todo, 0, len(todoIds))
 		for id := range todoIds {
 			if todo, ok := r.todos[id]; ok {
 				userTodos = append(userTodos, todo)
