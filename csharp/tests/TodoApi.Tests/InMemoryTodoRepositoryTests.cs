@@ -71,10 +71,7 @@ public class InMemoryTodoRepositoryTests
         var user1Todos = _repository.GetTodosByUserId("u1");
 
         // Assert
-        user1Todos.Should().HaveCount(2);
-        user1Todos.Should().Contain(t => t.Id == "t1");
-        user1Todos.Should().Contain(t => t.Id == "t2");
-        user1Todos.Should().NotContain(t => t.Id == "t3");
+        user1Todos.Should().BeEquivalentTo(new[] { todo1, todo2 });
     }
 
     [Fact]
@@ -106,8 +103,7 @@ public class InMemoryTodoRepositoryTests
         // Assert
         var retrieved = _repository.GetTodoById("t1");
         retrieved.Should().NotBeNull();
-        retrieved?.Title.Should().Be("Updated Title");
-        retrieved?.Completed.Should().BeTrue();
+        retrieved.Should().BeEquivalentTo(updatedTodo);
     }
 
     [Fact]
@@ -125,7 +121,7 @@ public class InMemoryTodoRepositoryTests
         // Assert
         var retrieved = _repository.GetTodoById("t1");
         retrieved.Should().NotBeNull();
-        retrieved?.Title.Should().Be("New Todo");
+        retrieved.Should().BeEquivalentTo(newTodo);
     }
 
     [Fact]
@@ -157,5 +153,25 @@ public class InMemoryTodoRepositoryTests
         act.Should().NotThrow();
         // Ensure existing todo was not affected
         _repository.GetTodoById("t1").Should().NotBeNull();
+    }
+
+    [Fact]
+    public void GetTodoById_ShouldThrowArgumentNullException_WhenIdIsNull()
+    {
+        // Act
+        Action act = () => _repository.GetTodoById(null!);
+
+        // Assert
+        act.Should().Throw<ArgumentNullException>();
+    }
+
+    [Fact]
+    public void DeleteTodo_ShouldThrowArgumentNullException_WhenIdIsNull()
+    {
+        // Act
+        Action act = () => _repository.DeleteTodo(null!);
+
+        // Assert
+        act.Should().Throw<ArgumentNullException>();
     }
 }
