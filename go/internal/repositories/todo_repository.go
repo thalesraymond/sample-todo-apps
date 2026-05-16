@@ -14,13 +14,15 @@ type TodoRepository interface {
 }
 
 type InMemoryTodoRepository struct {
-	mu    sync.RWMutex
-	todos map[string]models.Todo
+	mu        sync.RWMutex
+	todos     map[string]models.Todo
+	userTodos map[string]map[string]struct{}
 }
 
 func NewInMemoryTodoRepository() *InMemoryTodoRepository {
 	return &InMemoryTodoRepository{
-		todos: make(map[string]models.Todo),
+		todos:     make(map[string]models.Todo),
+		userTodos: make(map[string]map[string]struct{}),
 	}
 }
 
@@ -28,6 +30,10 @@ func (r *InMemoryTodoRepository) AddTodo(todo models.Todo) error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	r.todos[todo.Id] = todo
+	if r.userTodos[todo.UserId] == nil {
+		r.userTodos[todo.UserId] = make(map[string]struct{})
+	}
+	r.userTodos[todo.UserId][todo.Id] = struct{}{}
 	return nil
 }
 
@@ -47,9 +53,11 @@ func (r *InMemoryTodoRepository) GetTodosByUserId(userId string) ([]models.Todo,
 	defer r.mu.RUnlock()
 
 	var userTodos []models.Todo
-	for _, todo := range r.todos {
-		if todo.UserId == userId {
-			userTodos = append(userTodos, todo)
+	if todoIds, exists := r.userTodos[userId]; exists {
+		for id := range todoIds {
+			if todo, ok := r.todos[id]; ok {
+				userTodos = append(userTodos, todo)
+			}
 		}
 	}
 
@@ -65,7 +73,16 @@ func (r *InMemoryTodoRepository) UpdateTodo(todo models.Todo) error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 
-	if _, exists := r.todos[todo.Id]; exists {
+	if oldTodo, exists := r.todos[todo.Id]; exists {
+		if oldTodo.UserId != todo.UserId {
+			if r.userTodos[oldTodo.UserId] != nil {
+				delete(r.userTodos[oldTodo.UserId], todo.Id)
+			}
+			if r.userTodos[todo.UserId] == nil {
+				r.userTodos[todo.UserId] = make(map[string]struct{})
+			}
+			r.userTodos[todo.UserId][todo.Id] = struct{}{}
+		}
 		r.todos[todo.Id] = todo
 	}
 
@@ -76,6 +93,11 @@ func (r *InMemoryTodoRepository) DeleteTodo(id string) error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 
-	delete(r.todos, id)
+	if todo, exists := r.todos[id]; exists {
+		delete(r.todos, id)
+		if r.userTodos[todo.UserId] != nil {
+			delete(r.userTodos[todo.UserId], id)
+		}
+	}
 	return nil
 }
