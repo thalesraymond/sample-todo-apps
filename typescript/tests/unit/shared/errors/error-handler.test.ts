@@ -63,8 +63,8 @@ describe('error-handler', () => {
   })
 
   it('should handle generic Error as Internal Server Error', async () => {
-    let loggedError: any
-    app.log.error = (err) => {
+    let loggedError: unknown
+    app.log.error = (err: unknown) => {
       loggedError = err
     }
 
@@ -84,7 +84,7 @@ describe('error-handler', () => {
       message: 'An unexpected error occurred',
     })
     expect(loggedError).toBeInstanceOf(Error)
-    expect(loggedError.message).toBe('Something went terribly wrong')
+    expect((loggedError as Error).message).toBe('Something went terribly wrong')
   })
   it('should handle other HttpErrors (e.g., NotFoundError)', async () => {
     app.get('/not-found', async () => {
