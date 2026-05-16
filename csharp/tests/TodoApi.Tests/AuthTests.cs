@@ -24,7 +24,7 @@ public class AuthTests : IClassFixture<WebApplicationFactory<Program>>
     [Fact]
     public void JwtService_ShouldGenerateValidToken()
     {
-        var service = new JwtService("my_super_secret_key_that_is_at_least_32_characters_long!");
+        var service = new JwtService("my_super_secret_key_that_is_at_least_32_characters_long!", "TestIssuer", "TestAudience");
         var tokenString = service.GenerateToken("u1", "test@test.com");
 
         tokenString.Should().NotBeNullOrEmpty();
@@ -33,6 +33,8 @@ public class AuthTests : IClassFixture<WebApplicationFactory<Program>>
         var token = handler.ReadJwtToken(tokenString);
 
         token.Claims.First(c => c.Type == JwtRegisteredClaimNames.Sub).Value.Should().Be("u1");
+        token.Issuer.Should().Be("TestIssuer");
+        token.Audiences.Should().Contain("TestAudience");
     }
 
     [Fact]

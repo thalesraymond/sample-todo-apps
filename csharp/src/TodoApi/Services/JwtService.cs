@@ -9,10 +9,18 @@ namespace TodoApi.Services;
 public class JwtService
 {
     private readonly string _secretKey;
+    private readonly string _issuer;
+    private readonly string _audience;
 
-    public JwtService(string secretKey)
+    public JwtService(string secretKey, string issuer, string audience)
     {
+        if (string.IsNullOrWhiteSpace(secretKey)) throw new ArgumentException("Secret key cannot be empty", nameof(secretKey));
+        if (string.IsNullOrWhiteSpace(issuer)) throw new ArgumentException("Issuer cannot be empty", nameof(issuer));
+        if (string.IsNullOrWhiteSpace(audience)) throw new ArgumentException("Audience cannot be empty", nameof(audience));
+
         _secretKey = secretKey;
+        _issuer = issuer;
+        _audience = audience;
     }
 
     public string GenerateToken(string userId, string email)
@@ -28,6 +36,8 @@ public class JwtService
                 new Claim(ClaimTypes.Email, email)
             }),
             Expires = DateTime.UtcNow.AddDays(7),
+            Issuer = _issuer,
+            Audience = _audience,
             SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
         };
 
