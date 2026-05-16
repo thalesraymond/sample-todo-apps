@@ -27,8 +27,10 @@ builder.Services.AddSingleton<ITodoRepository, InMemoryTodoRepository>();
 
 var jwtSecret = builder.Configuration["Jwt:Secret"]
     ?? throw new InvalidOperationException("JWT secret is not configured. Set 'Jwt:Secret' in configuration.");
-var jwtIssuer = builder.Configuration["Jwt:Issuer"] ?? "TodoApi";
-var jwtAudience = builder.Configuration["Jwt:Audience"] ?? "TodoApiClient";
+var jwtIssuer = builder.Configuration["Jwt:Issuer"]
+    ?? throw new InvalidOperationException("JWT issuer is not configured. Set 'Jwt:Issuer' in configuration.");
+var jwtAudience = builder.Configuration["Jwt:Audience"]
+    ?? throw new InvalidOperationException("JWT audience is not configured. Set 'Jwt:Audience' in configuration.");
 
 builder.Services.AddSingleton(new JwtService(jwtSecret, jwtIssuer, jwtAudience));
 

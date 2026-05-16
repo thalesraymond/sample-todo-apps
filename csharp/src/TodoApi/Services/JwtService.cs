@@ -14,6 +14,10 @@ public class JwtService
 
     public JwtService(string secretKey, string issuer, string audience)
     {
+        if (string.IsNullOrWhiteSpace(secretKey)) throw new ArgumentException("Secret key cannot be empty", nameof(secretKey));
+        if (string.IsNullOrWhiteSpace(issuer)) throw new ArgumentException("Issuer cannot be empty", nameof(issuer));
+        if (string.IsNullOrWhiteSpace(audience)) throw new ArgumentException("Audience cannot be empty", nameof(audience));
+
         _secretKey = secretKey;
         _issuer = issuer;
         _audience = audience;
