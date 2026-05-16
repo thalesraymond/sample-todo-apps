@@ -11,21 +11,20 @@ export const DashboardView: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchTodos = async () => {
-    setIsLoading(true);
-    try {
-      const data = await todoService.getTodos();
-      setTodos(data);
-      setError(null);
-    } catch (err: unknown) {
-      setError(err instanceof Error ? err.message : 'Failed to load todos');
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
+    const fetchTodos = async () => {
+      setIsLoading(true);
+      try {
+        const data = await todoService.getTodos();
+        setTodos(data);
+        setError(null);
+      } catch (err: unknown) {
+        setError(err instanceof Error ? err.message : 'Failed to load todos');
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
     fetchTodos();
   }, []);
 
