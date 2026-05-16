@@ -27,7 +27,7 @@ const environmentSchema = {
     },
     JWT_SECRET: {
       type: 'string',
-      minLength: 1,
+      minLength: 32,
     },
     MONGODB_URI: {
       type: 'string',
