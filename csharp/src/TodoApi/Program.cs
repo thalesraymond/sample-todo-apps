@@ -7,12 +7,25 @@ using TodoApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var allowedOriginsStr = builder.Configuration["CORS_ORIGIN"];
+var allowedOrigins = string.IsNullOrWhiteSpace(allowedOriginsStr)
+    ? Array.Empty<string>()
+    : allowedOriginsStr.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
     {
-        policy.AllowAnyOrigin()
-              .AllowAnyMethod()
+        if (allowedOrigins.Contains("*"))
+        {
+            policy.AllowAnyOrigin();
+        }
+        else if (allowedOrigins.Length > 0)
+        {
+            policy.WithOrigins(allowedOrigins);
+        }
+
+        policy.AllowAnyMethod()
               .AllowAnyHeader();
     });
 });
