@@ -12,20 +12,29 @@ export const DashboardView: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    let isMounted = true;
     const fetchTodos = async () => {
-      setIsLoading(true);
       try {
         const data = await todoService.getTodos();
-        setTodos(data);
-        setError(null);
+        if (isMounted) {
+          setTodos(data);
+          setError(null);
+        }
       } catch (err: unknown) {
-        setError(err instanceof Error ? err.message : 'Failed to load todos');
+        if (isMounted) {
+          setError(err instanceof Error ? err.message : 'Failed to load todos');
+        }
       } finally {
-        setIsLoading(false);
+        if (isMounted) {
+          setIsLoading(false);
+        }
       }
     };
 
     fetchTodos();
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   const handleAddTodo = async (title: string) => {
