@@ -11,12 +11,14 @@ namespace TodoApi.Tests;
 public class JwtServiceTests
 {
     private const string SecretKey = "my_super_secret_key_that_is_at_least_32_characters_long!";
+    private const string Issuer = "TodoApi";
+    private const string Audience = "TodoApiClient";
 
     [Fact]
     public void GenerateToken_ShouldIncludeUserIdAndEmailClaims()
     {
         // Arrange
-        var service = new JwtService(SecretKey);
+        var service = new JwtService(SecretKey, Issuer, Audience);
         var userId = "user123";
         var email = "test@example.com";
 
@@ -37,7 +39,7 @@ public class JwtServiceTests
     public void GenerateToken_ShouldSetExpirationToSevenDays()
     {
         // Arrange
-        var service = new JwtService(SecretKey);
+        var service = new JwtService(SecretKey, Issuer, Audience);
 
         // Act
         var tokenString = service.GenerateToken("u1", "test@example.com");
@@ -54,7 +56,7 @@ public class JwtServiceTests
     public void GenerateToken_WithNullUserId_ThrowsArgumentNullException()
     {
         // Arrange
-        var service = new JwtService(SecretKey);
+        var service = new JwtService(SecretKey, Issuer, Audience);
 
         // Act
         Action act = () => service.GenerateToken(null!, "test@example.com");
@@ -67,7 +69,7 @@ public class JwtServiceTests
     public void GenerateToken_WithNullEmail_ThrowsArgumentNullException()
     {
         // Arrange
-        var service = new JwtService(SecretKey);
+        var service = new JwtService(SecretKey, Issuer, Audience);
 
         // Act
         Action act = () => service.GenerateToken("u1", null!);
