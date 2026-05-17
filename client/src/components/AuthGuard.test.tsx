@@ -43,7 +43,7 @@ describe('AuthGuard Component', () => {
     );
   };
 
-  it('renders "Loading..." when isLoading is true', () => {
+  it('renders Spinner when isLoading is true', () => {
     mockedUseAuth.mockReturnValue({
       isLoading: true,
       isAuthenticated: false,
@@ -56,7 +56,7 @@ describe('AuthGuard Component', () => {
 
     renderWithRouter();
 
-    expect(screen.getByText('Loading...')).toBeInTheDocument();
+    expect(screen.getByTestId('spinner')).toBeInTheDocument();
     expect(screen.queryByText('Protected Content')).not.toBeInTheDocument();
     expect(screen.queryByText('Login Page')).not.toBeInTheDocument();
   });

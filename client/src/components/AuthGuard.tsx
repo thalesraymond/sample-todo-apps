@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
+import { Spinner } from './ui/Spinner';
 
 interface AuthGuardProps {
   children: React.ReactNode;
@@ -11,7 +12,7 @@ export const AuthGuard: React.FC<AuthGuardProps> = ({ children }) => {
   const location = useLocation();
 
   if (isLoading) {
-    return <div>Loading...</div>; // Could use a better loader
+    return <Spinner fullPage size="lg" />;
   }
 
   if (!isAuthenticated) {
