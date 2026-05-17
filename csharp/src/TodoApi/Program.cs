@@ -16,11 +16,7 @@ builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
     {
-        if (allowedOrigins.Contains("*"))
-        {
-            policy.AllowAnyOrigin();
-        }
-        else if (allowedOrigins.Length > 0)
+        if (allowedOrigins.Length > 0)
         {
             policy.WithOrigins(allowedOrigins);
         }
