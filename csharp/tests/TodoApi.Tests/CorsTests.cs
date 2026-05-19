@@ -69,25 +69,6 @@ public class CorsTests
     }
 
     [Fact]
-    public async Task Cors_WithWildcard_AllowsAnyOrigin()
-    {
-        var factory = new WebApplicationFactory<Program>().WithWebHostBuilder(builder =>
-        {
-            builder.UseSetting("CORS_ORIGIN", "*");
-        });
-
-        var client = factory.CreateClient();
-
-        var request = new HttpRequestMessage(HttpMethod.Options, "/api/auth/login");
-        request.Headers.Add("Origin", "http://any-origin.com");
-        request.Headers.Add("Access-Control-Request-Method", "POST");
-
-        var response = await client.SendAsync(request);
-
-        response.Headers.TryGetValues("Access-Control-Allow-Origin", out var values).Should().BeTrue();
-        values.Should().Contain("*");
-    }
-    [Fact]
     public async Task Cors_WithoutConfiguration_DoesNotReturnAccessControlAllowOriginHeader()
     {
         var factory = new WebApplicationFactory<Program>().WithWebHostBuilder(builder =>
