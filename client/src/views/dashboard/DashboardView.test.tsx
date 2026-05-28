@@ -59,7 +59,7 @@ describe('DashboardView', () => {
     try {
       await user.click(addButton);
     } catch {
-      // ignore
+      // Catch the error re-thrown by the component to prevent the test from failing
     }
 
     // Verify the error message is displayed
