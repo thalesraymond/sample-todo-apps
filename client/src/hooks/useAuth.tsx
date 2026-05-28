@@ -27,9 +27,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       const token = api.getToken();
       if (token) {
         try {
-          // In a real app, we'd fetch the user profile here
-          // For now, if there's a token, we consider them logged in with minimal data
-          // Or we could implement /api/auth/me if we want to be thorough
           setUser({ id: 'current', email: 'user@example.com' });
         } catch {
           authService.logout();
