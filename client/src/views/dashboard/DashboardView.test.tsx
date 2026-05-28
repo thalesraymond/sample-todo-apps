@@ -56,17 +56,10 @@ describe('DashboardView', () => {
     const user = userEvent.setup();
     await user.type(input, 'New failing task');
 
-    // Spy on console.error since we are expecting a throw to bubble up somewhere
-    // DashboardView actually re-throws the error: throw err;
-    // However, it also sets the error state. We need to catch the re-thrown error to prevent the test from failing directly,
-    // but the throw happens inside the async handler.
-    // In React 18, errors in event handlers don't crash the app in production, but might in tests.
-
-    // Let's interact and see the error state
     try {
       await user.click(addButton);
     } catch {
-      // The component re-throws the error `throw err;`, so we might catch it here in the test environment
+      // Catch the error re-thrown by the component to prevent the test from failing
     }
 
     // Verify the error message is displayed
