@@ -233,3 +233,44 @@ func TestTodoHandler_List_RepoError(t *testing.T) {
 	handler.List(w, req)
 	assert.Equal(t, http.StatusInternalServerError, w.Code)
 }
+
+func TestTodoHandler_Create_TooLarge(t *testing.T) {
+	repo := repositories.NewInMemoryTodoRepository()
+	handler := NewTodoHandler(repo)
+
+	// Create 2MB payload
+	largeStr := make([]byte, 2097152)
+	for i := range largeStr {
+		largeStr[i] = 'a'
+	}
+	reqBody := `{"title":"` + string(largeStr) + `"}`
+
+	req := httptest.NewRequest(http.MethodPost, "/todos", bytes.NewBufferString(reqBody))
+	req = setContext(req, "user1")
+	w := httptest.NewRecorder()
+
+	handler.Create(w, req)
+	assert.Equal(t, http.StatusRequestEntityTooLarge, w.Code)
+}
+
+func TestTodoHandler_Update_TooLarge(t *testing.T) {
+	repo := repositories.NewInMemoryTodoRepository()
+	handler := NewTodoHandler(repo)
+
+	repo.AddTodo(models.Todo{Id: "1", Title: "Todo 1", UserId: "user1"})
+
+	// Create 2MB payload
+	largeStr := make([]byte, 2097152)
+	for i := range largeStr {
+		largeStr[i] = 'a'
+	}
+	reqBody := `{"title":"` + string(largeStr) + `"}`
+
+	req := httptest.NewRequest(http.MethodPut, "/todos/1", bytes.NewBufferString(reqBody))
+	req.SetPathValue("id", "1")
+	req = setContext(req, "user1")
+	w := httptest.NewRecorder()
+
+	handler.Update(w, req)
+	assert.Equal(t, http.StatusRequestEntityTooLarge, w.Code)
+}

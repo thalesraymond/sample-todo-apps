@@ -133,3 +133,39 @@ func TestAuthHandler_Register_RepoError(t *testing.T) {
 	// Not easily testable without a mock repo that returns an error on AddUser,
 	// but the handler handles it. We can skip for now.
 }
+
+func TestAuthHandler_Register_TooLarge(t *testing.T) {
+	repo := repositories.NewInMemoryUserRepository()
+	jwtService := services.NewJwtService("secret")
+	handler := NewAuthHandler(repo, jwtService)
+
+	// Create 2MB payload
+	largeStr := make([]byte, 2097152)
+	for i := range largeStr {
+		largeStr[i] = 'a'
+	}
+	reqBody := `{"email":"` + string(largeStr) + `@test.com","password":"pwd"}`
+
+	req := httptest.NewRequest(http.MethodPost, "/register", bytes.NewBufferString(reqBody))
+	w := httptest.NewRecorder()
+	handler.Register(w, req)
+	assert.Equal(t, http.StatusRequestEntityTooLarge, w.Code)
+}
+
+func TestAuthHandler_Login_TooLarge(t *testing.T) {
+	repo := repositories.NewInMemoryUserRepository()
+	jwtService := services.NewJwtService("secret")
+	handler := NewAuthHandler(repo, jwtService)
+
+	// Create 2MB payload
+	largeStr := make([]byte, 2097152)
+	for i := range largeStr {
+		largeStr[i] = 'a'
+	}
+	reqBody := `{"email":"` + string(largeStr) + `@test.com","password":"pwd"}`
+
+	req := httptest.NewRequest(http.MethodPost, "/login", bytes.NewBufferString(reqBody))
+	w := httptest.NewRecorder()
+	handler.Login(w, req)
+	assert.Equal(t, http.StatusRequestEntityTooLarge, w.Code)
+}

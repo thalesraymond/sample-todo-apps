@@ -34,8 +34,13 @@ type LoginRequest struct {
 }
 
 func (h *AuthHandler) Register(w http.ResponseWriter, r *http.Request) {
+	r.Body = http.MaxBytesReader(w, r.Body, 1048576)
 	var req RegisterRequest
 	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+		if err.Error() == "http: request body too large" {
+			http.Error(w, `{"message": "Request body too large"}`, http.StatusRequestEntityTooLarge)
+			return
+		}
 		http.Error(w, `{"message": "Invalid request body"}`, http.StatusBadRequest)
 		return
 	}
@@ -80,8 +85,13 @@ func (h *AuthHandler) Register(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *AuthHandler) Login(w http.ResponseWriter, r *http.Request) {
+	r.Body = http.MaxBytesReader(w, r.Body, 1048576)
 	var req LoginRequest
 	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+		if err.Error() == "http: request body too large" {
+			http.Error(w, `{"message": "Request body too large"}`, http.StatusRequestEntityTooLarge)
+			return
+		}
 		http.Error(w, `{"message": "Invalid request body"}`, http.StatusBadRequest)
 		return
 	}
