@@ -10,7 +10,7 @@ describe('auth.plugin', () => {
 
     const response = await app.inject({
       method: 'OPTIONS',
-      url: '/api/test'
+      url: '/api/test',
     })
 
     expect(response.statusCode).toBe(200)
@@ -24,7 +24,7 @@ describe('auth.plugin', () => {
 
     const response = await app.inject({
       method: 'GET',
-      url: '/api/public'
+      url: '/api/public',
     })
 
     expect(response.statusCode).toBe(200)
@@ -38,7 +38,7 @@ describe('auth.plugin', () => {
 
     const response = await app.inject({
       method: 'GET',
-      url: '/docs'
+      url: '/docs',
     })
 
     expect(response.statusCode).toBe(200)
@@ -53,7 +53,7 @@ describe('auth.plugin', () => {
 
     const response = await app.inject({
       method: 'GET',
-      url: '/api/private'
+      url: '/api/private',
     })
 
     expect(response.statusCode).toBe(200)
@@ -68,7 +68,7 @@ describe('auth.plugin', () => {
 
     const response = await app.inject({
       method: 'GET',
-      url: '/api/private'
+      url: '/api/private',
     })
 
     expect(response.statusCode).toBe(401)
