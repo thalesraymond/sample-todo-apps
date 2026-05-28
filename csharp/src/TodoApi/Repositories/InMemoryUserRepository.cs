@@ -8,19 +8,26 @@ public class InMemoryUserRepository : IUserRepository
     private readonly ConcurrentDictionary<string, User> _users = new();
     private readonly ConcurrentDictionary<string, string> _emailToId = new();
     private readonly ConcurrentDictionary<string, string> _idToEmail = new();
+    private readonly object _lock = new();
 
     public void AddUser(User user)
     {
-        _users[user.Id] = user;
-
-        // Remove old email index if it changed
-        if (_idToEmail.TryGetValue(user.Id, out var oldEmail) && oldEmail != user.Email)
+        lock (_lock)
         {
-            _emailToId.TryRemove(oldEmail, out _);
-        }
+            _users[user.Id] = user;
 
-        _idToEmail[user.Id] = user.Email;
-        _emailToId[user.Email] = user.Id;
+            // Remove old email index if it changed and still points to this user
+            if (_idToEmail.TryGetValue(user.Id, out var oldEmail) && oldEmail != user.Email)
+            {
+                if (_emailToId.TryGetValue(oldEmail, out var existingId) && existingId == user.Id)
+                {
+                    _emailToId.TryRemove(oldEmail, out _);
+                }
+            }
+
+            _idToEmail[user.Id] = user.Email;
+            _emailToId[user.Email] = user.Id;
+        }
     }
 
     public User? GetUserByEmail(string email)
