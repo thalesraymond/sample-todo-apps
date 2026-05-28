@@ -43,7 +43,6 @@ export const DashboardView: React.FC = () => {
       setTodos((prev) => [...prev, newTodo]);
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'Failed to add todo');
-      throw err;
     }
   };
 
