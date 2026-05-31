@@ -169,3 +169,51 @@ func TestAuthHandler_Login_TooLarge(t *testing.T) {
 	handler.Login(w, req)
 	assert.Equal(t, http.StatusRequestEntityTooLarge, w.Code)
 }
+
+func TestAuthHandler_Register_PasswordTooLong(t *testing.T) {
+	repo := repositories.NewInMemoryUserRepository()
+	jwtService := services.NewJwtService("secret")
+	handler := NewAuthHandler(repo, jwtService)
+
+	// Password longer than 72 bytes
+	longPass := make([]byte, 73)
+	for i := range longPass {
+		longPass[i] = 'a'
+	}
+	reqBody := `{"email":"test@example.com","password":"` + string(longPass) + `"}`
+
+	req := httptest.NewRequest(http.MethodPost, "/register", bytes.NewBufferString(reqBody))
+	req.Header.Set("Content-Type", "application/json")
+	w := httptest.NewRecorder()
+	handler.Register(w, req)
+
+	assert.Equal(t, http.StatusBadRequest, w.Code)
+}
+
+func TestAuthHandler_Login_PasswordTooLong(t *testing.T) {
+	repo := repositories.NewInMemoryUserRepository()
+	jwtService := services.NewJwtService("secret")
+	handler := NewAuthHandler(repo, jwtService)
+
+	// Setup a user with a valid password
+	hashedPassword, _ := bcrypt.GenerateFromPassword([]byte("password123"), bcrypt.DefaultCost)
+	repo.AddUser(models.User{
+		Id:       "1",
+		Email:    "test@example.com",
+		Password: string(hashedPassword),
+	})
+
+	// Password longer than 72 bytes
+	longPass := make([]byte, 73)
+	for i := range longPass {
+		longPass[i] = 'a'
+	}
+	reqBody := `{"email":"test@example.com","password":"` + string(longPass) + `"}`
+
+	req := httptest.NewRequest(http.MethodPost, "/login", bytes.NewBufferString(reqBody))
+	req.Header.Set("Content-Type", "application/json")
+	w := httptest.NewRecorder()
+	handler.Login(w, req)
+
+	assert.Equal(t, http.StatusUnauthorized, w.Code)
+}

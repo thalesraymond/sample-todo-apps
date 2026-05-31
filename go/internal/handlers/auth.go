@@ -52,6 +52,11 @@ func (h *AuthHandler) Register(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	if len(req.Password) > 72 {
+		http.Error(w, `{"message": "Password cannot exceed 72 bytes"}`, http.StatusBadRequest)
+		return
+	}
+
 	existingUser, err := h.userRepo.GetUserByEmail(req.Email)
 	if err != nil {
 		http.Error(w, `{"message": "Internal server error"}`, http.StatusInternalServerError)
@@ -101,6 +106,11 @@ func (h *AuthHandler) Login(w http.ResponseWriter, r *http.Request) {
 
 	if req.Email == "" || req.Password == "" {
 		http.Error(w, `{"message": "Email and password are required"}`, http.StatusBadRequest)
+		return
+	}
+
+	if len(req.Password) > 72 {
+		http.Error(w, `{"message": "Invalid credentials"}`, http.StatusUnauthorized)
 		return
 	}
 
