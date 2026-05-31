@@ -25,7 +25,7 @@ describe('useAuth', () => {
   );
 
   beforeEach(() => {
-    vi.clearAllMocks();
+    vi.resetAllMocks();
   });
 
   describe('Initialization', () => {
@@ -219,11 +219,13 @@ describe('useAuth', () => {
     it('should throw an error when used outside of AuthProvider', () => {
       const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
-      expect(() => {
-        renderHook(() => useAuth());
-      }).toThrow('useAuth must be used within an AuthProvider');
-
-      consoleSpy.mockRestore();
+      try {
+        expect(() => {
+          renderHook(() => useAuth());
+        }).toThrow('useAuth must be used within an AuthProvider');
+      } finally {
+        consoleSpy.mockRestore();
+      }
     });
   });
 });
