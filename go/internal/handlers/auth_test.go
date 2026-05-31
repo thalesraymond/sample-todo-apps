@@ -176,10 +176,7 @@ func TestAuthHandler_Register_PasswordTooLong(t *testing.T) {
 	handler := NewAuthHandler(repo, jwtService)
 
 	// Password longer than 72 bytes
-	longPass := make([]byte, 73)
-	for i := range longPass {
-		longPass[i] = 'a'
-	}
+	longPass := bytes.Repeat([]byte("a"), 73)
 	reqBody := `{"email":"test@example.com","password":"` + string(longPass) + `"}`
 
 	req := httptest.NewRequest(http.MethodPost, "/register", bytes.NewBufferString(reqBody))
@@ -204,10 +201,7 @@ func TestAuthHandler_Login_PasswordTooLong(t *testing.T) {
 	})
 
 	// Password longer than 72 bytes
-	longPass := make([]byte, 73)
-	for i := range longPass {
-		longPass[i] = 'a'
-	}
+	longPass := bytes.Repeat([]byte("a"), 73)
 	reqBody := `{"email":"test@example.com","password":"` + string(longPass) + `"}`
 
 	req := httptest.NewRequest(http.MethodPost, "/login", bytes.NewBufferString(reqBody))
