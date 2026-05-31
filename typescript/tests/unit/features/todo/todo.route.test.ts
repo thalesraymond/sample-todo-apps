@@ -11,7 +11,7 @@ const mockUpdate = vi.fn().mockResolvedValue({})
 const mockDelete = vi.fn().mockResolvedValue({})
 
 vi.mock('../../../../src/features/todo/todo.controller.js', () => {
-  const MockController = vi.fn().mockImplementation(function() {
+  const MockController = vi.fn().mockImplementation(function () {
     this.create = mockCreate
     this.getAll = mockGetAll
     this.getById = mockGetById
