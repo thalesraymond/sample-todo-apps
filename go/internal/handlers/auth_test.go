@@ -129,9 +129,29 @@ func TestAuthHandler_Login_NotFound(t *testing.T) {
 	assert.Equal(t, http.StatusUnauthorized, w.Code)
 }
 
+type mockErrorUserRepository struct{}
+
+func (m *mockErrorUserRepository) AddUser(user models.User) error {
+	return assert.AnError
+}
+
+func (m *mockErrorUserRepository) GetUserByEmail(email string) (*models.User, error) {
+	return nil, nil
+}
+
 func TestAuthHandler_Register_RepoError(t *testing.T) {
-	// Not easily testable without a mock repo that returns an error on AddUser,
-	// but the handler handles it. We can skip for now.
+	repo := &mockErrorUserRepository{}
+	jwtService := services.NewJwtService("secret")
+	handler := NewAuthHandler(repo, jwtService)
+
+	reqBody := `{"email":"test@example.com","password":"password123"}`
+	req := httptest.NewRequest(http.MethodPost, "/register", bytes.NewBufferString(reqBody))
+	req.Header.Set("Content-Type", "application/json")
+	w := httptest.NewRecorder()
+
+	handler.Register(w, req)
+
+	assert.Equal(t, http.StatusInternalServerError, w.Code)
 }
 
 func TestAuthHandler_Register_TooLarge(t *testing.T) {
