@@ -39,13 +39,13 @@ describe('Button Component', () => {
   });
 
   it('forwards standard button props', async () => {
+    const user = userEvent.setup();
     const handleClick = vi.fn();
     render(<Button type="submit" onClick={handleClick} data-testid="test-btn">Submit</Button>);
 
     const button = screen.getByTestId('test-btn');
     expect(button).toHaveAttribute('type', 'submit');
 
-    const user = userEvent.setup();
     await user.click(button);
     expect(handleClick).toHaveBeenCalledTimes(1);
   });
@@ -76,7 +76,8 @@ describe('Button Component', () => {
 
     it('passes the correct size to the spinner', () => {
       const { rerender } = render(<Button isLoading size="sm">Button</Button>);
-      // Default size 'md' has no special class on spinner, but 'lg' has 'loader-lg'.
+      const spinnerSm = screen.getByTestId('spinner');
+      expect(spinnerSm).not.toHaveClass('loader-lg');
 
       rerender(<Button isLoading size="lg">Button</Button>);
       const spinnerLg = screen.getByTestId('spinner');
