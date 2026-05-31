@@ -2,9 +2,14 @@ import Cookies from 'js-cookie';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
 
-export interface ApiError {
-  message: string;
-  status?: number;
+export class ApiError extends Error {
+  constructor(
+    message: string,
+    public status?: number
+  ) {
+    super(message);
+    this.name = 'ApiError';
+  }
 }
 
 class ApiService {
@@ -63,10 +68,7 @@ class ApiService {
 
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({ message: 'An unknown error occurred' }));
-      throw {
-        message: errorData.message || response.statusText,
-        status: response.status,
-      } as ApiError;
+      throw new ApiError(errorData.message || response.statusText, response.status);
     }
 
     return response.json();
