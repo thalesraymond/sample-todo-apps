@@ -19,7 +19,8 @@ export const TodoForm: React.FC<TodoFormProps> = ({ onSubmit, isLoading }) => {
     try {
       await onSubmit(title);
       setTitle('');
-    } catch {
+    } catch (err) {
+      console.error('Failed to submit todo:', err);
       // Handle error
     } finally {
       setIsSubmitting(false);
