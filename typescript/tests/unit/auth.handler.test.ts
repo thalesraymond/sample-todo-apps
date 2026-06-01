@@ -59,6 +59,35 @@ describe('authHandler', () => {
       ).rejects.toThrow(BadRequestError)
     })
 
+    it('should throw BadRequestError if email exceeds 255 characters', async () => {
+      mockRequest.body = { email: 'a'.repeat(256) + '@example.com', password: 'password123' }
+      await expect(
+        authHandler.register(
+          mockRequest as FastifyRequest<{ Body: { email?: string; password?: string } }>,
+          mockReply,
+        ),
+      ).rejects.toThrow(BadRequestError)
+    })
+
+    it('should throw BadRequestError if password exceeds 72 bytes', async () => {
+      mockRequest.body = { email: 'test@example.com', password: 'p'.repeat(73) }
+      await expect(
+        authHandler.register(
+          mockRequest as FastifyRequest<{ Body: { email?: string; password?: string } }>,
+          mockReply,
+        ),
+      ).rejects.toThrow(BadRequestError)
+
+      // Test with multibyte characters (emoji is 4 bytes, 19 emojis = 76 bytes)
+      mockRequest.body = { email: 'test2@example.com', password: '😀'.repeat(19) }
+      await expect(
+        authHandler.register(
+          mockRequest as FastifyRequest<{ Body: { email?: string; password?: string } }>,
+          mockReply,
+        ),
+      ).rejects.toThrow(BadRequestError)
+    })
+
     it('should throw BadRequestError if email already registered', async () => {
       mockRequest.body = { email: 'exists@example.com', password: 'password123' }
       vi.mocked(userRepository.findByEmail).mockResolvedValue({
@@ -107,6 +136,35 @@ describe('authHandler', () => {
   describe('login', () => {
     it('should throw BadRequestError if email or password missing', async () => {
       mockRequest.body = { email: 'test@example.com' }
+      await expect(
+        authHandler.login(
+          mockRequest as FastifyRequest<{ Body: { email?: string; password?: string } }>,
+          mockReply,
+        ),
+      ).rejects.toThrow(BadRequestError)
+    })
+
+    it('should throw BadRequestError if email exceeds 255 characters', async () => {
+      mockRequest.body = { email: 'a'.repeat(256) + '@example.com', password: 'password123' }
+      await expect(
+        authHandler.login(
+          mockRequest as FastifyRequest<{ Body: { email?: string; password?: string } }>,
+          mockReply,
+        ),
+      ).rejects.toThrow(BadRequestError)
+    })
+
+    it('should throw BadRequestError if password exceeds 72 bytes', async () => {
+      mockRequest.body = { email: 'test@example.com', password: 'p'.repeat(73) }
+      await expect(
+        authHandler.login(
+          mockRequest as FastifyRequest<{ Body: { email?: string; password?: string } }>,
+          mockReply,
+        ),
+      ).rejects.toThrow(BadRequestError)
+
+      // Test with multibyte characters
+      mockRequest.body = { email: 'test2@example.com', password: '😀'.repeat(19) }
       await expect(
         authHandler.login(
           mockRequest as FastifyRequest<{ Body: { email?: string; password?: string } }>,

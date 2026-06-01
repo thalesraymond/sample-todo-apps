@@ -14,6 +14,14 @@ export const authHandler = {
       throw new BadRequestError('Email and password are required')
     }
 
+    if (email.length > 255) {
+      throw new BadRequestError('Email must not exceed 255 characters')
+    }
+
+    if (Buffer.byteLength(password, 'utf8') > 72) {
+      throw new BadRequestError('Password must not exceed 72 bytes')
+    }
+
     const existingUser = await userRepository.findByEmail(email)
     if (existingUser) {
       throw new BadRequestError('Email already registered')
@@ -36,6 +44,14 @@ export const authHandler = {
 
     if (!email || !password) {
       throw new BadRequestError('Email and password are required')
+    }
+
+    if (email.length > 255) {
+      throw new BadRequestError('Email must not exceed 255 characters')
+    }
+
+    if (Buffer.byteLength(password, 'utf8') > 72) {
+      throw new BadRequestError('Password must not exceed 72 bytes')
     }
 
     const user = await userRepository.findByEmail(email)
