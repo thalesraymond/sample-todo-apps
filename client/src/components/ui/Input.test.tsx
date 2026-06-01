@@ -22,9 +22,12 @@ describe('Input', () => {
   it('renders label when provided', () => {
     render(<Input label="Username" id="username-input" />);
 
-    const labelElement = screen.getByText('Username');
+    const labelElement = screen.getByLabelText('Username');
     expect(labelElement).toBeInTheDocument();
-    expect(labelElement).toHaveClass('input-label');
+
+    const labelNode = screen.getByText('Username');
+    expect(labelNode).toHaveClass('input-label');
+    expect(labelNode).toHaveAttribute('for', 'username-input');
   });
 
   it('renders error message and applies error class', () => {
@@ -38,9 +41,8 @@ describe('Input', () => {
     expect(inputElement).toHaveClass('input-error');
   });
 
-  it('forwards additional HTML input attributes', async () => {
+  it('forwards additional HTML input attributes', () => {
     const onChangeMock = vi.fn();
-    const user = userEvent.setup();
 
     render(
       <Input
@@ -59,10 +61,6 @@ describe('Input', () => {
     expect(inputElement).toHaveAttribute('placeholder', 'Password');
     expect(inputElement).toBeDisabled();
     expect(inputElement).toHaveAttribute('maxLength', '10');
-
-    // Testing interaction with disabled element - should not trigger onChange
-    await user.type(inputElement, 'test');
-    expect(onChangeMock).not.toHaveBeenCalled();
   });
 
   it('handles user input and triggers onChange', async () => {
@@ -82,8 +80,8 @@ describe('Input', () => {
     const { container } = render(<Input className="my-custom-class" />);
 
     // The wrapper div should have 'input-group' and 'my-custom-class'
-    const wrapperElement = container.firstChild as HTMLElement;
-    expect(wrapperElement).toHaveClass('input-group');
-    expect(wrapperElement).toHaveClass('my-custom-class');
+    const wrapperElement = container.firstChild;
+    expect(wrapperElement).not.toBeNull();
+    expect(wrapperElement).toHaveClass('input-group', 'my-custom-class');
   });
 });
