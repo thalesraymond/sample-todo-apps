@@ -14,6 +14,7 @@ public class CorsTests
     {
         var factory = new WebApplicationFactory<Program>().WithWebHostBuilder(builder =>
         {
+            builder.UseSetting("Jwt:Secret", "test_secret_for_integration_tests_that_is_at_least_32_chars!");
             builder.UseSetting("CORS_ORIGIN", "http://trusted.com");
         });
 
@@ -34,6 +35,7 @@ public class CorsTests
     {
         var factory = new WebApplicationFactory<Program>().WithWebHostBuilder(builder =>
         {
+            builder.UseSetting("Jwt:Secret", "test_secret_for_integration_tests_that_is_at_least_32_chars!");
             builder.UseSetting("CORS_ORIGIN", "http://trusted.com,http://othertrusted.com");
         });
 
@@ -54,6 +56,7 @@ public class CorsTests
     {
         var factory = new WebApplicationFactory<Program>().WithWebHostBuilder(builder =>
         {
+            builder.UseSetting("Jwt:Secret", "test_secret_for_integration_tests_that_is_at_least_32_chars!");
             builder.UseSetting("CORS_ORIGIN", "http://trusted.com");
         });
 
@@ -73,6 +76,7 @@ public class CorsTests
     {
         var factory = new WebApplicationFactory<Program>().WithWebHostBuilder(builder =>
         {
+            builder.UseSetting("Jwt:Secret", "test_secret_for_integration_tests_that_is_at_least_32_chars!");
             // Empty configuration
         });
 

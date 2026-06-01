@@ -14,7 +14,10 @@ public class HealthEndpointTests : IClassFixture<WebApplicationFactory<Program>>
 
     public HealthEndpointTests(WebApplicationFactory<Program> factory)
     {
-        _factory = factory;
+        _factory = factory.WithWebHostBuilder(builder =>
+        {
+            builder.UseSetting("Jwt:Secret", "test_secret_for_integration_tests_that_is_at_least_32_chars!");
+        });
     }
 
     [Fact]

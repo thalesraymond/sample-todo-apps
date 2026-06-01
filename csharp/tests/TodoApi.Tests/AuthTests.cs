@@ -18,7 +18,10 @@ public class AuthTests : IClassFixture<WebApplicationFactory<Program>>
 
     public AuthTests(WebApplicationFactory<Program> factory)
     {
-        _factory = factory;
+        _factory = factory.WithWebHostBuilder(builder =>
+        {
+            builder.UseSetting("Jwt:Secret", "test_secret_for_integration_tests_that_is_at_least_32_chars!");
+        });
     }
 
     [Fact]
