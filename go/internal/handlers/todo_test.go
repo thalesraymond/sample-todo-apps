@@ -222,11 +222,15 @@ func (m *mockErrorRepo) GetTodosByUserId(userId string) ([]models.Todo, error) {
 	return nil, assert.AnError
 }
 
-func (m *mockErrorRepo) GetTodoById(id string) (*models.Todo, error) {
+type mockDeleteErrorRepo struct {
+	repositories.InMemoryTodoRepository
+}
+
+func (m *mockDeleteErrorRepo) GetTodoById(id string) (*models.Todo, error) {
 	return &models.Todo{Id: id, UserId: "user1"}, nil
 }
 
-func (m *mockErrorRepo) DeleteTodo(id string) error {
+func (m *mockDeleteErrorRepo) DeleteTodo(id string) error {
 	return assert.AnError
 }
 
@@ -243,7 +247,7 @@ func TestTodoHandler_List_RepoError(t *testing.T) {
 }
 
 func TestTodoHandler_Delete_RepoError(t *testing.T) {
-	repo := &mockErrorRepo{}
+	repo := &mockDeleteErrorRepo{}
 	handler := NewTodoHandler(repo)
 
 	req := httptest.NewRequest(http.MethodDelete, "/todos/1", nil)
