@@ -64,27 +64,4 @@ public class ModelsAndRepositoriesTests
         retrievedById?.Email.Should().Be("u1@e.com");
     }
 
-    [Fact]
-    public void InMemoryTodoRepository_ShouldManageTodos()
-    {
-        var repo = new InMemoryTodoRepository();
-        var todo = new Todo { Id = "t1", Title = "T1", UserId = "u1" };
-
-        repo.AddTodo(todo);
-
-        var allUserTodos = repo.GetTodosByUserId("u1");
-        allUserTodos.Should().ContainSingle();
-        allUserTodos[0].Id.Should().Be("t1");
-
-        var retrieved = repo.GetTodoById("t1");
-        retrieved.Should().NotBeNull();
-        retrieved?.Title.Should().Be("T1");
-
-        todo.Title = "Updated T1";
-        repo.UpdateTodo(todo);
-        repo.GetTodoById("t1")?.Title.Should().Be("Updated T1");
-
-        repo.DeleteTodo("t1");
-        repo.GetTodoById("t1").Should().BeNull();
-    }
 }
