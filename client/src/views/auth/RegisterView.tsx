@@ -19,7 +19,11 @@ export const RegisterView: React.FC = () => {
       await register({ email, password, name });
       navigate('/dashboard');
     } catch (err) {
-      console.error('Register failed:', err instanceof Error ? err.message : err);
+      if (err instanceof Error) {
+        console.error('Register failed:', err.message, err.stack);
+      } else {
+        console.error(`Register failed: Unknown error of type ${typeof err}: ${String(err).slice(0, 200)}`);
+      }
     }
   };
 
