@@ -18,7 +18,7 @@ export const LoginView: React.FC = () => {
       await login({ email, password });
       navigate('/dashboard');
     } catch (err) {
-      console.error('Login failed:', err);
+      console.error('Login failed:', err instanceof Error ? err.message : err);
     }
   };
 
